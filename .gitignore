@@ -1,0 +1,4 @@
+src/ni_slam/bag/*.bag
+ori_code/
+build/
+devel/
