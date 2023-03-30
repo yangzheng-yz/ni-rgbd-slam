@@ -1,1 +1,0 @@
-# ni-rgbd-slam
