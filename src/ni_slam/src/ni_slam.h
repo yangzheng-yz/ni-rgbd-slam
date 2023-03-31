@@ -263,6 +263,7 @@ public:
 
     void set_file(string);
     void set_visualization();
+    void set_gt_poses(string);
 
 private:
 
