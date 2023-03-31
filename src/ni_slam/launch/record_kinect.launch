@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- <include file="$(find ni_slam)/launch/kinect_imu.launch" /> -->
+
+    <!-- <include file="$(find vicon_xb)/launch/vicon_xb.launch" /> -->
+
+    <!-- <include file="$(find uwb_driver)/launch/uwb_driver.launch" /> -->
+
+    <node pkg="rosbag" type="record" name = "kinect_imu_bag" output="screen" args="-b 0 -o $(find localization)/bag/kinect/kinect /camera/depth_registered/points /imu/data /vicon_xb_node/mocap/pose /vicon_xb_node/viconPoseTopic  /camera/rgb/image_color /camera/rgb/camera_info /camera/depth/image /camera/depth_registered/image /camera/depth/camera_info /uwb_endorange_info /tf">
+    </node>
+
+</launch>

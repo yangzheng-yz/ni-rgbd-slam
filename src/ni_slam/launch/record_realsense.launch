@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+    <include file="$(find ni_slam)/launch/kinect_imu.launch" />
+
+    <include file="$(find vicon_xb)/launch/vicon_xb.launch" />
+
+    <!-- <include file="$(find uwb_driver)/launch/uwb_driver.launch" /> -->
+
+    <node pkg="rosbag" type="record" name = "realsense_imu_bag" output="screen" args="-o $(find ni_slam)/bag/iot/realsense /camera/depth/image /camera/depth/camera_info /camera/rgb/camera_info /camera/rgb/image_color /imu/vicon/data /imu/data /vicon_xb_node/mocap/pose /vicon_xb_node/mocap/imu /tf">
+    </node>
+
+</launch>
