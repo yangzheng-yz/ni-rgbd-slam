@@ -36,6 +36,7 @@ NI_SLAM::NI_SLAM(ros::NodeHandle n, int height, int width, int depth_height, int
     // for debug
     flag_save_file = false;
     flag_visualization = false;
+    flag_show_gt = false;
 
     // for mapping and graph optimazation
     flag_publish_refined_keyframe = false;
@@ -121,8 +122,7 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
         EfficientDepth2NormalMap(imD, normalsCV, cellSize, vertexMapx, vertexMapy);
         rotation_rel = tf::Quaternion(0,0,0,1);
         rotation_key = rotation_rel;
-        if(flag_save_file)
-            save_file();
+
     }
     else
     {
@@ -160,6 +160,13 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
         
         train();
         initialized = true;
+        if(flag_save_file)
+            save_file();
+
+        if(flag_show_gt)
+        {
+            gt_pose_last = gt_poses[nth_frame];
+        }
         nth_frame++;
         return;
     }
@@ -181,8 +188,8 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
     if (flag_publish_incremental_keypose_cov)
         publish_incremental_keypose_cov();
 
-    // if (!(psr > psrbound) || valid_points<3000 || tf::Transform(rotation_key.inverse()*rotation).getRotation().getAngle() > 0.03)
-    if (!(psr > psrbound))
+    // if (!(psr > psrbound))
+    if (!(psr > psrbound) || valid_points<2000) // || tf::Transform(rotation_key.inverse()*rotation).getRotation().getAngle() > 0.03)
     {
         cout << "!!!!!!!!!!rotation: " << tf::Transform(rotation_key.inverse()*rotation).getRotation().getAngle() << endl;
         cout << "valid points: " << valid_points << endl;
@@ -196,6 +203,8 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
         train();
         
         ROS_WARN("Trained. %d times with PSR: %.1f............", train_num++, psr);
+        if(flag_save_file)
+            save_file();
     }
 
     time_use = jtimer.end();
@@ -203,8 +212,8 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
     ROS_INFO("(%td,%td); Res: %5fm  Timing: %.4fs = %.2fHz; Dt: %.4fs PSR: %04.1f;", 
         max_index[0], max_index[1], resolution, time_use, 1/time_use, time_diff, psr);
 
-    if(flag_save_file)
-        save_file();
+    // if(flag_save_file)
+    //     save_file();
 
     if(flag_visualization)
         show();
@@ -1162,6 +1171,54 @@ void NI_SLAM::set_file(string name_prefix)
               <<"psr bound:"<<psrbound<<" "
               <<"mu:"<<adaptive_mu<<"\n";
     file.close();
+}
+
+void NI_SLAM::set_gt_poses(string file_path)
+{
+    flag_show_gt=true;
+    ifstream fGroundtruth;
+    fGroundtruth.open(file_path.c_str());
+    while(!fGroundtruth.eof())
+    {
+        string s;
+        getline(fGroundtruth, s);
+        vector<double> gt_pose;
+        if(!s.empty())
+        {
+            stringstream ss;
+            ss << s;
+            double t;
+            double x;
+            double y;
+            double z;
+            double q0;
+            double q1;
+            double q2;
+            double q3;
+            string sRGB, sD;
+            ss >> t;
+            // vTimestamps.push_back(t);
+            ss >> sD;
+            ss >> t;
+            ss >> sRGB;
+            ss >> t;
+            ss >> x;
+            gt_pose.push_back(x);
+            ss >> y;
+            gt_pose.push_back(y);
+            ss >> z;
+            gt_pose.push_back(z);
+            ss >> q0;
+            gt_pose.push_back(q0);
+            ss >> q1;
+            gt_pose.push_back(q1);
+            ss >> q2;
+            gt_pose.push_back(q2);
+            ss >> q3;
+            gt_pose.push_back(q3);       
+        }
+        gt_poses.push_back(gt_pose); 
+    }
 }
 
 
