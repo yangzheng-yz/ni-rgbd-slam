@@ -201,7 +201,23 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
         reproject(pcl_cloud);
         
         train();
-        
+
+        if(flag_show_gt)
+        {
+            Eigen::Matrix3d R_gt_last;
+            Eigen::Quaterniond q_gt_last(gt_pose_last[6], gt_pose_last[3], gt_pose_last[4], gt_pose_last[5]);
+            R_gt_last = q_gt_last.toRotationMatrix();
+            Eigen::Matrix3d R_gt_cur;
+            Eigen::Quaterniond q_gt_cur(gt_poses[nth_frame][6], gt_poses[nth_frame][3], gt_poses[nth_frame][4], gt_poses[nth_frame][5]);
+            R_gt_cur = q_gt_cur.toRotationMatrix();
+            Eigen::Matrix3d R_gt_rlt;
+            R_gt_rlt = R_gt_last.transpose() * R_gt_cur;
+            Eigen::AngleAxisd gt_angleaxis;
+            gt_angleaxis.fromRotationMatrix(R_gt_rlt);
+            cout << "gt axis-angle: \n" << gt_angleaxis.angle() * gt_angleaxis.axis() << endl;
+            gt_pose_last = gt_poses[nth_frame]; // shoule make sure the nth_frameth gt pose corresponding to the nth_frame.png
+        }
+
         ROS_WARN("Trained. %d times with PSR: %.1f............", train_num++, psr);
         if(flag_save_file)
             save_file();

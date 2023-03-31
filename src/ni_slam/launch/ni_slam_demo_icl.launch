@@ -3,6 +3,7 @@
     <param name="use_sim_time" value="true" />
     <!-- <param name="use_sim_time" value="false" /> -->
     <arg name="dataset" value="icl_ofkt1"/>
+    <arg name="gt_file_path" value="/home/zheng/datasets/public_dataset/ICL-NUIM/of_kt1/groundtruth.txt"/>
     <arg name="visualization" value="false"/> <!-- This is for debug publisher-->
     <arg name="publish_refined_keyframe" value="false"/>
     <arg name="publish_increnmental_keypose_with_covariance" value="true"/>
@@ -42,6 +43,7 @@
         <!-- <remap from="/imu/data" to="/imu/fcu"/> --> <!--for muav-->
 
         <param name="saveposes/filename_prefix" value="$(find ni_slam)/bag/$(arg dataset)" />
+        <param name="gtposes/file_path" value="$(arg gt_file_path)" />
         <!--comment above line if you d on't want to save any files.-->
         <param name="adaptive/mu" value="0.8" />
         <param name="topic/time_diff" value="0.03" />
