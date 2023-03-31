@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Uncomment following line if you want set to fixed resolution -->
+    <!-- for map visualization purpose, the map will be filtered each -->
+    <!-- time a new point cloud is added. -->
+
+    <!-- <param name="/map_visualization/resolution" value="0.002" /> -->
+    <node pkg="ni_slam" type="map_viewer_node" name="map_viewer_node" output="screen" ns="ni_slam" >
+        <remap from="/refined/image_color" to="/ni_slam_node/refined/image_color"/>
+        <remap from="/refined/image_depth" to="/ni_slam_node/refined/image_depth"/>
+        <remap from="/refined/map_info" to="/ni_slam_node/refined/map_info"/>
+    </node>
+
+
+    <!-- <node pkg="rosbag" type="record" name = "map_record_node" output="screen" args="-o $(find ni_slam)/bag/map/realsense /ni_slam_node/refined/image_color /ni_slam_node/refined/image_depth /ni_slam_node/posestamped_key ">
+    </node> -->
+
+</launch>

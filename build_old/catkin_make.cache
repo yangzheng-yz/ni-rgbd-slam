@@ -1,0 +1,2 @@
+ni_slam
+-DCATKIN_DEVEL_PREFIX=/home/zheng/projects/ni_slam_ws/devel -DCMAKE_INSTALL_PREFIX=/home/zheng/projects/ni_slam_ws/install -G Unix Makefiles
