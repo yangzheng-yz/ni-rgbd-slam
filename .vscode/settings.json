@@ -16,7 +16,9 @@
     "functional": "cpp",
     "core": "cpp",
     "iosfwd": "cpp",
-    "string": "cpp"
+    "string": "cpp",
+    "deque": "cpp",
+    "vector": "cpp"
   },
   "python.autoComplete.extraPaths": [
     "/home/zheng/projects/ni_slam_ws/devel/lib/python3/dist-packages",
