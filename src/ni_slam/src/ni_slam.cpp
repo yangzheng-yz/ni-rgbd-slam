@@ -36,6 +36,7 @@ NI_SLAM::NI_SLAM(ros::NodeHandle n, int height, int width, int depth_height, int
     // for debug
     flag_save_file = false;
     flag_visualization = false;
+    flag_show_gt = false;
 
     // for mapping and graph optimazation
     flag_publish_refined_keyframe = false;
@@ -121,8 +122,7 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
         EfficientDepth2NormalMap(imD, normalsCV, cellSize, vertexMapx, vertexMapy);
         rotation_rel = tf::Quaternion(0,0,0,1);
         rotation_key = rotation_rel;
-        if(flag_save_file)
-            save_file();
+
     }
     else
     {
@@ -142,6 +142,7 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
 
 
     rotation = (rotation_key * rotation_rel).normalized(); // current rotation relative to inital frame
+    // time_use = jtimer.end();
     // rotation = tf::Quaternion(imu->orientation.x, imu->orientation.y, imu->orientation.z, imu->orientation.w); // current rotation relative to inital frame
     // rotation *= rotation_imu; // for ICL_NUIM setting, rotation_imu should be (0,0,0)
     
@@ -160,6 +161,13 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
         
         train();
         initialized = true;
+        if(flag_save_file)
+            save_file();
+
+        if(flag_show_gt)
+        {
+            gt_pose_last = gt_poses[nth_frame];
+        }
         nth_frame++;
         return;
     }
@@ -181,8 +189,8 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
     if (flag_publish_incremental_keypose_cov)
         publish_incremental_keypose_cov();
 
-    // if (!(psr > psrbound) || valid_points<3000 || tf::Transform(rotation_key.inverse()*rotation).getRotation().getAngle() > 0.03)
-    if (!(psr > psrbound))
+    // if (!(psr > psrbound))
+    if (!(psr > psrbound) || valid_points<3000 || tf::Transform(rotation_key.inverse()*rotation).getRotation().getAngle() >= 0.05)
     {
         cout << "!!!!!!!!!!rotation: " << tf::Transform(rotation_key.inverse()*rotation).getRotation().getAngle() << endl;
         cout << "valid points: " << valid_points << endl;
@@ -194,8 +202,28 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
         reproject(pcl_cloud);
         
         train();
-        
+
+        if(flag_show_gt)
+        {
+            Eigen::Matrix3d R_gt_last;
+            Eigen::Quaterniond q_gt_last(gt_pose_last[6], gt_pose_last[3], gt_pose_last[4], gt_pose_last[5]);
+            R_gt_last = q_gt_last.toRotationMatrix();
+            Eigen::Matrix3d R_gt_cur;
+            Eigen::Quaterniond q_gt_cur(gt_poses[nth_frame][6], gt_poses[nth_frame][3], gt_poses[nth_frame][4], gt_poses[nth_frame][5]);
+            R_gt_cur = q_gt_cur.toRotationMatrix();
+            Eigen::Matrix3d R_gt_rlt;
+            R_gt_rlt = R_gt_last.transpose() * R_gt_cur;
+            Eigen::AngleAxisd gt_angleaxis;
+            gt_angleaxis.fromRotationMatrix(R_gt_rlt);
+            cout << "gt axis-angle: \n" << gt_angleaxis.angle() * gt_angleaxis.axis() << endl;
+            cout << "gt_pose_last: " << gt_pose_last[3] << ", " << gt_pose_last[4] << ", " << gt_pose_last[5] << ", " << gt_pose_last[6] << ", " << endl;
+            cout << "gt_pose: " << gt_poses[nth_frame][3] << ", " << gt_poses[nth_frame][4] << ", " << gt_poses[nth_frame][5] << ", " << gt_poses[nth_frame][6] << ", " << endl;
+            gt_pose_last = gt_poses[nth_frame]; // shoule make sure the nth_frameth gt pose corresponding to the nth_frame.png
+        }
+
         ROS_WARN("Trained. %d times with PSR: %.1f............", train_num++, psr);
+        if(flag_save_file)
+            save_file();
     }
 
     time_use = jtimer.end();
@@ -203,8 +231,8 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
     ROS_INFO("(%td,%td); Res: %5fm  Timing: %.4fs = %.2fHz; Dt: %.4fs PSR: %04.1f;", 
         max_index[0], max_index[1], resolution, time_use, 1/time_use, time_diff, psr);
 
-    if(flag_save_file)
-        save_file();
+    // if(flag_save_file)
+    //     save_file();
 
     if(flag_visualization)
         show();
@@ -695,7 +723,7 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
                 continue;
             }
             //** exclude non-overlapped points
-            if((_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v, u)).val[0] < 0.7){
+            if((_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v, u)).val[0] < 0.85){ //0.7){
                 continue;
             }
             
@@ -779,12 +807,12 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
     //** After finishing selecting modes
     int sizeofMode = static_cast<int>(modes.size()); // sizeofmode saves the amount of modes which indicates how many planes there are
     // Eigen::VectorXi mode_count_eigen = Eigen::Map<Eigen::VectorXi, Eigen::Unaligned>(mode_count.data(), mode_count.size());
-    // Eigen::Array<bool, Eigen::Dynamic, 1> mask = (mode_count_eigen.array()>10000);
-    // int count_valid_mode = mask.count(); // define a counter to count the modes with points more than 10000
+    // Eigen::Array<bool, Eigen::Dynamic, 1> mask = (mode_count_eigen.array()>12000);
+    // int count_valid_mode = mask.count(); // define a counter to count the modes with points more than 12000
     int count_valid_mode{0};
     vector<int> selected_mode; // define a vector to save the number of selected modes
     for(int i=0; i<sizeofMode; i++){
-        if(mode_count[i] > 10000){
+        if(mode_count[i] > 2000){
             cout << "**************************mode" << i << ": " << modes[i] << endl;
             cout << "totally " << mode_count[i] << " points" << endl;
             selected_mode.push_back(i);
@@ -794,52 +822,123 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
 
     
     int count_second_max{0};
-    //** if only one mode is more than 10000 points, will select one more mode if this new mode is more than 5000
+    //** if only one mode is more than 12000 points, will select one more mode if this new mode is more than 5000
     //** otherwise, will select two modes if they are less than 5000
-    if(count_valid_mode<2){
-        cout << "=====================================================================================" << endl;
-        cout << "mode smaller than 2, will select one (>5000 points) or more (<5000 points) mode from plane with points less than 10000" << endl;
-        selected_mode.push_back(0);
-        for(int i=0; i<sizeofMode; i++){
-            if(i == selected_mode[0]){
-                continue;
-            }
-            if(mode_count[i]>=3000 && mode_count[i]<=10000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_second_max){
-                count_second_max = mode_count[i];
-                selected_mode[1] = i;
-            }
-        }
-        cout << "**************************mode" << selected_mode[1] << ": " << modes[selected_mode[1]] << endl;
-        cout << "totally " << mode_coor[selected_mode[1]].size() << " points" << endl;
-        if(count_second_max != 0){
-            count_valid_mode++;
-        }
+    // if(count_valid_mode<2){
+    //     cout << "=====================================================================================" << endl;
+    //     cout << "mode smaller than 2, will select one (>5000 points) or more (<5000 points) mode from plane with points less than 12000" << endl;
+    //     selected_mode.push_back(0);
+    //     for(int i=0; i<sizeofMode; i++){
+    //         if(i == selected_mode[0]){
+    //             continue;
+    //         }
+    //         if(mode_count[i]>=3000 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_second_max){
+    //             count_second_max = mode_count[i];
+    //             selected_mode[1] = i;
+    //         }
+    //     }
+    //     cout << "**************************mode" << selected_mode[1] << ": " << modes[selected_mode[1]] << endl;
+    //     cout << "totally " << mode_coor[selected_mode[1]].size() << " points" << endl;
+    //     if(count_second_max != 0){
+    //         count_valid_mode++;
+    //     }
         
-        if(count_second_max<5000){
-            selected_mode.push_back(0);
-            int count_third_max{0};
-            for(int i=0; i<sizeofMode; i++){
-                if(i == selected_mode[0] || i == selected_mode[1]){
-                    continue;
-                }
-                if(mode_count[i]>=3000 && mode_count[i]<=10000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_third_max &&
-                (modes[i].t() * modes[selected_mode[1]]).val[0]<0.5){
-                    count_third_max = mode_count[i];
-                    selected_mode[2] = i;
-                }
-            }
-            if(count_third_max != 0){
-                count_valid_mode++;
-                cout << "**************************mode" << selected_mode[2] << ": " << modes[selected_mode[2]] << endl;
-                cout << "totally " << mode_coor[selected_mode[2]].size() << " points" << endl;
-            }
+    //     if(count_second_max<5000){
+    //         selected_mode.push_back(0);
+    //         int count_third_max{0};
+    //         for(int i=0; i<sizeofMode; i++){
+    //             if(i == selected_mode[0] || i == selected_mode[1]){
+    //                 continue;
+    //             }
+    //             if(mode_count[i]>=3000 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_third_max &&
+    //             (modes[i].t() * modes[selected_mode[1]]).val[0]<0.5){
+    //                 count_third_max = mode_count[i];
+    //                 selected_mode[2] = i;
+    //             }
+    //         }
+    //         if(count_third_max != 0){
+    //             count_valid_mode++;
+    //             cout << "**************************mode" << selected_mode[2] << ": " << modes[selected_mode[2]] << endl;
+    //             cout << "totally " << mode_coor[selected_mode[2]].size() << " points" << endl;
+    //         }
 
-        }
-        if(count_valid_mode == 1){
-            cout << "cannot work, because only one plane exists" << endl;
-        }
-    }
-    
+    //     }
+    //     if(count_valid_mode == 1){
+    //         cout << "cannot work, because only one plane exists" << endl;
+    //     }
+    // }
+
+    // if(count_valid_mode<2){
+    //     cout << "=====================================================================================" << endl;
+    //     cout << "mode smaller than 2, will select one (>12000 points) or more (<12000 points) mode from plane with points less than 12000" << endl;
+    //     selected_mode.push_back(0);
+    //     for(int i=0; i<sizeofMode; i++){
+    //         if(i == selected_mode[0]){
+    //             continue;
+    //         }
+    //         if(mode_count[i]>=1000 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_second_max){
+    //             count_second_max = mode_count[i];
+    //             selected_mode[1] = i;
+    //             // selected_mode.push_back(i);
+    //         }
+    //     }
+
+    //     if(count_second_max != 0){
+    //         count_valid_mode++;
+    //         cout << "**************************mode" << selected_mode[1] << ": " << modes[selected_mode[1]] << endl;
+    //         cout << "totally (>1000) " << mode_coor[selected_mode[1]].size() << " points" << endl;
+    //     }
+    //     else{
+    //         selected_mode.pop_back();
+    //     }
+        
+    //     if(count_valid_mode==2 && count_second_max<12000){
+    //         selected_mode.push_back(0);
+    //         int count_third_max{0};
+    //         for(int i=0; i<sizeofMode; i++){
+    //             if(i == selected_mode[0] || i == selected_mode[1]){
+    //                 continue;
+    //             }
+    //             if(mode_count[i]>=1000 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_third_max &&
+    //             (modes[i].t() * modes[selected_mode[1]]).val[0]<0.5){
+    //                 count_third_max = mode_count[i];
+    //                 selected_mode[2] = i;
+    //             }
+    //         }
+    //         if(count_third_max != 0){
+    //             count_valid_mode++;
+    //             cout << "**************************mode" << selected_mode[2] << ": " << modes[selected_mode[2]] << endl;
+    //             cout << "totally (>1000) " << mode_coor[selected_mode[2]].size() << " points" << endl;
+    //         }
+    //         else{
+    //             selected_mode.pop_back();
+    //         }
+
+    //     }
+    //     else if(count_valid_mode==1){
+    //         selected_mode.push_back(0);
+    //         for(int i=0; i<sizeofMode; i++){
+    //             if(i == selected_mode[0]){
+    //                 continue;
+    //             }
+    //             if(mode_count[i]>=500 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_second_max){
+    //                 count_second_max = mode_count[i];
+    //                 selected_mode[1] = i;
+    //             }
+    //         }
+    //         if(count_second_max != 0){
+    //             count_valid_mode++;
+    //             cout << "**************************mode" << selected_mode[1] << ": " << modes[selected_mode[1]] << endl;
+    //             cout << "totally (>500) " << mode_coor[selected_mode[1]].size() << " points" << endl;
+    //         }
+    //         else{
+    //             selected_mode.pop_back();
+    //             std::cerr << "only one plane detected!" << endl;
+    //         }
+
+    //     }
+    // }
+
     //** if more than 2 valid modes, we have to calculate rotation matrix from each pair and evaluate which is the best
     //** paired_modes used to store number of a pair of modes
     //** first for loop used to generate all combinations of modes
@@ -909,7 +1008,7 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
         }
         cout << "---------------------------------------------------------" << endl;
         cout << "------------best paired mode IS: " << paired_modes[best_paired_modes][0] << " and " << paired_modes[best_paired_modes][1] << " ------------------" << endl;
-        valid_points = min(paired_modes[best_paired_modes][0], paired_modes[best_paired_modes][1]);
+        valid_points = min(mode_count[paired_modes[best_paired_modes][0]], mode_count[paired_modes[best_paired_modes][1]]);
 
     }
     else{
@@ -1162,6 +1261,54 @@ void NI_SLAM::set_file(string name_prefix)
               <<"psr bound:"<<psrbound<<" "
               <<"mu:"<<adaptive_mu<<"\n";
     file.close();
+}
+
+void NI_SLAM::set_gt_poses(string file_path)
+{
+    flag_show_gt=true;
+    ifstream fGroundtruth;
+    fGroundtruth.open(file_path.c_str());
+    while(!fGroundtruth.eof())
+    {
+        string s;
+        getline(fGroundtruth, s);
+        vector<double> gt_pose;
+        if(!s.empty())
+        {
+            stringstream ss;
+            ss << s;
+            double t;
+            double x;
+            double y;
+            double z;
+            double q0;
+            double q1;
+            double q2;
+            double q3;
+            string sRGB, sD;
+            ss >> t;
+            // vTimestamps.push_back(t);
+            ss >> sD;
+            ss >> t;
+            ss >> sRGB;
+            ss >> t;
+            ss >> x;
+            gt_pose.push_back(x);
+            ss >> y;
+            gt_pose.push_back(y);
+            ss >> z;
+            gt_pose.push_back(z);
+            ss >> q0;
+            gt_pose.push_back(q0);
+            ss >> q1;
+            gt_pose.push_back(q1);
+            ss >> q2;
+            gt_pose.push_back(q2);
+            ss >> q3;
+            gt_pose.push_back(q3);       
+        }
+        gt_poses.push_back(gt_pose); 
+    }
 }
 
 

@@ -45,6 +45,10 @@
 #include <chrono>
 #include <boost/format.hpp>
 
+#include<string>
+#include<fstream>
+#include<sstream>
+
 using namespace Eigen;
 using namespace std::chrono;
 

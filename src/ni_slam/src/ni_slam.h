@@ -207,8 +207,9 @@ private:
     tf::Quaternion rotation_rel; // rotation between frames
     int nth_frame{0};
     int valid_points;
-    
-    
+    vector<vector<double>> gt_poses;
+    vector<double> gt_pose_last;
+
     // for translation estimation
     fftwf_plan fft_plan;
     float sigma;                 // the gaussian_kernel sigma
@@ -262,6 +263,7 @@ public:
 
     void set_file(string);
     void set_visualization();
+    void set_gt_poses(string);
 
 private:
 
@@ -271,6 +273,7 @@ private:
     double time_use;
     bool flag_save_file;
     bool flag_visualization;
+    bool flag_show_gt;
     ofstream file;               // estimated poses to save
     string filename;
     tf::TransformBroadcaster br;

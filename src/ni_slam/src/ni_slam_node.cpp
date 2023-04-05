@@ -46,6 +46,7 @@ int main(int argc, char ** argv)
     int depth_height = 480, depth_width = 640;
     // int height = 240, width = 360;
     string filename_prefix = "";
+    string gt_file_path = "";
     double time_diff = 0.003;
     bool visualization = false, flag_publish_map = false, flag_publish_incremental_keypose_cov = false, flag_publish_twist = false;
     std::vector<double> rotation_imu;
@@ -74,6 +75,11 @@ int main(int argc, char ** argv)
         ROS_INFO("Get filename prefix: %s", filename_prefix.c_str());
     else
         ROS_WARN("Won't save any files!");
+
+    if(n.getParam("gtposes/file_path", gt_file_path))
+        ROS_INFO("Get gt poses file: %s", gt_file_path.c_str());
+    else
+        ROS_WARN("Won't show any gt poses!");
 
     if(n.getParam("topic/time_diff", time_diff))
         ROS_INFO("Get max time diff for topics: %f", time_diff);
@@ -149,6 +155,9 @@ int main(int argc, char ** argv)
 
     if(filename_prefix != "")
         ni_slam.set_file(filename_prefix);
+
+    if(gt_file_path != "")
+        ni_slam.set_gt_poses(gt_file_path);
         
     if(visualization == true)
         ni_slam.set_visualization();
