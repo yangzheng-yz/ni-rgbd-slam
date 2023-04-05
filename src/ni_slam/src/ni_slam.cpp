@@ -190,7 +190,7 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
         publish_incremental_keypose_cov();
 
     // if (!(psr > psrbound))
-    if (!(psr > psrbound) || valid_points<3000 || tf::Transform(rotation_key.inverse()*rotation).getRotation().getAngle() >= 0.05)
+    if (!(psr > psrbound) || valid_points<2500 || tf::Transform(rotation_key.inverse()*rotation).getRotation().getAngle() >= 0.15)
     {
         cout << "!!!!!!!!!!rotation: " << tf::Transform(rotation_key.inverse()*rotation).getRotation().getAngle() << endl;
         cout << "valid points: " << valid_points << endl;
@@ -762,7 +762,7 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
                 bool found_mode = false;
                 //** perform normal-mode matching
                 for(int i=0; i<sizeofMode; i++){
-                    if((modes[i].t() * _normalsCV.at<cv::Vec3d>(v, u)).val[0] >= 0.999){
+                    if((modes[i].t() * _normalsCV.at<cv::Vec3d>(v, u)).val[0] >= 0.99){
                         found_mode = true;
                         Eigen::Vector2i x{v, u};
                         mode_coor[i].push_back(x);
@@ -811,17 +811,22 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
     // int count_valid_mode = mask.count(); // define a counter to count the modes with points more than 12000
     int count_valid_mode{0};
     vector<int> selected_mode; // define a vector to save the number of selected modes
-    for(int i=0; i<sizeofMode; i++){
-        if(mode_count[i] > 2000){
+    // cout << "how many: " << modes.size() << endl;
+    // cout << count_valid_mode << endl;
+    int sumPoints{0};
+    for(int i=0; i<sizeofMode; i++){ 
+        if(mode_count[i] > 1000){
             cout << "**************************mode" << i << ": " << modes[i] << endl;
             cout << "totally " << mode_count[i] << " points" << endl;
+            sumPoints+=mode_count[i];
             selected_mode.push_back(i);
             count_valid_mode++;
         }
     }
+    cout << count_valid_mode << endl;
 
     
-    int count_second_max{0};
+    // int count_second_max{0};
     //** if only one mode is more than 12000 points, will select one more mode if this new mode is more than 5000
     //** otherwise, will select two modes if they are less than 5000
     // if(count_valid_mode<2){
@@ -945,10 +950,11 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
     //** traverse each paired_mode to generate a rotation matrix, and use the rest of modes to evaluate the rotation matrix
     //** note that 'paired_modes' save the No. of modes, 'selected_mode' also save the No. of modes
     if(count_valid_mode>2){
+        cout << "count valid mode: " << count_valid_mode << endl;
         cout << "---------------------------------------------------------" << endl;
         cout << "mode more than 2, will compare which paired modes is best" << endl;
         
-        vector<Eigen::Vector2i> paired_modes;
+        vector<vector<int>> paired_modes;
         for(int i=0; i<count_valid_mode; i++)
             for(int j=i+1; j<count_valid_mode; j++){
                 paired_modes.push_back({selected_mode[i],selected_mode[j]});
@@ -961,8 +967,18 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
         Eigen::Matrix3d R_;
         int best_paired_modes{0};
         double error{999999};
-        for(int i=0; i<static_cast<int>(paired_modes.size()); i++){
+        for(int i=0; i<(paired_modes.size()); i++){
             cout << "**current paired modes is: " << paired_modes[i][0] << " and " << paired_modes[i][1] << "**" << endl;
+            // v1 = oneVectorFromMultiVectors(normalsCV_last, mode_coor[paired_modes[i][0]]);
+            // v11 = oneVectorFromMultiVectors(normalsCV, mode_coor[paired_modes[i][0]]);
+            // v2 = oneVectorFromMultiVectors(normalsCV_last, mode_coor[paired_modes[i][1]]);
+            // v22 = oneVectorFromMultiVectors(normalsCV, mode_coor[paired_modes[i][1]]);
+
+            // v1 = oneVectorFromMultiVectors(mode_count[paired_modes[i][0]], saved_selected_mode_normals_last[paired_modes[i][0]]);
+            // v11 = oneVectorFromMultiVectors(mode_count[paired_modes[i][0]], saved_selected_mode_normals[paired_modes[i][0]]);
+            // v2 = oneVectorFromMultiVectors(mode_count[paired_modes[i][1]], saved_selected_mode_normals_last[paired_modes[i][1]]);
+            // v22 = oneVectorFromMultiVectors(mode_count[paired_modes[i][1]], saved_selected_mode_normals[paired_modes[i][1]]);
+
             v1 = {mode_normals_x_last[paired_modes[i][0]].findMedian(), 
                     mode_normals_y_last[paired_modes[i][0]].findMedian(), 
                         mode_normals_z_last[paired_modes[i][0]].findMedian()};
@@ -979,6 +995,23 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
             v2 = v2.normalized();
             v11 = v11.normalized();
             v1 = v1.normalized();            
+
+            // cout << "**v1 is : " << v1[0] << ", " << v1[1] << ", " << v1[2] << " **" << endl;
+            // cout << "new v1 is : " << mode_normals_x_last[paired_modes[i][0]].findMedian() << "," <<
+            //         mode_normals_y_last[paired_modes[i][0]].findMedian() << "," << 
+            //             mode_normals_z_last[paired_modes[i][0]].findMedian() << endl;
+            // cout << "**v11 is : " << v11[0] << ", " << v11[1] << ", " << v11[2] << " **" << endl;
+            // cout << "new v11 is : " << mode_normals_x[paired_modes[i][0]].findMedian() << "," <<
+            //         mode_normals_y[paired_modes[i][0]].findMedian() << "," << 
+            //             mode_normals_z[paired_modes[i][0]].findMedian() << endl;
+            // cout << "**v2 is : " << v2[0] << ", " << v2[1] << ", " << v2[2] << " **" << endl;
+            // cout << "new v2 is : " << mode_normals_x_last[paired_modes[i][1]].findMedian() << "," <<
+            //         mode_normals_y_last[paired_modes[i][1]].findMedian() << "," << 
+            //             mode_normals_z_last[paired_modes[i][1]].findMedian() << endl;
+            // cout << "**v22 is : " << v22[0] << ", " << v22[1] << ", " << v22[2] << " **" << endl;
+            // cout << "new v22 is : " << mode_normals_x[paired_modes[i][1]].findMedian() << "," <<
+            //         mode_normals_y[paired_modes[i][1]].findMedian() << "," << 
+            //             mode_normals_z[paired_modes[i][1]].findMedian() << endl;
             rotationFromTwoPlanes(v1, v11, v2, v22, R_);
             double count{0.0};
             double error_cur{0};
@@ -986,7 +1019,14 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
                 if(selected_mode[j]==paired_modes[i][1] || selected_mode[j]==paired_modes[i][0]){
                     continue;
                 }
-                count += 1.0;
+                // count += 1.0;
+                float weight = float(mode_count[selected_mode[j]]) / float(sumPoints);
+                // Eigen::Vector3d vTest = oneVectorFromMultiVectors(normalsCV_last, mode_coor[selected_mode[j]]);
+                // Eigen::Vector3d vTTest = oneVectorFromMultiVectors(normalsCV, mode_coor[selected_mode[j]]);
+                
+                // Eigen::Vector3d vTest = oneVectorFromMultiVectors(mode_count[selected_mode[j]], saved_selected_mode_normals_last[selected_mode[j]]);
+                // Eigen::Vector3d vTTest = oneVectorFromMultiVectors(mode_count[selected_mode[j]], saved_selected_mode_normals[selected_mode[j]]);
+
                 Eigen::Vector3d vTest = {mode_normals_x_last[selected_mode[j]].findMedian(), 
                                             mode_normals_y_last[selected_mode[j]].findMedian(), 
                                                 mode_normals_z_last[selected_mode[j]].findMedian()};
@@ -997,11 +1037,13 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
                 vTTest = vTTest.normalized();
                 
                 Eigen::Vector3d vTTest_rotated = R_ * vTTest;
-                error_cur += vTest.cross(vTTest_rotated).norm();
+                // cout << "vTest: " << vTest << endl;
+                // cout << "vTTest_rotated: " << vTest.transpose()*vTTest_rotated << endl;
+                error_cur += (weight * vTest.cross(vTTest_rotated).norm());
             }
-            cout << "**current paired modes' error is: " << error_cur/count << " **\n" << endl;
-            if(error_cur/count < error){
-                error = error_cur/count;
+            cout << "**current paired modes' (weighted) error is: " << error_cur << " **\n" << endl;
+            if(error_cur < error){
+                error = error_cur;
                 _R = R_;
                 best_paired_modes = i;
             }
@@ -1009,9 +1051,8 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
         cout << "---------------------------------------------------------" << endl;
         cout << "------------best paired mode IS: " << paired_modes[best_paired_modes][0] << " and " << paired_modes[best_paired_modes][1] << " ------------------" << endl;
         valid_points = min(mode_count[paired_modes[best_paired_modes][0]], mode_count[paired_modes[best_paired_modes][1]]);
-
     }
-    else{
+    else if(count_valid_mode==2){
         Eigen::Vector3d v1{0,0,0};
         Eigen::Vector3d v11{0,0,0};
         Eigen::Vector3d v2{0,0,0};
@@ -1039,6 +1080,9 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
         cout << "=====================================================================================" << endl;
         valid_points = min(mode_count[selected_mode[0]], mode_count[selected_mode[1]]);
         rotationFromTwoPlanes(v1, v11, v2, v22, _R);
+    }
+    else{
+        cerr << "only one valid plane!" << endl;
     }
      
 }
