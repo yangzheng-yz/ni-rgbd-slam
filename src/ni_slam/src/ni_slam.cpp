@@ -142,7 +142,7 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
 
 
     rotation = (rotation_key * rotation_rel).normalized(); // current rotation relative to inital frame
-    time_use = jtimer.end();
+    // time_use = jtimer.end();
     // rotation = tf::Quaternion(imu->orientation.x, imu->orientation.y, imu->orientation.z, imu->orientation.w); // current rotation relative to inital frame
     // rotation *= rotation_imu; // for ICL_NUIM setting, rotation_imu should be (0,0,0)
     
@@ -226,7 +226,7 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
             save_file();
     }
 
-    // time_use = jtimer.end();
+    time_use = jtimer.end();
 
     ROS_INFO("(%td,%td); Res: %5fm  Timing: %.4fs = %.2fHz; Dt: %.4fs PSR: %04.1f;", 
         max_index[0], max_index[1], resolution, time_use, 1/time_use, time_diff, psr);

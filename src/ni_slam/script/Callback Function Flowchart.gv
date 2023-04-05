@@ -1,0 +1,74 @@
+digraph "Callback Function Flowchart" {
+	A [label="1. 开始"]
+	B [label="2. 计时并输出处理第n帧信息
+nth_frame"]
+	C [label="3. 更新ros_header并计算时间差
+time_diff"]
+	D [label="4. 尝试将深度图像从ROS消息转换为OpenCV矩阵
+cv_bridge::toCvShare"]
+	E [label="5. 进行类型转换（如果需要）
+imD.convertTo"]
+	F [label="6. 调整图像尺寸
+cv::resize"]
+	G [label="7. 检查是否初始化
+initialized"]
+	H1 [label="8.1 计算法线图
+EfficientDepth2NormalMap"]
+	H2 [label="8.2 初始化rotation_rel和rotation_key"]
+	I1 [label="9.1 计算法线图
+EfficientDepth2NormalMap"]
+	I2 [label="9.2 初始化AnglesMap"]
+	I3 [label="9.3 计算旋转矩阵
+EfficientNormal2RotationMat"]
+	I4 [label="9.4 更新rotation_rel"]
+	J [label="10. 检查是否初始化
+initialized"]
+	K [label="11. 重新投影点云
+reproject"]
+	L [label="12. 获取响应
+get_response"]
+	M [label="13. 计算PSR
+get_psr"]
+	N [label="14. 优化关键点云位姿
+refine_keyclouds_poses"]
+	O [label="15. 发布位姿
+publish_poses"]
+	P [label="16. 发布twist（如果需要）
+publish_twists"]
+	Q [label="17. 发布增量关键帧协方差（如果需要）
+publish_incremental_keypose_cov"]
+	R [label="18. 检查PSR、有效点数和旋转角度
+psr, valid_points"]
+	S [label="19. 输出分辨率、计时信息和PSR
+resolution, time_use, psr"]
+	T [label="20. 显示可视化结果（如果需要）
+show"]
+	U [label="21. 增加帧数
+nth_frame++"]
+	V [label="22. 结束"]
+	A -> B
+	B -> C
+	C -> D
+	D -> E
+	E -> F
+	F -> G
+	G -> H1
+	H1 -> H2
+	G -> I1
+	I1 -> I2
+	I2 -> I3
+	I3 -> I4
+	I4 -> J
+	J -> K
+	K -> L
+	L -> M
+	M -> N
+	N -> O
+	O -> P
+	P -> Q
+	Q -> R
+	R -> S
+	S -> T
+	T -> U
+	U -> V
+}
