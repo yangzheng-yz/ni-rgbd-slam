@@ -1,0 +1,17 @@
+digraph G {
+	A [label="Loop through rows and columns"]
+	B [label="Exclude invalid points"]
+	C [label="Exclude non-overlapped points"]
+	D [label="Perform mode selection mechanism"]
+	E [label="Create new mode"]
+	F [label="Perform normal-mode matching"]
+	G [label="Update existing mode"]
+	H [label="Create new mode if not found"]
+	A -> B
+	B -> C
+	C -> D
+	D -> E
+	D -> F
+	D -> G
+	D -> H
+}

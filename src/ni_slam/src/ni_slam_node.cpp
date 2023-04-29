@@ -190,6 +190,6 @@ int main(int argc, char ** argv)
     sync.registerCallback(boost::bind(&NI_SLAM::callback, &ni_slam, _1, _2));
     
     ros::spin();
-    
+    ni_slam.ShutDown();
     return 0;
 }

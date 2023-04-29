@@ -90,6 +90,9 @@ public:
 
     void rotationFromTwoPlanes(Eigen::Vector3d &_v1, Eigen::Vector3d &_v11, Eigen::Vector3d &_v2, Eigen::Vector3d &_v22, Eigen::Matrix3d &_R);
 
+    void ShutDown();
+
+    void EstimateNormalMapThread();
     // vector<double> DirectRotationEst(bool &initialized);
 
 private:
@@ -137,8 +140,15 @@ private:
 
     inline void EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::Mat &_normalsCV, Eigen::Matrix3d &_R, cv::Mat &_AnglesMap);
 
+    
 
 private:
+
+    bool _shutdown;
+    // normal thread
+    std::mutex _dataBuffer_mutex;
+    std::queue<InputDataPtr> _data_buffer;
+    std::thread _normalMap_thread;
 
     ros::NodeHandle nh;          // ROS node handle
 
@@ -300,4 +310,35 @@ public:
     double findMedian();
     double findMean();
 };
+
+struct InputData{
+    cv::Mat depth_image;
+    int time;
+    CloudType::ConstPtr pcl_cloud;
+    InputData() {};
+    InputData& operator =(InputData& other){
+        depth_image = other.depth_image.clone();
+        time = other.time;
+        pcl_cloud = other.pcl_cloud.clone();
+        return *this;
+    }
+}
+typedef std::shared_ptr<InputData> InputDataPtr;
+
+struct TrackingData{
+  FramePtr frame;
+  FramePtr ref_keyframe;
+  std::vector<cv::DMatch> matches;
+  InputDataPtr input_data;
+
+  TrackingData() {}
+  TrackingData& operator =(TrackingData& other){
+		frame = other.frame;
+		ref_keyframe = other.ref_keyframe;
+		matches = other.matches;
+		input_data = other.input_data;
+		return *this;
+	}
+};
+
 #endif

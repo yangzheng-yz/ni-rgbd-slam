@@ -1,9 +1,9 @@
 from graphviz import Digraph
 from IPython.display import display
 
-option = "depth2normal"
+option = 2
 
-if 0:
+if option == 0:
     g = Digraph('G', format='png')
 
     g.attr(rankdir='TB', size='16,16')
@@ -45,7 +45,7 @@ if 0:
     g.edges(['AB', 'BC', 'CD', 'DE', 'EF', 'FG', 'GH'])
 
     g.view()
-elif 1:
+elif option == 1:
     dot = Digraph("Callback Function Flowchart", format="png")
 
     dot.node("A", "1. 开始")
@@ -76,5 +76,20 @@ elif 1:
     dot.node("V", "22. 结束")
 
     dot.edges([("A", "B"), ("B", "C"), ("C", "D"), ("D", "E"), ("E", "F"), ("F", "G"), ("G", "H1"), ("H1", "H2"), ("G", "I1"), ("I1", "I2"), ("I2", "I3"), ("I3", "I4"), ("I4", "J"), ("J", "K"), ("K", "L"), ("L", "M"), ("M", "N"), ("N", "O"), ("O", "P"), ("P", "Q"), ("Q", "R"), ("R", "S"), ("S", "T"), ("T", "U"), ("U", "V")])
+    dot.view()
+elif option == 2:
+    dot = Digraph('G')
+
+    dot.node('A', 'Loop through rows and columns')
+    dot.node('B', 'Exclude invalid points')
+    dot.node('C', 'Exclude non-overlapped points')
+    dot.node('D', 'Perform mode selection mechanism')
+    dot.node('E', 'Create new mode')
+    dot.node('F', 'Perform normal-mode matching')
+    dot.node('G', 'Update existing mode')
+    dot.node('H', 'Create new mode if not found')
+
+    dot.edges(['AB', 'BC', 'CD', 'DE', 'DF', 'DG', 'DH'])
+
     dot.view()
 
