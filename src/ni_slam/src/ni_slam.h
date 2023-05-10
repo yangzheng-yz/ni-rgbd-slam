@@ -93,6 +93,10 @@ public:
     void ShutDown();
 
     void EstimateNormalMapThread();
+
+    void EstimateRotationThread();
+
+    void EstimateTranslationThread();
     // vector<double> DirectRotationEst(bool &initialized);
 
 private:
@@ -149,6 +153,15 @@ private:
     std::mutex _dataBuffer_mutex;
     std::queue<InputDataPtr> _data_buffer;
     std::thread _normalMap_thread;
+
+    // rotation thread
+    std::mutex _normalMap_mutex;
+    std::queue<NormalMapPtr> _normalMap_buffer;
+    std::mutex _frame_mutex;
+    std::queue<FramePtr> _frame_buffer;
+    std::thread _rotation_thread;
+    
+
 
     ros::NodeHandle nh;          // ROS node handle
 
@@ -325,6 +338,20 @@ struct InputData{
 }
 typedef std::shared_ptr<InputData> InputDataPtr;
 
+struct NormalMap{
+    cv::Mat normal_map;
+    int time;
+    CloudType::ConstPtr pcl_cloud;
+    NormalMap() {};
+    NormalMap& operator =(NormalMap& other){
+        normal_map = other.normal_map.clone();
+        time = other.time;
+        pcl_cloud = other.pcl_cloud.clone();
+        return *this;
+    }
+}
+typedef std::shared_ptr<NormalMap> NormalMapPtr;
+
 struct TrackingData{
   FramePtr frame;
   FramePtr ref_keyframe;
@@ -341,4 +368,30 @@ struct TrackingData{
 	}
 };
 
+class Frame{
+public:
+    Frame();
+    Frame(int frame_id, cv::Mat normal_map, CloudType::ConstPtr pcl_cloud);
+    Frame& operator=(const Frame& other);
+
+    void SetFrameId(int frame_id);
+    int GetFrameId();
+    void SetRotation(tf::Quaternion rotation);
+    tf::Quaternion GetRotation();
+    void SetPose(tf::Transform pose);
+    tf::Transform GetPose();
+
+private:
+    int _frame_id;
+    int ref_rot_frame_id;
+    int ref_trans_frame_id;
+    tf::Transform _pose;
+    tf:Quaternion _rotation;
+    cv::Mat _normal_map;
+    CloudType::ConstPtr _pcl_cloud;
+    bool ref_rot_selected{false};
+    bool ref_trans_selected{false};
+}
+
+typedef std::shared_ptr<Frame> FramePtr;
 #endif

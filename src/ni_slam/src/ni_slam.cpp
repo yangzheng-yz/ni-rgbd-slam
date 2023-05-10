@@ -254,18 +254,82 @@ void NI_SLAM::EstimateNormalMapThread(){
             usleep();
             continue;
         }
+    
+        InputDataPtr input_data;
+        _dataBuffer_mutex.lock();
+        input_data = _data_buffer.front();
+        _data_buffer.pop();
+        _dataBuffer_mutex.unlock();
+
+        int frame_id = input_data->time;
+        cv::Mat depth_image = input_data->depth_image.clone();
+
+        normalsCV = cv::Mat::zeros(cv::Size(depth_height/maxPyramidLevel, depth_width/maxPyramidLevel), CV_64FC3);
+        EfficientDepth2NormalMap(depth_image, normalsCV, cellSize, vertexMapx, vertexMapy);
+
+        NormalMapPtr normalMap_data = std::shared_ptr<NormalMap>(new NormalMap());
+        normalMap_data->time = frame_id;
+        normalMap_data->normal_map = normalsCV.clone();
+        normalMap_data->pcl_cloud = input_data->pcl_cloud.clone();
+
+
+        while(_normalMap_buffer.size()>=2){
+            usleep(2000);
+        }
+
+        _normalMap_mutex.lock();
+        _normalMap_buffer.push(normalsMap_data);
+        _normalMap_mutex.unlock();
     }
-    InputDataPtr input_data;
-    _dataBuffer_mutex.lock();
-    input_data = _data_buffer.front();
-    _data_buffer.pop();
-    _dataBuffer_mutex.unlock();
+}
 
-    int frame_id = input_data->time;
-    cv::Mat depth_image = input_data->depth_image.clone();
+void NI_SLAM::EstimateRotationThread(){
+    while(!_shutdown){
+        if(_normalMap_buffer.empty()){
+            usleep(2000);
+            continue;
+        }
+        NormalMapPtr normal_map;
+        _normalMap_mutex.lock();
+        normal_map = _normalMap_buffer.front();
+        _normalMap_buffer.pop();
+        _normalMap_mutex.unlock();
 
-    // construct frame
-    FramePtr frame = 
+        int frame_id = normal_map->time;
+        
+
+        FramePtr frame = std::shared_ptr<Frame>(new Frame(frame_id, normal_map->normal_map, normal_map->pcl_cloud));
+
+        if(!initialized){
+            rotation_rel = tf::Quaternion(0,0,0,1);
+            rotation_key = rotation_rel;
+
+            rotation = (rotation_key * rotation_rel).normalized(); // current rotation relative to inital frame
+
+            init_poses();
+            
+            adapt_field_of_view(pcl_cloud); // need rotation, so should get rotation before this
+            
+            reproject(pcl_cloud);
+            
+            train();
+            initialized = true;
+            if(flag_save_file)
+                save_file(); // TODO: add input parameters to decide which frame to be recorded
+            
+            frame->SetRotation(rotation);
+            frame->SetPose(pose);
+            ref_frame = // TODO: define a ref frame to save the normal_map
+            // no need to save color_key etc.(maybe????)
+            
+            
+        }
+        else{
+
+
+        }
+
+    }
 }
 
 inline bool NI_SLAM::check_synchronization(std_msgs::Header pc, std_msgs::Header imu, double max_diff)
