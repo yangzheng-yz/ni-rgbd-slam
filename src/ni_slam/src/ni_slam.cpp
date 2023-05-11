@@ -285,6 +285,64 @@ void NI_SLAM::EstimateNormalMapThread(){
 
 void NI_SLAM::EstimateRotationThread(){
     while(!_shutdown){
+        if(_frame_buffer.empty()){
+            usleep(2000);
+            continue;
+        }
+        NormalMapPtr normal_map;
+        _normalMap_mutex.lock();
+        normal_map = _normalMap_buffer.front();
+        _normalMap_buffer.pop();
+        _normalMap_mutex.unlock();
+
+        int frame_id = normal_map->time;
+        
+
+        FramePtr frame = std::shared_ptr<Frame>(new Frame(frame_id, normal_map->normal_map, normal_map->pcl_cloud));
+
+        if(!initialized){
+            rotation_rel = tf::Quaternion(0,0,0,1);
+            rotation_key_rot = rotation_rel;
+            normalsCV_last = normal_map.clone();
+            rotation_cur_rot = (rotation_key_rot * rotation_rel).normalized(); // current rotation relative to inital frame
+
+            init_poses();
+            
+            adapt_field_of_view(pcl_cloud); // need rotation, so should get rotation before this
+            
+            reproject(pcl_cloud);
+            
+            train();
+
+            initialized = true;
+            if(flag_save_file)
+                save_file(); // TODO: add input parameters to decide which frame to be recorded
+            
+            frame->SetRotation(rotation_cur_rot);
+            // frame->SetPose(pose);
+        }
+        else{
+            cv::Mat AnglesMap = cv::Mat::ones(cv::Size(depth_height/maxPyramidLevel, depth_width/maxPyramidLevel), CV_64FC3)*720;
+            Eigen::Matrix3d rotation_matrix;
+            EfficientNormal2RotationMat(normalsCV_last, normal_map, rotation_matrix, AnglesMap);
+            Eigen::Quaterniond q_rel(rotation_matrix);
+            rotation_rel = tf::Quaternion(q_rel.coeffs()[0], q_rel.coeffs()[1], q_rel.coeffs()[2], q_rel.coeffs()[3]);
+            rotation_cur_rot = (rotation_key_rot * rotation_rel).normalized(); // current rotation relative to inital frame
+            if(valid_points<3000 || tf::Transform(rotation_key_rot.inverse()*rotation_cur_rot).getRotation().getAngle() >= 0.15){
+                normalsCV_last = normal_map.clone();
+                rotation_key_rot = rotation_cur_rot;
+                frame->IsKeyRot();
+            }
+            frame->SetRotation(rotation_cur_rot);
+        }
+        _frame_mutex.lock();
+        _frame_buffer.push(frame);
+        _frame_mutex.unlock();
+    }
+}
+
+void NI_SLAM::EstimateTranslationThread(){
+    while(!_shutdown){
         if(_normalMap_buffer.empty()){
             usleep(2000);
             continue;
@@ -302,9 +360,9 @@ void NI_SLAM::EstimateRotationThread(){
 
         if(!initialized){
             rotation_rel = tf::Quaternion(0,0,0,1);
-            rotation_key = rotation_rel;
-
-            rotation = (rotation_key * rotation_rel).normalized(); // current rotation relative to inital frame
+            rotation_key_rot = rotation_rel;
+            normalsCV_last = normal_map.clone();
+            rotation_cur_rot = (rotation_key_rot * rotation_rel).normalized(); // current rotation relative to inital frame
 
             init_poses();
             
@@ -313,24 +371,34 @@ void NI_SLAM::EstimateRotationThread(){
             reproject(pcl_cloud);
             
             train();
+
             initialized = true;
             if(flag_save_file)
                 save_file(); // TODO: add input parameters to decide which frame to be recorded
             
-            frame->SetRotation(rotation);
-            frame->SetPose(pose);
-            ref_frame = // TODO: define a ref frame to save the normal_map
-            // no need to save color_key etc.(maybe????)
-            
-            
+            frame->SetRotation(rotation_cur_rot);
+            // frame->SetPose(pose);
         }
         else{
-
-
+            cv::Mat AnglesMap = cv::Mat::ones(cv::Size(depth_height/maxPyramidLevel, depth_width/maxPyramidLevel), CV_64FC3)*720;
+            Eigen::Matrix3d rotation_matrix;
+            EfficientNormal2RotationMat(normalsCV_last, normal_map, rotation_matrix, AnglesMap);
+            Eigen::Quaterniond q_rel(rotation_matrix);
+            rotation_rel = tf::Quaternion(q_rel.coeffs()[0], q_rel.coeffs()[1], q_rel.coeffs()[2], q_rel.coeffs()[3]);
+            rotation_cur_rot = (rotation_key_rot * rotation_rel).normalized(); // current rotation relative to inital frame
+            if(valid_points<3000 || tf::Transform(rotation_key_rot.inverse()*rotation_cur_rot).getRotation().getAngle() >= 0.15){
+                normalsCV_last = normal_map.clone();
+                rotation_key_rot = rotation_cur_rot;
+                frame->IsKeyRot();
+            }
+            frame->SetRotation(rotation_cur_rot);
         }
-
+        _frame_mutex.lock();
+        _frame_buffer.push(frame);
+        _frame_mutex.unlock();
     }
 }
+
 
 inline bool NI_SLAM::check_synchronization(std_msgs::Header pc, std_msgs::Header imu, double max_diff)
 {
@@ -438,7 +506,7 @@ inline void NI_SLAM::train()
 {
     translation_z = 0;
 
-    rotation_key = rotation;
+    translation_key_rot = translation_cur_rot;
 
     pose_key = pose;
 
@@ -458,7 +526,7 @@ inline void NI_SLAM::train()
     
     alpha = labels_fft/(kernel + lambda);
 
-    normalsCV_last = normalsCV.clone();
+    // normalsCV_last = normalsCV.clone();
 
 
     // Eigen::MatrixXd a = Eigen::MatrixXd::Random(1000, 1000);  

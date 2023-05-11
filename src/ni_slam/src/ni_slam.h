@@ -160,6 +160,7 @@ private:
     std::mutex _frame_mutex;
     std::queue<FramePtr> _frame_buffer;
     std::thread _rotation_thread;
+    std::thread _translation_thread;
     
 
 
@@ -188,8 +189,10 @@ private:
     ArrayXXf color_empty;        // empty color cloud for initilization
     ArrayXXf depth_empty;        // empty depth cloud for initilization
     tf::Quaternion rotation_imu; // rotation from imu to camera, decided by hardware
-    tf::Quaternion rotation;     // current imu rotation
-    tf::Quaternion rotation_key; // key frame rotation
+    tf::Quaternion translation_cur_rot;     // current rotation for translation thread
+    tf::Quaternion rotation_cur_rot;     // current rotation for rotation thread
+    tf::Quaternion translation_key_rot; // key frame rotation for translation thread
+    tf::Quaternion rotation_key_rot; // key frame rotation for rotation thread
     tf::Transform  pose;         // current estimated pose relative to initial pose
     tf::Transform  pose_key;     // pose of key point cloud
     tf::Transform  transform_inc;// incremental pose transformation relative to key pose
@@ -380,11 +383,17 @@ public:
     tf::Quaternion GetRotation();
     void SetPose(tf::Transform pose);
     tf::Transform GetPose();
+    void SetRefRotId(int frame_id);
+    int GetRefRotId();
+    void SetRefTransId(int frame_id);
+    int GetRefTransId();
+    bool IsKeyRot();
+
 
 private:
     int _frame_id;
-    int ref_rot_frame_id;
-    int ref_trans_frame_id;
+    int _ref_rot_frame_id;
+    int _ref_trans_frame_id;
     tf::Transform _pose;
     tf:Quaternion _rotation;
     cv::Mat _normal_map;
