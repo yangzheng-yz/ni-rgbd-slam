@@ -67,7 +67,8 @@
     "typeindex": "cpp",
     "typeinfo": "cpp",
     "variant": "cpp",
-    "bit": "cpp"
+    "bit": "cpp",
+    "*.ipp": "cpp"
   },
   "python.autoComplete.extraPaths": [
     "/home/zheng/projects/ni_slam_ws/devel/lib/python3/dist-packages",

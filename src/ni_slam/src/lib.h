@@ -49,6 +49,8 @@
 #include<fstream>
 #include<sstream>
 
+#include <thread>
+
 using namespace Eigen;
 using namespace std::chrono;
 

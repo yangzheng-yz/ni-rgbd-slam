@@ -58,13 +58,70 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include "lib.h"
-
 using namespace std;
 using namespace sensor_msgs;
 
 typedef pcl::PointCloud<pcl::PointXYZRGB> CloudType;
 
 typedef Array<bool,Dynamic,Dynamic> ArrayXXb;
+
+struct InputData{
+    cv::Mat depth_image;
+    int time;
+    CloudType::ConstPtr pcl_cloud;
+    InputData() {};
+    InputData& operator =(InputData& other){
+        depth_image = other.depth_image.clone();
+        time = other.time;
+        pcl_cloud = other.pcl_cloud;
+        return *this;
+    }
+};
+typedef std::shared_ptr <InputData> InputDataPtr;
+
+struct NormalMap{
+    cv::Mat normal_map;
+    int time;
+    CloudType::ConstPtr pcl_cloud;
+    NormalMap() {};
+    NormalMap& operator =(NormalMap& other){
+        normal_map = other.normal_map.clone();
+        time = other.time;
+        pcl_cloud = other.pcl_cloud; // TODO: is this right copy?
+        return *this;
+    }
+};
+typedef std::shared_ptr <NormalMap> NormalMapPtr;
+
+class Frame{
+public:
+    Frame();
+    Frame(int frame_id_, cv::Mat normal_map_, CloudType::ConstPtr pcl_cloud_);
+    Frame& operator=(const Frame& other);
+
+    void SetFrameId(int frame_id_);
+    int GetFrameId();
+    void SetRotation(tf::Quaternion rotation_);
+    tf::Quaternion GetRotation();
+    void SetPose(tf::Transform pose_);
+    tf::Transform GetPose();
+    void SetKeyRot();
+    bool IsKeyRot();
+    CloudType::ConstPtr GetPclCloud();
+
+
+private:
+    int _frame_id;
+    // int _ref_rot_frame_id;
+    // int _ref_trans_frame_id;
+    tf::Transform _pose;
+    tf::Quaternion _rotation;
+    cv::Mat _normal_map;
+    CloudType::ConstPtr _pcl_cloud;
+    bool ref_rot_selected{false};
+    bool ref_trans_selected{false};
+};
+typedef std::shared_ptr <Frame> FramePtr;
 
 class NI_SLAM
 {
@@ -294,6 +351,7 @@ public:
 private:
 
     void save_file();
+    void save_file(FramePtr frame);
 
     Jeffsan::CPPTimer timer;
     double time_use;
@@ -327,80 +385,7 @@ public:
     double findMean();
 };
 
-struct InputData{
-    cv::Mat depth_image;
-    int time;
-    CloudType::ConstPtr pcl_cloud;
-    InputData() {};
-    InputData& operator =(InputData& other){
-        depth_image = other.depth_image.clone();
-        time = other.time;
-        pcl_cloud = other.pcl_cloud.clone();
-        return *this;
-    }
-}
-typedef std::shared_ptr<InputData> InputDataPtr;
-
-struct NormalMap{
-    cv::Mat normal_map;
-    int time;
-    CloudType::ConstPtr pcl_cloud;
-    NormalMap() {};
-    NormalMap& operator =(NormalMap& other){
-        normal_map = other.normal_map.clone();
-        time = other.time;
-        pcl_cloud = other.pcl_cloud.clone();
-        return *this;
-    }
-}
-typedef std::shared_ptr<NormalMap> NormalMapPtr;
-
-struct TrackingData{
-  FramePtr frame;
-  FramePtr ref_keyframe;
-  std::vector<cv::DMatch> matches;
-  InputDataPtr input_data;
-
-  TrackingData() {}
-  TrackingData& operator =(TrackingData& other){
-		frame = other.frame;
-		ref_keyframe = other.ref_keyframe;
-		matches = other.matches;
-		input_data = other.input_data;
-		return *this;
-	}
-};
-
-class Frame{
-public:
-    Frame();
-    Frame(int frame_id, cv::Mat normal_map, CloudType::ConstPtr pcl_cloud);
-    Frame& operator=(const Frame& other);
-
-    void SetFrameId(int frame_id);
-    int GetFrameId();
-    void SetRotation(tf::Quaternion rotation);
-    tf::Quaternion GetRotation();
-    void SetPose(tf::Transform pose);
-    tf::Transform GetPose();
-    void SetRefRotId(int frame_id);
-    int GetRefRotId();
-    void SetRefTransId(int frame_id);
-    int GetRefTransId();
-    bool IsKeyRot();
 
 
-private:
-    int _frame_id;
-    int _ref_rot_frame_id;
-    int _ref_trans_frame_id;
-    tf::Transform _pose;
-    tf:Quaternion _rotation;
-    cv::Mat _normal_map;
-    CloudType::ConstPtr _pcl_cloud;
-    bool ref_rot_selected{false};
-    bool ref_trans_selected{false};
-}
 
-typedef std::shared_ptr<Frame> FramePtr;
 #endif
