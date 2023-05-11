@@ -285,7 +285,7 @@ void NI_SLAM::EstimateNormalMapThread(){
 
 void NI_SLAM::EstimateRotationThread(){
     while(!_shutdown){
-        if(_frame_buffer.empty()){
+        if(_normalMap_buffer.empty()){
             usleep(2000);
             continue;
         }
@@ -343,7 +343,7 @@ void NI_SLAM::EstimateRotationThread(){
 
 void NI_SLAM::EstimateTranslationThread(){
     while(!_shutdown){
-        if(_normalMap_buffer.empty()){
+        if(_frame_buffer.empty()){
             usleep(2000);
             continue;
         }
