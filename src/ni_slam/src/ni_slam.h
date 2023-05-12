@@ -267,6 +267,7 @@ public:
     string parent_frame;         // parent frame name
     string child_frame;          // child frame name
     float adaptive_mu;             // F(x) = hist/his_seq + mu * his_seq
+    bool is_debugging{false};
 
 private:
 

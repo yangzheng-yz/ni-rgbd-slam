@@ -51,6 +51,9 @@ int main(int argc, char ** argv)
     bool visualization = false, flag_publish_map = false, flag_publish_incremental_keypose_cov = false, flag_publish_twist = false;
     std::vector<double> rotation_imu;
     int queue_size_cloud = 1000, queue_size_imu = 100, queue_size_sync= 500;
+
+    
+
     if(n.getParam("/axonometric/image_height", height))
         ROS_INFO("Get image_height parameter: %d", height);
     else
@@ -112,6 +115,12 @@ int main(int argc, char ** argv)
         ROS_WARN("Using default queue_size_sync: %d", queue_size_sync);
 
     NI_SLAM ni_slam(n, height, width, depth_height, depth_width, psr);
+
+    if(n.getParam("debug/is_debugging", ni_slam.is_debugging))
+        ROS_INFO("Is debugging: %s",ni_slam.is_debugging? "true":"false");
+    else
+        ROS_WARN("Using default Visualization flag: false!");  
+
     if(n.getParam("/rotation/imu", rotation_imu))
     {
         ROS_INFO("Get rotation imu: [%f, %f, %f]",rotation_imu[0], rotation_imu[1], rotation_imu[2]);
@@ -189,7 +198,23 @@ int main(int argc, char ** argv)
     
     sync.registerCallback(boost::bind(&NI_SLAM::callback, &ni_slam, _1, _2));
     
+    // start timer
+    auto start = std::chrono::high_resolution_clock::now();
+    
     ros::spin();
     ni_slam.ShutDown();
+    // end timer    
+    auto end = std::chrono::high_resolution_clock::now();
+
+    // calculate elapsed time
+    auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+    // calculate average time per image
+    // Assuming image_count is the number of images processed
+    // double average_time_per_image = static_cast<double>(elapsed.count()) / image_count;
+
+    std::cout << "Total execution time: " << elapsed.count() << " milliseconds.\n";
+
+    
     return 0;
 }

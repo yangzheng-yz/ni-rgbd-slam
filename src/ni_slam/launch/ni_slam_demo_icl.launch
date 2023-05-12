@@ -2,15 +2,15 @@
 <launch>
     <param name="use_sim_time" value="true" />
     <!-- <param name="use_sim_time" value="false" /> -->
-    <arg name="dataset" value="icl_ofkt3"/>
-    <arg name="gt_file_path" value="/home/zheng/datasets/public_dataset/ICL-NUIM/of_kt3/groundtruth.txt"/>
+    <arg name="dataset" value="icl_ofkt0"/>
+    <arg name="gt_file_path" value="/home/zheng/datasets/public_dataset/ICL-NUIM/of_kt0/groundtruth.txt"/>
     <arg name="visualization" value="false"/> <!-- This is for debug publisher-->
     <arg name="publish_refined_keyframe" value="false"/>
     <arg name="publish_increnmental_keypose_with_covariance" value="true"/>
     <arg name="publish_twist_with_covariance" value="false"/>
     <arg name="parent_frame" value="world"/>
     <arg name="child_frame" value="ni_slam"/>
-    <!-- <param name="use_sim_time" value="true" /> -->
+    <arg name="is_debugging" value="false" />  <!-- This is for opening cout informmation-->
     <arg name="queue_size_cloud" value="1000"/>
     <arg name="queue_size_imu" value="1000"/>
     <arg name="queue_size_sync" value="1000"/>\
@@ -51,6 +51,7 @@
         <param name="frame_name/parent" value="$(arg parent_frame)" />
         <param name="frame_name/child" value="$(arg child_frame)" />
         <param name="debug/visualization" value="$(arg visualization)" />
+        <param name="debug/is_debugging" value="$(arg is_debugging)" />
         <param name="refined_frame/publish_flag" value="$(arg publish_refined_keyframe)" />
         <param name="incremental_keypose_with_covariance/publish_flag" value="$(arg publish_increnmental_keypose_with_covariance)" />
         <param name="twist_with_covariance/publish_flag" value="$(arg publish_twist_with_covariance)" />
