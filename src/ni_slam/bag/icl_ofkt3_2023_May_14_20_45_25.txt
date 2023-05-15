@@ -1,0 +1,5 @@
+# width:480 height:360 psr bound:50 mu:0.8
+1 0 0 0 -nan -nan -nan -nan 3728.79
+48 -nan -nan -nan -nan -nan -nan -nan 77.7227
+68 -nan -nan -nan -nan -nan -nan -nan 54.8746
+89 -nan -nan -nan -nan -nan -nan -nan 41.9367

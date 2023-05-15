@@ -130,8 +130,12 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
     data->pcl_cloud = pcl_cloud;
     data->time = nth_frame;
 
-    while(_data_buffer.size()>=3 && !_shutdown){
+    while(_data_buffer.size()>=10 && !_shutdown){
         usleep(2000);
+    }
+
+    if(nth_frame==0){
+        t1 = std::chrono::steady_clock::now();
     }
 
     _dataBuffer_mutex.lock();
@@ -143,21 +147,21 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
     // for parallel programming end
 
 
-    // time_use = jtimer.end();
-    // rotation = tf::Quaternion(imu->orientation.x, imu->orientation.y, imu->orientation.z, imu->orientation.w); // current rotation relative to inital frame
-    // rotation *= rotation_imu; // for ICL_NUIM setting, rotation_imu should be (0,0,0)    
-    // For debugging, real values are stored in acceleration, can be deleted safely.
-    // tf::Vector3 position(imu->linear_acceleration.x, imu->linear_acceleration.y, imu->linear_acceleration.z);
-    // pose_real.setOrigin(position);
-    // pose_real.setRotation(rotation);
+    // // time_use = jtimer.end();
+    // // rotation = tf::Quaternion(imu->orientation.x, imu->orientation.y, imu->orientation.z, imu->orientation.w); // current rotation relative to inital frame
+    // // rotation *= rotation_imu; // for ICL_NUIM setting, rotation_imu should be (0,0,0)    
+    // // For debugging, real values are stored in acceleration, can be deleted safely.
+    // // tf::Vector3 position(imu->linear_acceleration.x, imu->linear_acceleration.y, imu->linear_acceleration.z);
+    // // pose_real.setOrigin(position);
+    // // pose_real.setRotation(rotation);
     
     // if (initialized == false)
     // {
     //     EfficientDepth2NormalMap(imD, normalsCV, cellSize, vertexMapx, vertexMapy);
     //     rotation_rel = tf::Quaternion(0,0,0,1);
-    //     rotation_key = rotation_rel;
+    //     translation_key_rot = rotation_rel;
 
-    //     rotation = (rotation_key * rotation_rel).normalized(); // current rotation relative to inital frame
+    //     translation_cur_rot = (translation_key_rot * rotation_rel).normalized(); // current rotation relative to inital frame
 
     //     init_poses();
         
@@ -170,10 +174,10 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
     //     if(flag_save_file)
     //         save_file();
 
-    //     if(flag_show_gt)
-    //     {
-    //         gt_pose_last = gt_poses[nth_frame];
-    //     }
+    //     // if(flag_show_gt)
+    //     // {
+    //     //     gt_pose_last = gt_poses[nth_frame];
+    //     // }
     //     nth_frame++;
     //     return;
     // }
@@ -184,9 +188,9 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
     // EfficientNormal2RotationMat(normalsCV_last, normalsCV, rotation_matrix, AnglesMap);
     // Eigen::Quaterniond q_rel(rotation_matrix);
     // rotation_rel = tf::Quaternion(q_rel.coeffs()[0], q_rel.coeffs()[1], q_rel.coeffs()[2], q_rel.coeffs()[3]);
-    // rotation = (rotation_key * rotation_rel).normalized(); // current rotation relative to inital frame
+    // translation_cur_rot = (translation_key_rot * rotation_rel).normalized(); // current rotation relative to inital frame
 
-    // reproject(pcl_cloud, tf::Transform(rotation_key.inverse()*rotation)); // reproject current frame using rotation to key frame coordinates
+    // reproject(pcl_cloud, tf::Transform(translation_key_rot.inverse()*translation_cur_rot)); // reproject current frame using rotation to key frame coordinates
     // // sleep(1000); 
 
     // get_response();
@@ -197,19 +201,19 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
 
     // publish_poses();
 
-    // if (flag_publish_twist)
-    //     publish_twists();
+    // // if (flag_publish_twist)
+    // //     publish_twists();
 
-    // if (flag_publish_incremental_keypose_cov)
-    //     publish_incremental_keypose_cov();
+    // // if (flag_publish_incremental_keypose_cov)
+    // //     publish_incremental_keypose_cov();
 
     // // if (!(psr > psrbound))
-    // if (!(psr > psrbound) || valid_points<3000 || tf::Transform(rotation_key.inverse()*rotation).getRotation().getAngle() >= 0.15)
+    // if (!(psr > psrbound) || valid_points<3000 || tf::Transform(translation_key_rot.inverse()*translation_cur_rot).getRotation().getAngle() >= 0.15)
     // {
     //     // cout << "!!!!!!!!!!rotation: " << tf::Transform(rotation_key.inverse()*rotation).getRotation().getAngle() << endl;
     //     // cout << "valid points: " << valid_points << endl;
-    //     if(flag_publish_refined_keyframe)
-    //         publish_keyframe();
+    //     // if(flag_publish_refined_keyframe)
+    //     //     publish_keyframe();
 
     //     adapt_field_of_view(pcl_cloud);
 
@@ -217,23 +221,23 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
         
     //     train();
 
-    //     if(flag_show_gt)
-    //     {
-    //         Eigen::Matrix3d R_gt_last;
-    //         Eigen::Quaterniond q_gt_last(gt_pose_last[6], gt_pose_last[3], gt_pose_last[4], gt_pose_last[5]);
-    //         R_gt_last = q_gt_last.toRotationMatrix();
-    //         Eigen::Matrix3d R_gt_cur;
-    //         Eigen::Quaterniond q_gt_cur(gt_poses[nth_frame][6], gt_poses[nth_frame][3], gt_poses[nth_frame][4], gt_poses[nth_frame][5]);
-    //         R_gt_cur = q_gt_cur.toRotationMatrix();
-    //         Eigen::Matrix3d R_gt_rlt;
-    //         R_gt_rlt = R_gt_last.transpose() * R_gt_cur;
-    //         Eigen::AngleAxisd gt_angleaxis;
-    //         gt_angleaxis.fromRotationMatrix(R_gt_rlt);
-    //         cout << "gt axis-angle: \n" << gt_angleaxis.angle() * gt_angleaxis.axis() << endl;
-    //         cout << "gt_pose_last: " << gt_pose_last[3] << ", " << gt_pose_last[4] << ", " << gt_pose_last[5] << ", " << gt_pose_last[6] << ", " << endl;
-    //         cout << "gt_pose: " << gt_poses[nth_frame][3] << ", " << gt_poses[nth_frame][4] << ", " << gt_poses[nth_frame][5] << ", " << gt_poses[nth_frame][6] << ", " << endl;
-    //         gt_pose_last = gt_poses[nth_frame]; // shoule make sure the nth_frameth gt pose corresponding to the nth_frame.png
-    //     }
+    //     // if(flag_show_gt)
+    //     // {
+    //     //     Eigen::Matrix3d R_gt_last;
+    //     //     Eigen::Quaterniond q_gt_last(gt_pose_last[6], gt_pose_last[3], gt_pose_last[4], gt_pose_last[5]);
+    //     //     R_gt_last = q_gt_last.toRotationMatrix();
+    //     //     Eigen::Matrix3d R_gt_cur;
+    //     //     Eigen::Quaterniond q_gt_cur(gt_poses[nth_frame][6], gt_poses[nth_frame][3], gt_poses[nth_frame][4], gt_poses[nth_frame][5]);
+    //     //     R_gt_cur = q_gt_cur.toRotationMatrix();
+    //     //     Eigen::Matrix3d R_gt_rlt;
+    //     //     R_gt_rlt = R_gt_last.transpose() * R_gt_cur;
+    //     //     Eigen::AngleAxisd gt_angleaxis;
+    //     //     gt_angleaxis.fromRotationMatrix(R_gt_rlt);
+    //     //     cout << "gt axis-angle: \n" << gt_angleaxis.angle() * gt_angleaxis.axis() << endl;
+    //     //     cout << "gt_pose_last: " << gt_pose_last[3] << ", " << gt_pose_last[4] << ", " << gt_pose_last[5] << ", " << gt_pose_last[6] << ", " << endl;
+    //     //     cout << "gt_pose: " << gt_poses[nth_frame][3] << ", " << gt_poses[nth_frame][4] << ", " << gt_poses[nth_frame][5] << ", " << gt_poses[nth_frame][6] << ", " << endl;
+    //     //     gt_pose_last = gt_poses[nth_frame]; // shoule make sure the nth_frameth gt pose corresponding to the nth_frame.png
+    //     // }
 
     //     ROS_WARN("Trained. %d times with PSR: %.1f............", train_num++, psr);
     //     if(flag_save_file)
@@ -274,10 +278,13 @@ void NI_SLAM::EstimateNormalMapThread(){
         int frame_id = input_data->time;
         cv::Mat depth_image = input_data->depth_image.clone();
 
+        // std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
+
         normalsCV = cv::Mat::zeros(cv::Size(depth_height/maxPyramidLevel, depth_width/maxPyramidLevel), CV_64FC3);
         EfficientDepth2NormalMap(depth_image, normalsCV, cellSize, vertexMapx, vertexMapy);
 
         NormalMapPtr normalMap_data = std::shared_ptr<NormalMap>(new NormalMap());
+        // normalMap_data->start_time = t1;
         normalMap_data->time = frame_id;
         normalMap_data->normal_map = normalsCV.clone();
         normalMap_data->pcl_cloud = input_data->pcl_cloud;
@@ -341,9 +348,9 @@ void NI_SLAM::EstimateRotationThread(){
 
             // cout << frame_id << "!!!!!!!!!!!!!!!!!!!initialized rotation_rot is : " << rotation_cur_rot.getAngle() << endl;
 
-            
             frame->SetRotation(rotation_cur_rot);
             frame->SetPose(pose);
+            // frame->start_time = normalMap->start_time;
 
             if(flag_save_file)
                 save_file(frame);
@@ -363,6 +370,7 @@ void NI_SLAM::EstimateRotationThread(){
                 frame->SetKeyRot();
             }
             frame->SetRotation(rotation_cur_rot);
+            // frame->start_time = normalMap->start_time;
         }
 
         // cout << frame_id << "!!!!!!!!!!!!!!!!!!!rotation_rot is : " << rotation_cur_rot.getAngle() << endl;
@@ -569,7 +577,7 @@ inline void NI_SLAM::train()
     
     alpha = labels_fft/(kernel + lambda);
 
-    // normalsCV_last = normalsCV.clone();
+    // normalsCV_last = normalsCV.clone(); // parallel need to comment this
 
 
     // Eigen::MatrixXd a = Eigen::MatrixXd::Random(1000, 1000);  
@@ -743,7 +751,6 @@ inline void NI_SLAM::refine_keyclouds_poses()
     // cout << "in refine_keyclouds_poses pose: " << pose_key.getOrigin().getZ() << endl;
 }
 
-
 inline void NI_SLAM::publish_twists()
 {
     twiststamped.header = ros_header;
@@ -785,7 +792,6 @@ inline void NI_SLAM::publish_twists()
     twist_pub.publish(twiststamped);
 }
 
-
 inline void NI_SLAM::publish_poses()
 {
     br.sendTransform(tf::StampedTransform(pose, ros_header.stamp, parent_frame, child_frame));
@@ -800,7 +806,6 @@ inline void NI_SLAM::publish_poses()
 
     pose_pub.publish(posestamped);
 }
-
 
 inline void NI_SLAM::publish_incremental_keypose_cov()
 {
@@ -1038,86 +1043,33 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
     int count_second_max{0};
     //** if only one mode is more than 12000 points, will select one more mode if this new mode is more than 5000
     //** otherwise, will select two modes if they are less than 5000
-    if(count_valid_mode<2){
-        cout << "=====================================================================================" << endl;
-        cout << "mode smaller than 2, will select one (>5000 points) or more (<5000 points) mode from plane with points less than 12000" << endl;
-        selected_mode.push_back(0);
-        for(int i=0; i<sizeofMode; i++){
-            if(i == selected_mode[0]){
-                continue;
-            }
-            if(mode_count[i]>=3000 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_second_max){
-                count_second_max = mode_count[i];
-                selected_mode[1] = i;
-            }
-        }
-        cout << "**************************mode" << selected_mode[1] << ": " << modes[selected_mode[1]] << endl;
-        cout << "totally " << mode_coor[selected_mode[1]].size() << " points" << endl;
-        if(count_second_max != 0){
-            count_valid_mode++;
-        }
-        
-        if(count_second_max<5000){
-            selected_mode.push_back(0);
-            int count_third_max{0};
-            for(int i=0; i<sizeofMode; i++){
-                if(i == selected_mode[0] || i == selected_mode[1]){
-                    continue;
-                }
-                if(mode_count[i]>=3000 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_third_max &&
-                (modes[i].t() * modes[selected_mode[1]]).val[0]<0.5){
-                    count_third_max = mode_count[i];
-                    selected_mode[2] = i;
-                }
-            }
-            if(count_third_max != 0){
-                count_valid_mode++;
-                cout << "**************************mode" << selected_mode[2] << ": " << modes[selected_mode[2]] << endl;
-                cout << "totally " << mode_coor[selected_mode[2]].size() << " points" << endl;
-            }
-
-        }
-        if(count_valid_mode == 1){
-            cout << "cannot work, because only one plane exists" << endl;
-        }
-    }
-
     // if(count_valid_mode<2){
-    //     if(is_debugging){
-    //         cout << "=====================================================================================" << endl;
-    //         cout << "mode smaller than 2, will select one (>12000 points) or more (<12000 points) mode from plane with points less than 12000" << endl;
-    //     }
+    //     cout << "=====================================================================================" << endl;
+    //     cout << "mode smaller than 2, will select one (>5000 points) or more (<5000 points) mode from plane with points less than 12000" << endl;
     //     selected_mode.push_back(0);
     //     for(int i=0; i<sizeofMode; i++){
     //         if(i == selected_mode[0]){
     //             continue;
     //         }
-    //         if(mode_count[i]>=1000 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_second_max){
+    //         if(mode_count[i]>=3000 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_second_max){
     //             count_second_max = mode_count[i];
     //             selected_mode[1] = i;
-    //             // selected_mode.push_back(i);
     //         }
     //     }
-
+    //     cout << "**************************mode" << selected_mode[1] << ": " << modes[selected_mode[1]] << endl;
+    //     cout << "totally " << mode_coor[selected_mode[1]].size() << " points" << endl;
     //     if(count_second_max != 0){
     //         count_valid_mode++;
-    //         if(is_debugging){
-    //             cout << "**************************mode" << selected_mode[1] << ": " << modes[selected_mode[1]] << endl;
-    //             cout << "totally (>1000) " << mode_coor[selected_mode[1]].size() << " points" << endl;
-    //         }
-    //     }
-    //     else{
-    //         selected_mode.pop_back();
     //     }
         
-    //     if(count_valid_mode==2 && count_second_max<12000){
+    //     if(count_second_max<5000){
     //         selected_mode.push_back(0);
     //         int count_third_max{0};
     //         for(int i=0; i<sizeofMode; i++){
     //             if(i == selected_mode[0] || i == selected_mode[1]){
     //                 continue;
     //             }
-    //             if(mode_count[i]>=1000 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_third_max &&
+    //             if(mode_count[i]>=3000 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_third_max &&
     //             (modes[i].t() * modes[selected_mode[1]]).val[0]<0.5){
     //                 count_third_max = mode_count[i];
     //                 selected_mode[2] = i;
@@ -1125,41 +1077,94 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
     //         }
     //         if(count_third_max != 0){
     //             count_valid_mode++;
-    //             if(is_debugging){
-    //                 cout << "**************************mode" << selected_mode[2] << ": " << modes[selected_mode[2]] << endl;
-    //                 cout << "totally (>1000) " << mode_coor[selected_mode[2]].size() << " points" << endl;
-    //             }
-    //         }
-    //         else{
-    //             selected_mode.pop_back();
+    //             cout << "**************************mode" << selected_mode[2] << ": " << modes[selected_mode[2]] << endl;
+    //             cout << "totally " << mode_coor[selected_mode[2]].size() << " points" << endl;
     //         }
 
     //     }
-    //     else if(count_valid_mode==1){
-    //         selected_mode.push_back(0);
-    //         for(int i=0; i<sizeofMode; i++){
-    //             if(i == selected_mode[0]){
-    //                 continue;
-    //             }
-    //             if(mode_count[i]>=500 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_second_max){
-    //                 count_second_max = mode_count[i];
-    //                 selected_mode[1] = i;
-    //             }
-    //         }
-    //         if(count_second_max != 0){
-    //             count_valid_mode++;
-    //             if(is_debugging){
-    //                 cout << "**************************mode" << selected_mode[1] << ": " << modes[selected_mode[1]] << endl;
-    //                 cout << "totally (>500) " << mode_coor[selected_mode[1]].size() << " points" << endl;
-    //             }
-    //         }
-    //         else{
-    //             selected_mode.pop_back();
-    //             std::cerr << "only one plane detected!" << endl;
-    //         }
-
+    //     if(count_valid_mode == 1){
+    //         cout << "cannot work, because only one plane exists" << endl;
     //     }
     // }
+
+    if(count_valid_mode<2){
+        if(is_debugging){
+            cout << "=====================================================================================" << endl;
+            cout << "mode smaller than 2, will select one (>12000 points) or more (<12000 points) mode from plane with points less than 12000" << endl;
+        }
+        selected_mode.push_back(0);
+        for(int i=0; i<sizeofMode; i++){
+            if(i == selected_mode[0]){
+                continue;
+            }
+            if(mode_count[i]>=1000 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_second_max){
+                count_second_max = mode_count[i];
+                selected_mode[1] = i;
+                // selected_mode.push_back(i);
+            }
+        }
+
+        if(count_second_max != 0){
+            count_valid_mode++;
+            if(is_debugging){
+                cout << "**************************mode" << selected_mode[1] << ": " << modes[selected_mode[1]] << endl;
+                cout << "totally (>1000) " << mode_coor[selected_mode[1]].size() << " points" << endl;
+            }
+        }
+        else{
+            selected_mode.pop_back();
+        }
+        
+        if(count_valid_mode==2 && count_second_max<12000){
+            selected_mode.push_back(0);
+            int count_third_max{0};
+            for(int i=0; i<sizeofMode; i++){
+                if(i == selected_mode[0] || i == selected_mode[1]){
+                    continue;
+                }
+                if(mode_count[i]>=1000 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_third_max &&
+                (modes[i].t() * modes[selected_mode[1]]).val[0]<0.5){
+                    count_third_max = mode_count[i];
+                    selected_mode[2] = i;
+                }
+            }
+            if(count_third_max != 0){
+                count_valid_mode++;
+                if(is_debugging){
+                    cout << "**************************mode" << selected_mode[2] << ": " << modes[selected_mode[2]] << endl;
+                    cout << "totally (>1000) " << mode_coor[selected_mode[2]].size() << " points" << endl;
+                }
+            }
+            else{
+                selected_mode.pop_back();
+            }
+
+        }
+        else if(count_valid_mode==1){
+            selected_mode.push_back(0);
+            for(int i=0; i<sizeofMode; i++){
+                if(i == selected_mode[0]){
+                    continue;
+                }
+                if(mode_count[i]>=500 && mode_count[i]<=12000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_second_max){
+                    count_second_max = mode_count[i];
+                    selected_mode[1] = i;
+                }
+            }
+            if(count_second_max != 0){
+                count_valid_mode++;
+                if(is_debugging){
+                    cout << "**************************mode" << selected_mode[1] << ": " << modes[selected_mode[1]] << endl;
+                    cout << "totally (>500) " << mode_coor[selected_mode[1]].size() << " points" << endl;
+                }
+            }
+            else{
+                selected_mode.pop_back();
+                std::cerr << "only one plane detected!" << endl;
+            }
+
+        }
+    }
 
     //** if more than 2 valid modes, we have to calculate rotation matrix from each pair and evaluate which is the best
     //** paired_modes used to store number of a pair of modes
@@ -1317,7 +1322,6 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
      
 }
 
-
 void NI_SLAM::set_publish_refined_keyframe()
 {
     flag_publish_refined_keyframe = true;
@@ -1329,7 +1333,6 @@ void NI_SLAM::set_publish_refined_keyframe()
     cv_refined_color.encoding = sensor_msgs::image_encodings::TYPE_32FC1;
     cv_refined_depth.encoding = sensor_msgs::image_encodings::TYPE_32FC1;
 }
-
 
 inline void NI_SLAM::publish_keyframe()
 {
@@ -1352,7 +1355,6 @@ inline void NI_SLAM::publish_keyframe()
     map_info_pub.publish(map_info);
 }
 
-
 void NI_SLAM::set_publish_incremental_keypose()
 {
     pose_cov_pub = nh.advertise<geometry_msgs::PoseWithCovarianceStamped>("incremental_pose_cov", 1000);
@@ -1365,7 +1367,6 @@ void NI_SLAM::set_publish_incremental_keypose()
 
     pose_inc_cov.pose.covariance[5*7] = 4.592449e-06 * 2;
 }
-
 
 void NI_SLAM::set_publish_twist()
 {
@@ -1449,7 +1450,6 @@ void NI_SLAM::rotationFromTwoPlanes(Eigen::Vector3d &_v1, Eigen::Vector3d &_v11,
 
 }
 
-
 inline ArrayXXcf NI_SLAM::fft(const ArrayXXf& x)
 {
     ArrayXXcf xf = ArrayXXcf(width/2+1, height);
@@ -1461,7 +1461,6 @@ inline ArrayXXcf NI_SLAM::fft(const ArrayXXf& x)
     fftw_cleanup();
     return xf;
 }
-
 
 inline ArrayXXf NI_SLAM::ifft(const ArrayXXcf& xf)
 {
@@ -1476,7 +1475,6 @@ inline ArrayXXf NI_SLAM::ifft(const ArrayXXcf& xf)
     return x/x.size();
 }
 
-
 inline ArrayXXf NI_SLAM::shift(const ArrayXXf& x, int a, int b)
 {
     ArrayXXf y = ArrayXXf::Zero(width, height);
@@ -1484,10 +1482,6 @@ inline ArrayXXf NI_SLAM::shift(const ArrayXXf& x, int a, int b)
     x.block(max(0, -a), max(0, -b), width - abs(a), height - abs(b));
     return y;
 }
-
-
-
-
 
 void NI_SLAM::set_visualization()
 {
@@ -1500,12 +1494,10 @@ void NI_SLAM::set_visualization()
     cv_response.encoding = sensor_msgs::image_encodings::TYPE_32FC1;
 }
 
-
 void NI_SLAM::set_rotation_imu(double yaw, double pitch, double roll)
 {
     rotation_imu.setEuler(yaw, pitch, roll);
 }
-
 
 inline void NI_SLAM::show()
 {
@@ -1529,7 +1521,6 @@ inline void NI_SLAM::show()
     image_pub_new.publish(cv_newframe.toImageMsg());
     image_pub_response.publish(cv_response.toImageMsg());
 }
-
 
 void NI_SLAM::set_file(string name_prefix)
 {
@@ -1606,6 +1597,11 @@ void NI_SLAM::save_file()
 
     // file<<boost::format("%.9f") % (ros_header.stamp.sec+
     //      ros_header.stamp.nsec/1000000000.0)<<" "
+
+
+    t2 = std::chrono::steady_clock::now();
+    double total_time = std::chrono::duration_cast<std::chrono::duration<double> >(t2 - t1).count();
+
     file<<nth_frame+1<<" "
         <<pose.getOrigin()[0]<<" "
         <<pose.getOrigin()[1]<<" "
@@ -1613,7 +1609,7 @@ void NI_SLAM::save_file()
         <<pose.getRotation().x()<<" "
         <<pose.getRotation().y()<<" "
         <<pose.getRotation().z()<<" "
-        <<pose.getRotation().w()<<"\n"; // " " <<max_response<<" "<<psr<<" "<<time_use<<"\n";
+        <<pose.getRotation().w()<< " " << total_time / float(nth_frame+1) << "\n"; // " " <<max_response<<" "<<psr<<" "<<time_use<<"\n";
         // <<pose_real.getOrigin()[0]<<" "
         // <<pose_real.getOrigin()[1]<<" "
         // <<pose_real.getOrigin()[2]<<" "
@@ -1639,6 +1635,11 @@ void NI_SLAM::save_file(FramePtr frame)
     //      ros_header.stamp.nsec/1000000000.0)<<" "
     int frame_id = frame->GetFrameId();
     tf::Transform pose_to_save = frame->GetPose();
+
+    t2 = std::chrono::steady_clock::now();
+    double total_time = std::chrono::duration_cast<std::chrono::duration<double> >(t2 - t1).count();
+
+
     file<<frame_id+1<<" "
         <<pose_to_save.getOrigin()[0]<<" "
         <<pose_to_save.getOrigin()[1]<<" "
@@ -1646,7 +1647,7 @@ void NI_SLAM::save_file(FramePtr frame)
         <<pose_to_save.getRotation().x()<<" "
         <<pose_to_save.getRotation().y()<<" "
         <<pose_to_save.getRotation().z()<<" "
-        <<pose_to_save.getRotation().w()<<"\n";
+        <<pose_to_save.getRotation().w()<< " " << total_time / (frame_id+1) << "\n";
     
     file.close();
 }
@@ -1657,6 +1658,11 @@ void NI_SLAM::ShutDown(){
     _normalMap_thread.join();
     _rotation_thread.join();
     _translation_thread.join();
+    
+    // t2 = std::chrono::steady_clock::now();
+    // double total_time = std::chrono::duration_cast<std::chrono::duration<double> >(t2 - t1).count();
+    // cout << "average time(ms) for each frame: " << total_time / float(nth_frame) << endl;
+
 }
 
 

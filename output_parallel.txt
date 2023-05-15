@@ -1,0 +1,1373 @@
+[0m[ INFO] [1684069627.351493765]: Opening /home/zheng/projects/ni_slam_ws/src/ni_slam/bag/icl_ofkt3.bag[0m
+
+Waiting 1 seconds after advertising topics... done.
+
+Hit space to toggle paused, or 's' to step.
+ [RUNNING]  Bag Time: 1678417386.019812   Duration: 0.000000 / 41.300000                [RUNNING]  Bag Time: 1678417386.052740   Duration: 0.032928 / 41.300000               [0m[ INFO] [1684069627.554145039]: Get image_height parameter: 360[0m
+[0m[ INFO] [1684069627.555495695]: Get image_width parameter: 480[0m
+[0m[ INFO] [1684069627.555781647]: Get depth image_height parameter: 480[0m
+[0m[ INFO] [1684069627.556034631]: Get depth image_width parameter: 640[0m
+[0m[ INFO] [1684069627.556299580]: Get filename prefix: /home/zheng/projects/ni_slam_ws/src/ni_slam/bag/icl_ofkt3[0m
+[0m[ INFO] [1684069627.556569572]: Get gt poses file: /home/zheng/datasets/public_dataset/ICL-NUIM/of_kt3/groundtruth.txt[0m
+[0m[ INFO] [1684069627.556896241]: Get max time diff for topics: 0.030000[0m
+[0m[ INFO] [1684069627.557072584]: Get PSR bound: 50.000000[0m
+[0m[ INFO] [1684069627.557204524]: Get Visualization flag: false[0m
+[0m[ INFO] [1684069627.557323962]: Get queue_size_cloud parameter: 1000[0m
+[0m[ INFO] [1684069627.557507918]: Get queue_size_imu parameter: 1000[0m
+[0m[ INFO] [1684069627.557744346]: Get queue_size_sync parameter: 1000[0m
+[0m[ INFO] [1684069627.581884337]: Is debugging: false[0m
+[0m[ INFO] [1684069627.582093847]: Get rotation imu: [0.000000, 0.000000, 0.000000][0m
+[0m[ INFO] [1684069627.582265391]: Get adaptive parameter mu: 0.800000[0m
+[0m[ INFO] [1684069627.582412607]: Get parent frame: world[0m
+[0m[ INFO] [1684069627.582548804]: Get child frame: ni_slam[0m
+[0m[ INFO] [1684069627.582680740]: Get refined_frame/publish_flag: false[0m
+[0m[ INFO] [1684069627.582813749]: Get keypose_with_covariance publish_flag: True[0m
+[0m[ INFO] [1684069627.582945355]: Get twist_with_covariance publish_flag: False[0m
+Callback:: 56361167.514864 Hz
+--------processing 1.png-----------
+ [RUNNING]  Bag Time: 1678417386.084402   Duration: 0.064590 / 41.300000               --------processing 2.png-----------
+ [RUNNING]  Bag Time: 1678417386.116968   Duration: 0.097156 / 41.300000               --------processing 3.png-----------
+ [RUNNING]  Bag Time: 1678417386.150881   Duration: 0.131069 / 41.300000               --------processing 4.png-----------
+ [RUNNING]  Bag Time: 1678417386.184883   Duration: 0.165071 / 41.300000               --------processing 5.png-----------
+ [RUNNING]  Bag Time: 1678417386.218021   Duration: 0.198209 / 41.300000               --------processing 6.png-----------
+ [RUNNING]  Bag Time: 1678417386.251457   Duration: 0.231645 / 41.300000               --------processing 7.png-----------
+ [RUNNING]  Bag Time: 1678417386.284626   Duration: 0.264814 / 41.300000               --------processing 8.png-----------
+ [RUNNING]  Bag Time: 1678417386.318086   Duration: 0.298274 / 41.300000               --------processing 9.png-----------
+ [RUNNING]  Bag Time: 1678417386.348850   Duration: 0.329038 / 41.300000               --------processing 10.png-----------
+ [RUNNING]  Bag Time: 1678417386.383684   Duration: 0.363872 / 41.300000               --------processing 11.png-----------
+ [RUNNING]  Bag Time: 1678417386.415673   Duration: 0.395862 / 41.300000               --------processing 12.png-----------
+ [RUNNING]  Bag Time: 1678417386.451184   Duration: 0.431372 / 41.300000               --------processing 13.png-----------
+ [RUNNING]  Bag Time: 1678417386.483143   Duration: 0.463332 / 41.300000               --------processing 14.png-----------
+ [RUNNING]  Bag Time: 1678417386.516197   Duration: 0.496386 / 41.300000               --------processing 15.png-----------
+ [RUNNING]  Bag Time: 1678417386.546407   Duration: 0.526595 / 41.300000               --------processing 16.png-----------
+ [RUNNING]  Bag Time: 1678417386.578847   Duration: 0.559036 / 41.300000               --------processing 17.png-----------
+ [RUNNING]  Bag Time: 1678417386.610282   Duration: 0.590470 / 41.300000               --------processing 18.png-----------
+ [RUNNING]  Bag Time: 1678417386.645504   Duration: 0.625692 / 41.300000               --------processing 19.png-----------
+ [RUNNING]  Bag Time: 1678417386.678379   Duration: 0.658567 / 41.300000               --------processing 20.png-----------
+ [RUNNING]  Bag Time: 1678417386.709999   Duration: 0.690187 / 41.300000               --------processing 21.png-----------
+ [RUNNING]  Bag Time: 1678417386.745793   Duration: 0.725981 / 41.300000               --------processing 22.png-----------
+ [RUNNING]  Bag Time: 1678417386.778283   Duration: 0.758471 / 41.300000               --------processing 23.png-----------
+ [RUNNING]  Bag Time: 1678417386.811676   Duration: 0.791864 / 41.300000               --------processing 24.png-----------
+ [RUNNING]  Bag Time: 1678417386.845695   Duration: 0.825883 / 41.300000               --------processing 25.png-----------
+ [RUNNING]  Bag Time: 1678417386.878874   Duration: 0.859062 / 41.300000               --------processing 26.png-----------
+ [RUNNING]  Bag Time: 1678417386.911130   Duration: 0.891318 / 41.300000               --------processing 27.png-----------
+ [RUNNING]  Bag Time: 1678417386.947015   Duration: 0.927204 / 41.300000               --------processing 28.png-----------
+ [RUNNING]  Bag Time: 1678417386.977456   Duration: 0.957644 / 41.300000               --------processing 29.png-----------
+ [RUNNING]  Bag Time: 1678417387.010973   Duration: 0.991161 / 41.300000               --------processing 30.png-----------
+ [RUNNING]  Bag Time: 1678417387.043677   Duration: 1.023865 / 41.300000               --------processing 31.png-----------
+ [RUNNING]  Bag Time: 1678417387.077182   Duration: 1.057370 / 41.300000               Callback:: 30.275711 Hz
+--------processing 32.png-----------
+ [RUNNING]  Bag Time: 1678417387.113588   Duration: 1.093776 / 41.300000               --------processing 33.png-----------
+ [RUNNING]  Bag Time: 1678417387.145524   Duration: 1.125712 / 41.300000               --------processing 34.png-----------
+ [RUNNING]  Bag Time: 1678417387.179957   Duration: 1.160145 / 41.300000               --------processing 35.png-----------
+ [RUNNING]  Bag Time: 1678417387.210482   Duration: 1.190670 / 41.300000               --------processing 36.png-----------
+ [RUNNING]  Bag Time: 1678417387.244203   Duration: 1.224391 / 41.300000               --------processing 37.png-----------
+ [RUNNING]  Bag Time: 1678417387.277185   Duration: 1.257373 / 41.300000               --------processing 38.png-----------
+ [RUNNING]  Bag Time: 1678417387.310376   Duration: 1.290564 / 41.300000               --------processing 39.png-----------
+ [RUNNING]  Bag Time: 1678417387.343862   Duration: 1.324050 / 41.300000               --------processing 40.png-----------
+ [RUNNING]  Bag Time: 1678417387.377297   Duration: 1.357485 / 41.300000               --------processing 41.png-----------
+ [RUNNING]  Bag Time: 1678417387.410550   Duration: 1.390739 / 41.300000               --------processing 42.png-----------
+ [RUNNING]  Bag Time: 1678417387.443822   Duration: 1.424010 / 41.300000               --------processing 43.png-----------
+ [RUNNING]  Bag Time: 1678417387.476891   Duration: 1.457079 / 41.300000               --------processing 44.png-----------
+ [RUNNING]  Bag Time: 1678417387.510564   Duration: 1.490753 / 41.300000               --------processing 45.png-----------
+ [RUNNING]  Bag Time: 1678417387.543786   Duration: 1.523974 / 41.300000               --------processing 46.png-----------
+ [RUNNING]  Bag Time: 1678417387.580400   Duration: 1.560588 / 41.300000               --------processing 47.png-----------
+ [RUNNING]  Bag Time: 1678417387.611660   Duration: 1.591848 / 41.300000               --------processing 48.png-----------
+ [RUNNING]  Bag Time: 1678417387.648071   Duration: 1.628259 / 41.300000               --------processing 49.png-----------
+ [RUNNING]  Bag Time: 1678417387.678269   Duration: 1.658457 / 41.300000               --------processing 50.png-----------
+ [RUNNING]  Bag Time: 1678417387.710817   Duration: 1.691005 / 41.300000               --------processing 51.png-----------
+ [RUNNING]  Bag Time: 1678417387.744194   Duration: 1.724382 / 41.300000               --------processing 52.png-----------
+ [RUNNING]  Bag Time: 1678417387.777633   Duration: 1.757821 / 41.300000               --------processing 53.png-----------
+ [RUNNING]  Bag Time: 1678417387.810391   Duration: 1.790579 / 41.300000               --------processing 54.png-----------
+ [RUNNING]  Bag Time: 1678417387.844963   Duration: 1.825152 / 41.300000               --------processing 55.png-----------
+ [RUNNING]  Bag Time: 1678417387.877103   Duration: 1.857291 / 41.300000               --------processing 56.png-----------
+ [RUNNING]  Bag Time: 1678417387.910437   Duration: 1.890625 / 41.300000               --------processing 57.png-----------
+ [RUNNING]  Bag Time: 1678417387.943486   Duration: 1.923674 / 41.300000               --------processing 58.png-----------
+ [RUNNING]  Bag Time: 1678417387.986271   Duration: 1.966459 / 41.300000               --------processing 59.png-----------
+ [RUNNING]  Bag Time: 1678417388.016564   Duration: 1.996752 / 41.300000               --------processing 60.png-----------
+ [RUNNING]  Bag Time: 1678417388.046870   Duration: 2.027058 / 41.300000               --------processing 61.png-----------
+ [RUNNING]  Bag Time: 1678417388.077197   Duration: 2.057385 / 41.300000               --------processing 62.png-----------
+ [RUNNING]  Bag Time: 1678417388.110141   Duration: 2.090329 / 41.300000               Callback:: 30.140325 Hz
+--------processing 63.png-----------
+ [RUNNING]  Bag Time: 1678417388.143179   Duration: 2.123367 / 41.300000               --------processing 64.png-----------
+ [RUNNING]  Bag Time: 1678417388.176368   Duration: 2.156557 / 41.300000               --------processing 65.png-----------
+ [RUNNING]  Bag Time: 1678417388.210207   Duration: 2.190395 / 41.300000               --------processing 66.png-----------
+ [RUNNING]  Bag Time: 1678417388.243282   Duration: 2.223470 / 41.300000               --------processing 67.png-----------
+ [RUNNING]  Bag Time: 1678417388.286327   Duration: 2.266515 / 41.300000               --------processing 68.png-----------
+ [RUNNING]  Bag Time: 1678417388.316663   Duration: 2.296851 / 41.300000               --------processing 69.png-----------
+ [RUNNING]  Bag Time: 1678417388.346951   Duration: 2.327139 / 41.300000               --------processing 70.png-----------
+ [RUNNING]  Bag Time: 1678417388.377528   Duration: 2.357717 / 41.300000               --------processing 71.png-----------
+ [RUNNING]  Bag Time: 1678417388.410228   Duration: 2.390416 / 41.300000               --------processing 72.png-----------
+ [RUNNING]  Bag Time: 1678417388.452909   Duration: 2.433097 / 41.300000               --------processing 73.png-----------
+ [RUNNING]  Bag Time: 1678417388.483208   Duration: 2.463396 / 41.300000               --------processing 74.png-----------
+ [RUNNING]  Bag Time: 1678417388.513474   Duration: 2.493662 / 41.300000               --------processing 75.png-----------
+ [RUNNING]  Bag Time: 1678417388.543838   Duration: 2.524026 / 41.300000               --------processing 76.png-----------
+ [RUNNING]  Bag Time: 1678417388.586395   Duration: 2.566583 / 41.300000               --------processing 77.png-----------
+ [RUNNING]  Bag Time: 1678417388.616626   Duration: 2.596814 / 41.300000               --------processing 78.png-----------
+ [RUNNING]  Bag Time: 1678417388.646928   Duration: 2.627116 / 41.300000               --------processing 79.png-----------
+ [RUNNING]  Bag Time: 1678417388.677237   Duration: 2.657425 / 41.300000               --------processing 80.png-----------
+ [RUNNING]  Bag Time: 1678417388.719409   Duration: 2.699598 / 41.300000               --------processing 81.png-----------
+ [RUNNING]  Bag Time: 1678417388.749721   Duration: 2.729909 / 41.300000               --------processing 82.png-----------
+ [RUNNING]  Bag Time: 1678417388.780159   Duration: 2.760347 / 41.300000               --------processing 83.png-----------
+ [RUNNING]  Bag Time: 1678417388.810294   Duration: 2.790482 / 41.300000               --------processing 84.png-----------
+ [RUNNING]  Bag Time: 1678417388.843239   Duration: 2.823427 / 41.300000               --------processing 85.png-----------
+ [RUNNING]  Bag Time: 1678417388.876451   Duration: 2.856639 / 41.300000               --------processing 86.png-----------
+ [RUNNING]  Bag Time: 1678417388.910444   Duration: 2.890632 / 41.300000               --------processing 87.png-----------
+ [RUNNING]  Bag Time: 1678417388.943135   Duration: 2.923323 / 41.300000               --------processing 88.png-----------
+ [RUNNING]  Bag Time: 1678417388.977424   Duration: 2.957612 / 41.300000               --------processing 89.png-----------
+ [RUNNING]  Bag Time: 1678417389.010697   Duration: 2.990885 / 41.300000               --------processing 90.png-----------
+ [RUNNING]  Bag Time: 1678417389.043335   Duration: 3.023523 / 41.300000               --------processing 91.png-----------
+ [RUNNING]  Bag Time: 1678417389.077195   Duration: 3.057383 / 41.300000               --------processing 92.png-----------
+ [RUNNING]  Bag Time: 1678417389.110338   Duration: 3.090527 / 41.300000               Callback:: 29.949019 Hz
+--------processing 93.png-----------
+ [RUNNING]  Bag Time: 1678417389.143898   Duration: 3.124087 / 41.300000               --------processing 94.png-----------
+ [RUNNING]  Bag Time: 1678417389.177566   Duration: 3.157754 / 41.300000               --------processing 95.png-----------
+ [RUNNING]  Bag Time: 1678417389.209893   Duration: 3.190081 / 41.300000               --------processing 96.png-----------
+ [RUNNING]  Bag Time: 1678417389.243641   Duration: 3.223829 / 41.300000               --------processing 97.png-----------
+ [RUNNING]  Bag Time: 1678417389.276537   Duration: 3.256726 / 41.300000               --------processing 98.png-----------
+ [RUNNING]  Bag Time: 1678417389.309778   Duration: 3.289967 / 41.300000               --------processing 99.png-----------
+ [RUNNING]  Bag Time: 1678417389.352985   Duration: 3.333173 / 41.300000               --------processing 100.png-----------
+ [RUNNING]  Bag Time: 1678417389.383318   Duration: 3.363506 / 41.300000               --------processing 101.png-----------
+ [RUNNING]  Bag Time: 1678417389.413710   Duration: 3.393898 / 41.300000               --------processing 102.png-----------
+ [RUNNING]  Bag Time: 1678417389.444015   Duration: 3.424203 / 41.300000               --------processing 103.png-----------
+ [RUNNING]  Bag Time: 1678417389.476444   Duration: 3.456632 / 41.300000               --------processing 104.png-----------
+ [RUNNING]  Bag Time: 1678417389.509730   Duration: 3.489918 / 41.300000               --------processing 105.png-----------
+ [RUNNING]  Bag Time: 1678417389.543460   Duration: 3.523649 / 41.300000               --------processing 106.png-----------
+ [RUNNING]  Bag Time: 1678417389.586380   Duration: 3.566568 / 41.300000               --------processing 107.png-----------
+ [RUNNING]  Bag Time: 1678417389.616632   Duration: 3.596820 / 41.300000               --------processing 108.png-----------
+ [RUNNING]  Bag Time: 1678417389.646825   Duration: 3.627013 / 41.300000               --------processing 109.png-----------
+ [RUNNING]  Bag Time: 1678417389.680321   Duration: 3.660509 / 41.300000               --------processing 110.png-----------
+ [RUNNING]  Bag Time: 1678417389.710508   Duration: 3.690696 / 41.300000               --------processing 111.png-----------
+ [RUNNING]  Bag Time: 1678417389.743502   Duration: 3.723690 / 41.300000               --------processing 112.png-----------
+ [RUNNING]  Bag Time: 1678417389.777907   Duration: 3.758095 / 41.300000               --------processing 113.png-----------
+ [RUNNING]  Bag Time: 1678417389.814982   Duration: 3.795170 / 41.300000               --------processing 114.png-----------
+ [RUNNING]  Bag Time: 1678417389.845223   Duration: 3.825412 / 41.300000               --------processing 115.png-----------
+ [RUNNING]  Bag Time: 1678417389.877484   Duration: 3.857672 / 41.300000               --------processing 116.png-----------
+ [RUNNING]  Bag Time: 1678417389.912948   Duration: 3.893136 / 41.300000               --------processing 117.png-----------
+ [RUNNING]  Bag Time: 1678417389.943668   Duration: 3.923856 / 41.300000               --------processing 118.png-----------
+ [RUNNING]  Bag Time: 1678417389.976667   Duration: 3.956856 / 41.300000               --------processing 119.png-----------
+ [RUNNING]  Bag Time: 1678417390.011194   Duration: 3.991383 / 41.300000               --------processing 120.png-----------
+ [RUNNING]  Bag Time: 1678417390.044223   Duration: 4.024411 / 41.300000               --------processing 121.png-----------
+ [RUNNING]  Bag Time: 1678417390.077966   Duration: 4.058154 / 41.300000               --------processing 122.png-----------
+ [RUNNING]  Bag Time: 1678417390.110990   Duration: 4.091178 / 41.300000               Callback:: 29.963608 Hz
+--------processing 123.png-----------
+ [RUNNING]  Bag Time: 1678417390.143400   Duration: 4.123588 / 41.300000               --------processing 124.png-----------
+ [RUNNING]  Bag Time: 1678417390.176438   Duration: 4.156626 / 41.300000               --------processing 125.png-----------
+ [RUNNING]  Bag Time: 1678417390.209750   Duration: 4.189938 / 41.300000               --------processing 126.png-----------
+ [RUNNING]  Bag Time: 1678417390.243511   Duration: 4.223700 / 41.300000               --------processing 127.png-----------
+ [RUNNING]  Bag Time: 1678417390.276448   Duration: 4.256636 / 41.300000               --------processing 128.png-----------
+ [RUNNING]  Bag Time: 1678417390.310315   Duration: 4.290503 / 41.300000               --------processing 129.png-----------
+ [RUNNING]  Bag Time: 1678417390.345259   Duration: 4.325448 / 41.300000               --------processing 130.png-----------
+ [RUNNING]  Bag Time: 1678417390.377794   Duration: 4.357982 / 41.300000               --------processing 131.png-----------
+ [RUNNING]  Bag Time: 1678417390.410280   Duration: 4.390468 / 41.300000               --------processing 132.png-----------
+ [RUNNING]  Bag Time: 1678417390.444134   Duration: 4.424322 / 41.300000               --------processing 133.png-----------
+ [RUNNING]  Bag Time: 1678417390.476646   Duration: 4.456835 / 41.300000               --------processing 134.png-----------
+ [RUNNING]  Bag Time: 1678417390.512210   Duration: 4.492398 / 41.300000               --------processing 135.png-----------
+ [RUNNING]  Bag Time: 1678417390.544111   Duration: 4.524299 / 41.300000               --------processing 136.png-----------
+ [RUNNING]  Bag Time: 1678417390.578294   Duration: 4.558482 / 41.300000               --------processing 137.png-----------
+ [RUNNING]  Bag Time: 1678417390.610971   Duration: 4.591159 / 41.300000               --------processing 138.png-----------
+ [RUNNING]  Bag Time: 1678417390.646149   Duration: 4.626337 / 41.300000               --------processing 139.png-----------
+ [RUNNING]  Bag Time: 1678417390.676957   Duration: 4.657145 / 41.300000               --------processing 140.png-----------
+ [RUNNING]  Bag Time: 1678417390.711153   Duration: 4.691341 / 41.300000               --------processing 141.png-----------
+ [RUNNING]  Bag Time: 1678417390.745517   Duration: 4.725705 / 41.300000               --------processing 142.png-----------
+ [RUNNING]  Bag Time: 1678417390.780293   Duration: 4.760481 / 41.300000               --------processing 143.png-----------
+ [RUNNING]  Bag Time: 1678417390.813198   Duration: 4.793386 / 41.300000               --------processing 144.png-----------
+ [RUNNING]  Bag Time: 1678417390.843872   Duration: 4.824060 / 41.300000               --------processing 145.png-----------
+ [RUNNING]  Bag Time: 1678417390.876817   Duration: 4.857005 / 41.300000               --------processing 146.png-----------
+ [RUNNING]  Bag Time: 1678417390.910014   Duration: 4.890203 / 41.300000               --------processing 147.png-----------
+ [RUNNING]  Bag Time: 1678417390.945375   Duration: 4.925564 / 41.300000               --------processing 148.png-----------
+ [RUNNING]  Bag Time: 1678417390.976838   Duration: 4.957026 / 41.300000               --------processing 149.png-----------
+ [RUNNING]  Bag Time: 1678417391.009826   Duration: 4.990015 / 41.300000               --------processing 150.png-----------
+ [RUNNING]  Bag Time: 1678417391.044879   Duration: 5.025067 / 41.300000               --------processing 151.png-----------
+ [RUNNING]  Bag Time: 1678417391.079778   Duration: 5.059966 / 41.300000               --------processing 152.png-----------
+ [RUNNING]  Bag Time: 1678417391.112543   Duration: 5.092731 / 41.300000               Callback:: 29.968276 Hz
+--------processing 153.png-----------
+ [RUNNING]  Bag Time: 1678417391.145706   Duration: 5.125894 / 41.300000               --------processing 154.png-----------
+ [RUNNING]  Bag Time: 1678417391.177214   Duration: 5.157402 / 41.300000               --------processing 155.png-----------
+ [RUNNING]  Bag Time: 1678417391.212930   Duration: 5.193118 / 41.300000               --------processing 156.png-----------
+ [RUNNING]  Bag Time: 1678417391.245715   Duration: 5.225903 / 41.300000               --------processing 157.png-----------
+ [RUNNING]  Bag Time: 1678417391.278280   Duration: 5.258468 / 41.300000               --------processing 158.png-----------
+ [RUNNING]  Bag Time: 1678417391.311025   Duration: 5.291213 / 41.300000               --------processing 159.png-----------
+ [RUNNING]  Bag Time: 1678417391.343587   Duration: 5.323775 / 41.300000               --------processing 160.png-----------
+ [RUNNING]  Bag Time: 1678417391.381229   Duration: 5.361418 / 41.300000               --------processing 161.png-----------
+ [RUNNING]  Bag Time: 1678417391.412190   Duration: 5.392378 / 41.300000               --------processing 162.png-----------
+ [RUNNING]  Bag Time: 1678417391.444829   Duration: 5.425017 / 41.300000               --------processing 163.png-----------
+ [RUNNING]  Bag Time: 1678417391.479155   Duration: 5.459343 / 41.300000               --------processing 164.png-----------
+ [RUNNING]  Bag Time: 1678417391.511602   Duration: 5.491790 / 41.300000               --------processing 165.png-----------
+ [RUNNING]  Bag Time: 1678417391.544736   Duration: 5.524924 / 41.300000               --------processing 166.png-----------
+ [RUNNING]  Bag Time: 1678417391.578626   Duration: 5.558815 / 41.300000               --------processing 167.png-----------
+ [RUNNING]  Bag Time: 1678417391.611544   Duration: 5.591732 / 41.300000               --------processing 168.png-----------
+ [RUNNING]  Bag Time: 1678417391.646549   Duration: 5.626737 / 41.300000               --------processing 169.png-----------
+ [RUNNING]  Bag Time: 1678417391.678555   Duration: 5.658744 / 41.300000               --------processing 170.png-----------
+ [RUNNING]  Bag Time: 1678417391.712507   Duration: 5.692695 / 41.300000               --------processing 171.png-----------
+ [RUNNING]  Bag Time: 1678417391.743860   Duration: 5.724048 / 41.300000               --------processing 172.png-----------
+ [RUNNING]  Bag Time: 1678417391.777104   Duration: 5.757292 / 41.300000               --------processing 173.png-----------
+ [RUNNING]  Bag Time: 1678417391.812171   Duration: 5.792359 / 41.300000               --------processing 174.png-----------
+ [RUNNING]  Bag Time: 1678417391.847450   Duration: 5.827638 / 41.300000               --------processing 175.png-----------
+ [RUNNING]  Bag Time: 1678417391.880584   Duration: 5.860772 / 41.300000               --------processing 176.png-----------
+ [RUNNING]  Bag Time: 1678417391.917979   Duration: 5.898167 / 41.300000               --------processing 177.png-----------
+ [RUNNING]  Bag Time: 1678417391.948287   Duration: 5.928475 / 41.300000               --------processing 178.png-----------
+ [RUNNING]  Bag Time: 1678417391.979448   Duration: 5.959636 / 41.300000               --------processing 179.png-----------
+ [RUNNING]  Bag Time: 1678417392.011521   Duration: 5.991709 / 41.300000               --------processing 180.png-----------
+ [RUNNING]  Bag Time: 1678417392.047477   Duration: 6.027665 / 41.300000               --------processing 181.png-----------
+ [RUNNING]  Bag Time: 1678417392.078181   Duration: 6.058369 / 41.300000               --------processing 182.png-----------
+ [RUNNING]  Bag Time: 1678417392.110330   Duration: 6.090518 / 41.300000               Callback:: 29.944413 Hz
+--------processing 183.png-----------
+ [RUNNING]  Bag Time: 1678417392.146846   Duration: 6.127034 / 41.300000               --------processing 184.png-----------
+ [RUNNING]  Bag Time: 1678417392.182992   Duration: 6.163180 / 41.300000               --------processing 185.png-----------
+ [RUNNING]  Bag Time: 1678417392.213336   Duration: 6.193524 / 41.300000               --------processing 186.png-----------
+ [RUNNING]  Bag Time: 1678417392.245899   Duration: 6.226087 / 41.300000               --------processing 187.png-----------
+ [RUNNING]  Bag Time: 1678417392.280367   Duration: 6.260555 / 41.300000               --------processing 188.png-----------
+ [RUNNING]  Bag Time: 1678417392.316180   Duration: 6.296369 / 41.300000               --------processing 189.png-----------
+ [RUNNING]  Bag Time: 1678417392.349452   Duration: 6.329640 / 41.300000               --------processing 190.png-----------
+ [RUNNING]  Bag Time: 1678417392.379659   Duration: 6.359848 / 41.300000               --------processing 191.png-----------
+ [RUNNING]  Bag Time: 1678417392.416134   Duration: 6.396322 / 41.300000               --------processing 192.png-----------
+ [RUNNING]  Bag Time: 1678417392.446368   Duration: 6.426557 / 41.300000               --------processing 193.png-----------
+ [RUNNING]  Bag Time: 1678417392.478543   Duration: 6.458731 / 41.300000               --------processing 194.png-----------
+ [RUNNING]  Bag Time: 1678417392.514009   Duration: 6.494197 / 41.300000               --------processing 195.png-----------
+ [RUNNING]  Bag Time: 1678417392.547841   Duration: 6.528029 / 41.300000               --------processing 196.png-----------
+ [RUNNING]  Bag Time: 1678417392.580458   Duration: 6.560646 / 41.300000               --------processing 197.png-----------
+ [RUNNING]  Bag Time: 1678417392.611833   Duration: 6.592021 / 41.300000               --------processing 198.png-----------
+ [RUNNING]  Bag Time: 1678417392.653105   Duration: 6.633293 / 41.300000               --------processing 199.png-----------
+ [RUNNING]  Bag Time: 1678417392.684614   Duration: 6.664802 / 41.300000               --------processing 200.png-----------
+ [RUNNING]  Bag Time: 1678417392.716748   Duration: 6.696936 / 41.300000               --------processing 201.png-----------
+ [RUNNING]  Bag Time: 1678417392.744935   Duration: 6.725123 / 41.300000               --------processing 202.png-----------
+ [RUNNING]  Bag Time: 1678417392.782106   Duration: 6.762294 / 41.300000               --------processing 203.png-----------
+ [RUNNING]  Bag Time: 1678417392.816522   Duration: 6.796710 / 41.300000               --------processing 204.png-----------
+ [RUNNING]  Bag Time: 1678417392.851171   Duration: 6.831359 / 41.300000               --------processing 205.png-----------
+ [RUNNING]  Bag Time: 1678417392.886313   Duration: 6.866502 / 41.300000               --------processing 206.png-----------
+ [RUNNING]  Bag Time: 1678417392.916515   Duration: 6.896703 / 41.300000               --------processing 207.png-----------
+ [RUNNING]  Bag Time: 1678417392.950693   Duration: 6.930881 / 41.300000               --------processing 208.png-----------
+ [RUNNING]  Bag Time: 1678417392.982189   Duration: 6.962378 / 41.300000               --------processing 209.png-----------
+ [RUNNING]  Bag Time: 1678417393.010588   Duration: 6.990777 / 41.300000               --------processing 210.png-----------
+ [RUNNING]  Bag Time: 1678417393.046808   Duration: 7.026996 / 41.300000               --------processing 211.png-----------
+ [RUNNING]  Bag Time: 1678417393.083952   Duration: 7.064140 / 41.300000               --------processing 212.png-----------
+ [RUNNING]  Bag Time: 1678417393.114189   Duration: 7.094377 / 41.300000               Callback:: 29.677041 Hz
+--------processing 213.png-----------
+ [RUNNING]  Bag Time: 1678417393.152605   Duration: 7.132793 / 41.300000               --------processing 214.png-----------
+ [RUNNING]  Bag Time: 1678417393.183108   Duration: 7.163296 / 41.300000               --------processing 215.png-----------
+ [RUNNING]  Bag Time: 1678417393.218021   Duration: 7.198209 / 41.300000               --------processing 216.png-----------
+ [RUNNING]  Bag Time: 1678417393.249844   Duration: 7.230032 / 41.300000               --------processing 217.png-----------
+ [RUNNING]  Bag Time: 1678417393.285922   Duration: 7.266110 / 41.300000               --------processing 218.png-----------
+ [RUNNING]  Bag Time: 1678417393.312057   Duration: 7.292245 / 41.300000               --------processing 219.png-----------
+ [RUNNING]  Bag Time: 1678417393.352649   Duration: 7.332837 / 41.300000               --------processing 220.png-----------
+ [RUNNING]  Bag Time: 1678417393.383507   Duration: 7.363695 / 41.300000               --------processing 221.png-----------
+ [RUNNING]  Bag Time: 1678417393.411967   Duration: 7.392155 / 41.300000               --------processing 222.png-----------
+ [RUNNING]  Bag Time: 1678417393.446255   Duration: 7.426443 / 41.300000               --------processing 223.png-----------
+ [RUNNING]  Bag Time: 1678417393.481410   Duration: 7.461598 / 41.300000               --------processing 224.png-----------
+ [RUNNING]  Bag Time: 1678417393.511276   Duration: 7.491464 / 41.300000               --------processing 225.png-----------
+ [RUNNING]  Bag Time: 1678417393.551984   Duration: 7.532172 / 41.300000               --------processing 226.png-----------
+ [RUNNING]  Bag Time: 1678417393.584038   Duration: 7.564226 / 41.300000               --------processing 227.png-----------
+ [RUNNING]  Bag Time: 1678417393.618802   Duration: 7.598991 / 41.300000               --------processing 228.png-----------
+ [RUNNING]  Bag Time: 1678417393.650787   Duration: 7.630975 / 41.300000               --------processing 229.png-----------
+ [RUNNING]  Bag Time: 1678417393.683213   Duration: 7.663402 / 41.300000               --------processing 230.png-----------
+ [RUNNING]  Bag Time: 1678417393.708904   Duration: 7.689092 / 41.300000               --------processing 231.png-----------
+ [RUNNING]  Bag Time: 1678417393.746488   Duration: 7.726676 / 41.300000               --------processing 232.png-----------
+ [RUNNING]  Bag Time: 1678417393.782006   Duration: 7.762194 / 41.300000               --------processing 233.png-----------
+ [RUNNING]  Bag Time: 1678417393.817391   Duration: 7.797580 / 41.300000               --------processing 234.png-----------
+ [RUNNING]  Bag Time: 1678417393.846793   Duration: 7.826981 / 41.300000               --------processing 235.png-----------
+ [RUNNING]  Bag Time: 1678417393.883684   Duration: 7.863872 / 41.300000               --------processing 236.png-----------
+ [RUNNING]  Bag Time: 1678417393.917346   Duration: 7.897534 / 41.300000               --------processing 237.png-----------
+ [RUNNING]  Bag Time: 1678417393.952236   Duration: 7.932424 / 41.300000               --------processing 238.png-----------
+ [RUNNING]  Bag Time: 1678417393.984959   Duration: 7.965147 / 41.300000               --------processing 239.png-----------
+ [RUNNING]  Bag Time: 1678417394.009766   Duration: 7.989954 / 41.300000               --------processing 240.png-----------
+ [RUNNING]  Bag Time: 1678417394.051658   Duration: 8.031846 / 41.300000               --------processing 241.png-----------
+ [RUNNING]  Bag Time: 1678417394.085107   Duration: 8.065295 / 41.300000               --------processing 242.png-----------
+ [RUNNING]  Bag Time: 1678417394.115288   Duration: 8.095476 / 41.300000               --------processing 243.png-----------
+ [RUNNING]  Bag Time: 1678417394.145508   Duration: 8.125696 / 41.300000               Callback:: 30.333631 Hz
+--------processing 244.png-----------
+ [RUNNING]  Bag Time: 1678417394.179210   Duration: 8.159398 / 41.300000               --------processing 245.png-----------
+ [RUNNING]  Bag Time: 1678417394.213490   Duration: 8.193679 / 41.300000               --------processing 246.png-----------
+ [RUNNING]  Bag Time: 1678417394.245313   Duration: 8.225501 / 41.300000               --------processing 247.png-----------
+ [RUNNING]  Bag Time: 1678417394.279251   Duration: 8.259439 / 41.300000               --------processing 248.png-----------
+ [RUNNING]  Bag Time: 1678417394.312637   Duration: 8.292825 / 41.300000               --------processing 249.png-----------
+ [RUNNING]  Bag Time: 1678417394.346563   Duration: 8.326751 / 41.300000               --------processing 250.png-----------
+ [RUNNING]  Bag Time: 1678417394.380448   Duration: 8.360636 / 41.300000               --------processing 251.png-----------
+ [RUNNING]  Bag Time: 1678417394.411602   Duration: 8.391790 / 41.300000               --------processing 252.png-----------
+ [RUNNING]  Bag Time: 1678417394.444076   Duration: 8.424264 / 41.300000               --------processing 253.png-----------
+ [RUNNING]  Bag Time: 1678417394.477863   Duration: 8.458051 / 41.300000               --------processing 254.png-----------
+ [RUNNING]  Bag Time: 1678417394.510652   Duration: 8.490840 / 41.300000               --------processing 255.png-----------
+ [RUNNING]  Bag Time: 1678417394.543456   Duration: 8.523644 / 41.300000               --------processing 256.png-----------
+ [RUNNING]  Bag Time: 1678417394.576468   Duration: 8.556656 / 41.300000               --------processing 257.png-----------
+ [RUNNING]  Bag Time: 1678417394.619690   Duration: 8.599878 / 41.300000               --------processing 258.png-----------
+ [RUNNING]  Bag Time: 1678417394.649901   Duration: 8.630089 / 41.300000               --------processing 259.png-----------
+ [RUNNING]  Bag Time: 1678417394.680097   Duration: 8.660285 / 41.300000               --------processing 260.png-----------
+ [RUNNING]  Bag Time: 1678417394.711020   Duration: 8.691208 / 41.300000               --------processing 261.png-----------
+ [RUNNING]  Bag Time: 1678417394.744614   Duration: 8.724802 / 41.300000               --------processing 262.png-----------
+ [RUNNING]  Bag Time: 1678417394.776450   Duration: 8.756638 / 41.300000               --------processing 263.png-----------
+ [RUNNING]  Bag Time: 1678417394.811788   Duration: 8.791976 / 41.300000               --------processing 264.png-----------
+ [RUNNING]  Bag Time: 1678417394.844538   Duration: 8.824727 / 41.300000               --------processing 265.png-----------
+ [RUNNING]  Bag Time: 1678417394.878289   Duration: 8.858477 / 41.300000               --------processing 266.png-----------
+ [RUNNING]  Bag Time: 1678417394.911135   Duration: 8.891323 / 41.300000               --------processing 267.png-----------
+ [RUNNING]  Bag Time: 1678417394.943469   Duration: 8.923657 / 41.300000               --------processing 268.png-----------
+ [RUNNING]  Bag Time: 1678417394.977606   Duration: 8.957794 / 41.300000               --------processing 269.png-----------
+ [RUNNING]  Bag Time: 1678417395.011015   Duration: 8.991203 / 41.300000               --------processing 270.png-----------
+ [RUNNING]  Bag Time: 1678417395.043635   Duration: 9.023823 / 41.300000               --------processing 271.png-----------
+ [RUNNING]  Bag Time: 1678417395.076599   Duration: 9.056787 / 41.300000               --------processing 272.png-----------
+ [RUNNING]  Bag Time: 1678417395.110417   Duration: 9.090605 / 41.300000               --------processing 273.png-----------
+ [RUNNING]  Bag Time: 1678417395.145217   Duration: 9.125405 / 41.300000               --------processing 274.png-----------
+ [RUNNING]  Bag Time: 1678417395.179204   Duration: 9.159392 / 41.300000               Callback:: 30.064651 Hz
+--------processing 275.png-----------
+ [RUNNING]  Bag Time: 1678417395.211130   Duration: 9.191318 / 41.300000               --------processing 276.png-----------
+ [RUNNING]  Bag Time: 1678417395.244524   Duration: 9.224713 / 41.300000               --------processing 277.png-----------
+ [RUNNING]  Bag Time: 1678417395.276813   Duration: 9.257001 / 41.300000               --------processing 278.png-----------
+ [RUNNING]  Bag Time: 1678417395.311009   Duration: 9.291197 / 41.300000               --------processing 279.png-----------
+ [RUNNING]  Bag Time: 1678417395.344520   Duration: 9.324708 / 41.300000               --------processing 280.png-----------
+ [RUNNING]  Bag Time: 1678417395.378567   Duration: 9.358755 / 41.300000               --------processing 281.png-----------
+ [RUNNING]  Bag Time: 1678417395.411778   Duration: 9.391966 / 41.300000               --------processing 282.png-----------
+ [RUNNING]  Bag Time: 1678417395.444317   Duration: 9.424505 / 41.300000               --------processing 283.png-----------
+ [RUNNING]  Bag Time: 1678417395.478989   Duration: 9.459177 / 41.300000               --------processing 284.png-----------
+ [RUNNING]  Bag Time: 1678417395.510893   Duration: 9.491081 / 41.300000               --------processing 285.png-----------
+ [RUNNING]  Bag Time: 1678417395.544453   Duration: 9.524641 / 41.300000               --------processing 286.png-----------
+ [RUNNING]  Bag Time: 1678417395.577061   Duration: 9.557250 / 41.300000               --------processing 287.png-----------
+ [RUNNING]  Bag Time: 1678417395.611246   Duration: 9.591434 / 41.300000               --------processing 288.png-----------
+ [RUNNING]  Bag Time: 1678417395.643630   Duration: 9.623818 / 41.300000               --------processing 289.png-----------
+ [RUNNING]  Bag Time: 1678417395.676803   Duration: 9.656991 / 41.300000               --------processing 290.png-----------
+ [RUNNING]  Bag Time: 1678417395.710436   Duration: 9.690624 / 41.300000               --------processing 291.png-----------
+ [RUNNING]  Bag Time: 1678417395.749011   Duration: 9.729199 / 41.300000               --------processing 292.png-----------
+ [RUNNING]  Bag Time: 1678417395.780023   Duration: 9.760211 / 41.300000               --------processing 293.png-----------
+ [RUNNING]  Bag Time: 1678417395.812589   Duration: 9.792777 / 41.300000               --------processing 294.png-----------
+ [RUNNING]  Bag Time: 1678417395.846328   Duration: 9.826517 / 41.300000               --------processing 295.png-----------
+ [RUNNING]  Bag Time: 1678417395.879839   Duration: 9.860027 / 41.300000               --------processing 296.png-----------
+ [RUNNING]  Bag Time: 1678417395.912028   Duration: 9.892216 / 41.300000               --------processing 297.png-----------
+ [RUNNING]  Bag Time: 1678417395.945558   Duration: 9.925746 / 41.300000               --------processing 298.png-----------
+ [RUNNING]  Bag Time: 1678417395.980468   Duration: 9.960656 / 41.300000               --------processing 299.png-----------
+ [RUNNING]  Bag Time: 1678417396.010828   Duration: 9.991017 / 41.300000               --------processing 300.png-----------
+ [RUNNING]  Bag Time: 1678417396.045065   Duration: 10.025253 / 41.300000               --------processing 301.png-----------
+ [RUNNING]  Bag Time: 1678417396.078876   Duration: 10.059064 / 41.300000               --------processing 302.png-----------
+ [RUNNING]  Bag Time: 1678417396.110609   Duration: 10.090797 / 41.300000               --------processing 303.png-----------
+ [RUNNING]  Bag Time: 1678417396.145676   Duration: 10.125864 / 41.300000               --------processing 304.png-----------
+ [RUNNING]  Bag Time: 1678417396.179056   Duration: 10.159244 / 41.300000               Callback:: 29.943397 Hz
+--------processing 305.png-----------
+ [RUNNING]  Bag Time: 1678417396.213136   Duration: 10.193324 / 41.300000               --------processing 306.png-----------
+ [RUNNING]  Bag Time: 1678417396.246068   Duration: 10.226256 / 41.300000               --------processing 307.png-----------
+ [RUNNING]  Bag Time: 1678417396.278531   Duration: 10.258719 / 41.300000               --------processing 308.png-----------
+ [RUNNING]  Bag Time: 1678417396.311065   Duration: 10.291254 / 41.300000               --------processing 309.png-----------
+ [RUNNING]  Bag Time: 1678417396.345595   Duration: 10.325784 / 41.300000               --------processing 310.png-----------
+ [RUNNING]  Bag Time: 1678417396.376982   Duration: 10.357170 / 41.300000               --------processing 311.png-----------
+ [RUNNING]  Bag Time: 1678417396.410992   Duration: 10.391180 / 41.300000               --------processing 312.png-----------
+ [RUNNING]  Bag Time: 1678417396.443511   Duration: 10.423699 / 41.300000               --------processing 313.png-----------
+ [RUNNING]  Bag Time: 1678417396.477637   Duration: 10.457825 / 41.300000               --------processing 314.png-----------
+ [RUNNING]  Bag Time: 1678417396.511322   Duration: 10.491510 / 41.300000               --------processing 315.png-----------
+ [RUNNING]  Bag Time: 1678417396.543575   Duration: 10.523763 / 41.300000               --------processing 316.png-----------
+ [RUNNING]  Bag Time: 1678417396.577052   Duration: 10.557240 / 41.300000               --------processing 317.png-----------
+ [RUNNING]  Bag Time: 1678417396.611451   Duration: 10.591639 / 41.300000               --------processing 318.png-----------
+ [RUNNING]  Bag Time: 1678417396.644984   Duration: 10.625172 / 41.300000               --------processing 319.png-----------
+ [RUNNING]  Bag Time: 1678417396.678239   Duration: 10.658427 / 41.300000               --------processing 320.png-----------
+ [RUNNING]  Bag Time: 1678417396.710924   Duration: 10.691113 / 41.300000               --------processing 321.png-----------
+ [RUNNING]  Bag Time: 1678417396.743697   Duration: 10.723885 / 41.300000               --------processing 322.png-----------
+ [RUNNING]  Bag Time: 1678417396.778233   Duration: 10.758421 / 41.300000               --------processing 323.png-----------
+ [RUNNING]  Bag Time: 1678417396.811242   Duration: 10.791431 / 41.300000               --------processing 324.png-----------
+ [RUNNING]  Bag Time: 1678417396.845618   Duration: 10.825806 / 41.300000               --------processing 325.png-----------
+ [RUNNING]  Bag Time: 1678417396.877350   Duration: 10.857538 / 41.300000               --------processing 326.png-----------
+ [RUNNING]  Bag Time: 1678417396.910046   Duration: 10.890234 / 41.300000               --------processing 327.png-----------
+ [RUNNING]  Bag Time: 1678417396.943530   Duration: 10.923718 / 41.300000               --------processing 328.png-----------
+ [RUNNING]  Bag Time: 1678417396.977797   Duration: 10.957985 / 41.300000               --------processing 329.png-----------
+ [RUNNING]  Bag Time: 1678417397.011280   Duration: 10.991468 / 41.300000               --------processing 330.png-----------
+ [RUNNING]  Bag Time: 1678417397.044758   Duration: 11.024946 / 41.300000               --------processing 331.png-----------
+ [RUNNING]  Bag Time: 1678417397.076706   Duration: 11.056894 / 41.300000               --------processing 332.png-----------
+ [RUNNING]  Bag Time: 1678417397.111586   Duration: 11.091774 / 41.300000               --------processing 333.png-----------
+ [RUNNING]  Bag Time: 1678417397.144998   Duration: 11.125186 / 41.300000               --------processing 334.png-----------
+ [RUNNING]  Bag Time: 1678417397.179038   Duration: 11.159226 / 41.300000               --------processing 335.png-----------
+ [RUNNING]  Bag Time: 1678417397.211424   Duration: 11.191612 / 41.300000               Callback:: 30.087498 Hz
+--------processing 336.png-----------
+ [RUNNING]  Bag Time: 1678417397.244825   Duration: 11.225013 / 41.300000               --------processing 337.png-----------
+ [RUNNING]  Bag Time: 1678417397.276819   Duration: 11.257007 / 41.300000               --------processing 338.png-----------
+ [RUNNING]  Bag Time: 1678417397.312678   Duration: 11.292866 / 41.300000               --------processing 339.png-----------
+ [RUNNING]  Bag Time: 1678417397.343828   Duration: 11.324016 / 41.300000               --------processing 340.png-----------
+ [RUNNING]  Bag Time: 1678417397.377889   Duration: 11.358078 / 41.300000               --------processing 341.png-----------
+ [RUNNING]  Bag Time: 1678417397.409819   Duration: 11.390007 / 41.300000               --------processing 342.png-----------
+ [RUNNING]  Bag Time: 1678417397.443555   Duration: 11.423743 / 41.300000               --------processing 343.png-----------
+ [RUNNING]  Bag Time: 1678417397.478173   Duration: 11.458361 / 41.300000               --------processing 344.png-----------
+ [RUNNING]  Bag Time: 1678417397.511909   Duration: 11.492097 / 41.300000               --------processing 345.png-----------
+ [RUNNING]  Bag Time: 1678417397.543913   Duration: 11.524101 / 41.300000               --------processing 346.png-----------
+ [RUNNING]  Bag Time: 1678417397.577823   Duration: 11.558012 / 41.300000               --------processing 347.png-----------
+ [RUNNING]  Bag Time: 1678417397.611268   Duration: 11.591456 / 41.300000               --------processing 348.png-----------
+ [RUNNING]  Bag Time: 1678417397.643607   Duration: 11.623796 / 41.300000               --------processing 349.png-----------
+ [RUNNING]  Bag Time: 1678417397.677121   Duration: 11.657309 / 41.300000               --------processing 350.png-----------
+ [RUNNING]  Bag Time: 1678417397.711182   Duration: 11.691370 / 41.300000               --------processing 351.png-----------
+ [RUNNING]  Bag Time: 1678417397.745186   Duration: 11.725374 / 41.300000               --------processing 352.png-----------
+ [RUNNING]  Bag Time: 1678417397.778637   Duration: 11.758825 / 41.300000               --------processing 353.png-----------
+ [RUNNING]  Bag Time: 1678417397.811685   Duration: 11.791873 / 41.300000               --------processing 354.png-----------
+ [RUNNING]  Bag Time: 1678417397.844232   Duration: 11.824420 / 41.300000               --------processing 355.png-----------
+ [RUNNING]  Bag Time: 1678417397.882311   Duration: 11.862499 / 41.300000               --------processing 356.png-----------
+ [RUNNING]  Bag Time: 1678417397.916229   Duration: 11.896417 / 41.300000               --------processing 357.png-----------
+ [RUNNING]  Bag Time: 1678417397.946412   Duration: 11.926600 / 41.300000               --------processing 358.png-----------
+ [RUNNING]  Bag Time: 1678417397.978278   Duration: 11.958467 / 41.300000               --------processing 359.png-----------
+ [RUNNING]  Bag Time: 1678417398.014588   Duration: 11.994776 / 41.300000               --------processing 360.png-----------
+ [RUNNING]  Bag Time: 1678417398.045151   Duration: 12.025339 / 41.300000               --------processing 361.png-----------
+ [RUNNING]  Bag Time: 1678417398.077022   Duration: 12.057210 / 41.300000               --------processing 362.png-----------
+ [RUNNING]  Bag Time: 1678417398.111865   Duration: 12.092053 / 41.300000               --------processing 363.png-----------
+ [RUNNING]  Bag Time: 1678417398.143623   Duration: 12.123811 / 41.300000               --------processing 364.png-----------
+ [RUNNING]  Bag Time: 1678417398.176866   Duration: 12.157054 / 41.300000               --------processing 365.png-----------
+ [RUNNING]  Bag Time: 1678417398.209888   Duration: 12.190076 / 41.300000               --------processing 366.png-----------
+ [RUNNING]  Bag Time: 1678417398.243252   Duration: 12.223440 / 41.300000               Callback:: 30.014397 Hz
+--------processing 367.png-----------
+ [RUNNING]  Bag Time: 1678417398.276584   Duration: 12.256773 / 41.300000               --------processing 368.png-----------
+ [RUNNING]  Bag Time: 1678417398.309882   Duration: 12.290070 / 41.300000               --------processing 369.png-----------
+ [RUNNING]  Bag Time: 1678417398.344851   Duration: 12.325039 / 41.300000               --------processing 370.png-----------
+ [RUNNING]  Bag Time: 1678417398.377637   Duration: 12.357825 / 41.300000               --------processing 371.png-----------
+ [RUNNING]  Bag Time: 1678417398.410109   Duration: 12.390297 / 41.300000               --------processing 372.png-----------
+ [RUNNING]  Bag Time: 1678417398.444299   Duration: 12.424487 / 41.300000               --------processing 373.png-----------
+ [RUNNING]  Bag Time: 1678417398.478987   Duration: 12.459175 / 41.300000               --------processing 374.png-----------
+ [RUNNING]  Bag Time: 1678417398.514540   Duration: 12.494728 / 41.300000               --------processing 375.png-----------
+ [RUNNING]  Bag Time: 1678417398.544846   Duration: 12.525034 / 41.300000               --------processing 376.png-----------
+ [RUNNING]  Bag Time: 1678417398.579343   Duration: 12.559531 / 41.300000               --------processing 377.png-----------
+ [RUNNING]  Bag Time: 1678417398.611334   Duration: 12.591522 / 41.300000               --------processing 378.png-----------
+ [RUNNING]  Bag Time: 1678417398.653006   Duration: 12.633194 / 41.300000               --------processing 379.png-----------
+ [RUNNING]  Bag Time: 1678417398.683649   Duration: 12.663837 / 41.300000               --------processing 380.png-----------
+ [RUNNING]  Bag Time: 1678417398.713977   Duration: 12.694165 / 41.300000               --------processing 381.png-----------
+ [RUNNING]  Bag Time: 1678417398.744607   Duration: 12.724796 / 41.300000               --------processing 382.png-----------
+ [RUNNING]  Bag Time: 1678417398.777457   Duration: 12.757646 / 41.300000               --------processing 383.png-----------
+ [RUNNING]  Bag Time: 1678417398.810070   Duration: 12.790258 / 41.300000               --------processing 384.png-----------
+ [RUNNING]  Bag Time: 1678417398.844895   Duration: 12.825083 / 41.300000               --------processing 385.png-----------
+ [RUNNING]  Bag Time: 1678417398.878398   Duration: 12.858586 / 41.300000               --------processing 386.png-----------
+ [RUNNING]  Bag Time: 1678417398.911480   Duration: 12.891668 / 41.300000               --------processing 387.png-----------
+ [RUNNING]  Bag Time: 1678417398.944990   Duration: 12.925178 / 41.300000               --------processing 388.png-----------
+ [RUNNING]  Bag Time: 1678417398.977048   Duration: 12.957236 / 41.300000               --------processing 389.png-----------
+ [RUNNING]  Bag Time: 1678417399.010133   Duration: 12.990321 / 41.300000               --------processing 390.png-----------
+ [RUNNING]  Bag Time: 1678417399.043328   Duration: 13.023516 / 41.300000               --------processing 391.png-----------
+ [RUNNING]  Bag Time: 1678417399.076532   Duration: 13.056720 / 41.300000               --------processing 392.png-----------
+ [RUNNING]  Bag Time: 1678417399.110015   Duration: 13.090203 / 41.300000               --------processing 393.png-----------
+ [RUNNING]  Bag Time: 1678417399.144516   Duration: 13.124705 / 41.300000               --------processing 394.png-----------
+ [RUNNING]  Bag Time: 1678417399.178577   Duration: 13.158765 / 41.300000               --------processing 395.png-----------
+ [RUNNING]  Bag Time: 1678417399.210020   Duration: 13.190209 / 41.300000               --------processing 396.png-----------
+ [RUNNING]  Bag Time: 1678417399.243291   Duration: 13.223479 / 41.300000               Callback:: 29.971367 Hz
+--------processing 397.png-----------
+ [RUNNING]  Bag Time: 1678417399.276465   Duration: 13.256653 / 41.300000               --------processing 398.png-----------
+ [RUNNING]  Bag Time: 1678417399.309975   Duration: 13.290163 / 41.300000               --------processing 399.png-----------
+ [RUNNING]  Bag Time: 1678417399.344594   Duration: 13.324782 / 41.300000               --------processing 400.png-----------
+ [RUNNING]  Bag Time: 1678417399.377708   Duration: 13.357896 / 41.300000               --------processing 401.png-----------
+ [RUNNING]  Bag Time: 1678417399.410835   Duration: 13.391023 / 41.300000               --------processing 402.png-----------
+ [RUNNING]  Bag Time: 1678417399.443411   Duration: 13.423599 / 41.300000               --------processing 403.png-----------
+ [RUNNING]  Bag Time: 1678417399.476758   Duration: 13.456947 / 41.300000               --------processing 404.png-----------
+ [RUNNING]  Bag Time: 1678417399.510000   Duration: 13.490188 / 41.300000               --------processing 405.png-----------
+ [RUNNING]  Bag Time: 1678417399.543363   Duration: 13.523551 / 41.300000               --------processing 406.png-----------
+ [RUNNING]  Bag Time: 1678417399.576642   Duration: 13.556830 / 41.300000               --------processing 407.png-----------
+ [RUNNING]  Bag Time: 1678417399.609974   Duration: 13.590162 / 41.300000               --------processing 408.png-----------
+ [RUNNING]  Bag Time: 1678417399.643461   Duration: 13.623649 / 41.300000               --------processing 409.png-----------
+ [RUNNING]  Bag Time: 1678417399.677531   Duration: 13.657719 / 41.300000               --------processing 410.png-----------
+ [RUNNING]  Bag Time: 1678417399.710061   Duration: 13.690249 / 41.300000               --------processing 411.png-----------
+ [RUNNING]  Bag Time: 1678417399.743471   Duration: 13.723659 / 41.300000               --------processing 412.png-----------
+ [RUNNING]  Bag Time: 1678417399.776636   Duration: 13.756824 / 41.300000               --------processing 413.png-----------
+ [RUNNING]  Bag Time: 1678417399.809869   Duration: 13.790058 / 41.300000               --------processing 414.png-----------
+ [RUNNING]  Bag Time: 1678417399.843464   Duration: 13.823652 / 41.300000               --------processing 415.png-----------
+ [RUNNING]  Bag Time: 1678417399.877694   Duration: 13.857882 / 41.300000               --------processing 416.png-----------
+ [RUNNING]  Bag Time: 1678417399.910004   Duration: 13.890192 / 41.300000               --------processing 417.png-----------
+ [RUNNING]  Bag Time: 1678417399.944356   Duration: 13.924544 / 41.300000               --------processing 418.png-----------
+ [RUNNING]  Bag Time: 1678417399.980082   Duration: 13.960270 / 41.300000               --------processing 419.png-----------
+ [RUNNING]  Bag Time: 1678417400.010301   Duration: 13.990489 / 41.300000               --------processing 420.png-----------
+ [RUNNING]  Bag Time: 1678417400.044434   Duration: 14.024622 / 41.300000               --------processing 421.png-----------
+ [RUNNING]  Bag Time: 1678417400.076972   Duration: 14.057160 / 41.300000               --------processing 422.png-----------
+ [RUNNING]  Bag Time: 1678417400.111512   Duration: 14.091700 / 41.300000               --------processing 423.png-----------
+ [RUNNING]  Bag Time: 1678417400.144805   Duration: 14.124994 / 41.300000               --------processing 424.png-----------
+ [RUNNING]  Bag Time: 1678417400.176718   Duration: 14.156907 / 41.300000               --------processing 425.png-----------
+ [RUNNING]  Bag Time: 1678417400.210678   Duration: 14.190866 / 41.300000               --------processing 426.png-----------
+ [RUNNING]  Bag Time: 1678417400.243481   Duration: 14.223669 / 41.300000               --------processing 427.png-----------
+ [RUNNING]  Bag Time: 1678417400.276673   Duration: 14.256861 / 41.300000               Callback:: 30.034839 Hz
+--------processing 428.png-----------
+ [RUNNING]  Bag Time: 1678417400.310059   Duration: 14.290247 / 41.300000               --------processing 429.png-----------
+ [RUNNING]  Bag Time: 1678417400.343323   Duration: 14.323511 / 41.300000               --------processing 430.png-----------
+ [RUNNING]  Bag Time: 1678417400.376631   Duration: 14.356819 / 41.300000               --------processing 431.png-----------
+ [RUNNING]  Bag Time: 1678417400.411067   Duration: 14.391255 / 41.300000               --------processing 432.png-----------
+ [RUNNING]  Bag Time: 1678417400.444649   Duration: 14.424837 / 41.300000               --------processing 433.png-----------
+ [RUNNING]  Bag Time: 1678417400.477796   Duration: 14.457985 / 41.300000               --------processing 434.png-----------
+ [RUNNING]  Bag Time: 1678417400.511057   Duration: 14.491245 / 41.300000               --------processing 435.png-----------
+ [RUNNING]  Bag Time: 1678417400.544497   Duration: 14.524685 / 41.300000               --------processing 436.png-----------
+ [RUNNING]  Bag Time: 1678417400.577604   Duration: 14.557792 / 41.300000               --------processing 437.png-----------
+ [RUNNING]  Bag Time: 1678417400.611103   Duration: 14.591291 / 41.300000               --------processing 438.png-----------
+ [RUNNING]  Bag Time: 1678417400.643524   Duration: 14.623712 / 41.300000               --------processing 439.png-----------
+ [RUNNING]  Bag Time: 1678417400.677846   Duration: 14.658034 / 41.300000               --------processing 440.png-----------
+ [RUNNING]  Bag Time: 1678417400.710991   Duration: 14.691179 / 41.300000               --------processing 441.png-----------
+ [RUNNING]  Bag Time: 1678417400.744337   Duration: 14.724525 / 41.300000               --------processing 442.png-----------
+ [RUNNING]  Bag Time: 1678417400.776626   Duration: 14.756814 / 41.300000               --------processing 443.png-----------
+ [RUNNING]  Bag Time: 1678417400.809937   Duration: 14.790125 / 41.300000               --------processing 444.png-----------
+ [RUNNING]  Bag Time: 1678417400.845155   Duration: 14.825343 / 41.300000               --------processing 445.png-----------
+ [RUNNING]  Bag Time: 1678417400.879914   Duration: 14.860102 / 41.300000               --------processing 446.png-----------
+ [RUNNING]  Bag Time: 1678417400.912065   Duration: 14.892253 / 41.300000               --------processing 447.png-----------
+ [RUNNING]  Bag Time: 1678417400.945788   Duration: 14.925976 / 41.300000               --------processing 448.png-----------
+ [RUNNING]  Bag Time: 1678417400.985641   Duration: 14.965830 / 41.300000               --------processing 449.png-----------
+ [RUNNING]  Bag Time: 1678417401.015832   Duration: 14.996020 / 41.300000               --------processing 450.png-----------
+ [RUNNING]  Bag Time: 1678417401.046054   Duration: 15.026242 / 41.300000               --------processing 451.png-----------
+ [RUNNING]  Bag Time: 1678417401.080565   Duration: 15.060754 / 41.300000               --------processing 452.png-----------
+ [RUNNING]  Bag Time: 1678417401.111523   Duration: 15.091711 / 41.300000               --------processing 453.png-----------
+ [RUNNING]  Bag Time: 1678417401.143984   Duration: 15.124173 / 41.300000               --------processing 454.png-----------
+ [RUNNING]  Bag Time: 1678417401.178768   Duration: 15.158956 / 41.300000               --------processing 455.png-----------
+ [RUNNING]  Bag Time: 1678417401.211585   Duration: 15.191773 / 41.300000               --------processing 456.png-----------
+ [RUNNING]  Bag Time: 1678417401.244660   Duration: 15.224848 / 41.300000               --------processing 457.png-----------
+ [RUNNING]  Bag Time: 1678417401.277728   Duration: 15.257916 / 41.300000               Callback:: 29.988526 Hz
+--------processing 458.png-----------
+ [RUNNING]  Bag Time: 1678417401.311047   Duration: 15.291235 / 41.300000               --------processing 459.png-----------
+ [RUNNING]  Bag Time: 1678417401.344442   Duration: 15.324630 / 41.300000               --------processing 460.png-----------
+ [RUNNING]  Bag Time: 1678417401.378343   Duration: 15.358531 / 41.300000               --------processing 461.png-----------
+ [RUNNING]  Bag Time: 1678417401.412261   Duration: 15.392449 / 41.300000               --------processing 462.png-----------
+ [RUNNING]  Bag Time: 1678417401.444048   Duration: 15.424236 / 41.300000               --------processing 463.png-----------
+ [RUNNING]  Bag Time: 1678417401.478575   Duration: 15.458763 / 41.300000               --------processing 464.png-----------
+ [RUNNING]  Bag Time: 1678417401.512690   Duration: 15.492878 / 41.300000               --------processing 465.png-----------
+ [RUNNING]  Bag Time: 1678417401.548406   Duration: 15.528594 / 41.300000               --------processing 466.png-----------
+ [RUNNING]  Bag Time: 1678417401.582375   Duration: 15.562563 / 41.300000               --------processing 467.png-----------
+ [RUNNING]  Bag Time: 1678417401.613719   Duration: 15.593907 / 41.300000               --------processing 468.png-----------
+ [RUNNING]  Bag Time: 1678417401.644744   Duration: 15.624932 / 41.300000               --------processing 469.png-----------
+ [RUNNING]  Bag Time: 1678417401.677861   Duration: 15.658049 / 41.300000               --------processing 470.png-----------
+ [RUNNING]  Bag Time: 1678417401.711141   Duration: 15.691329 / 41.300000               --------processing 471.png-----------
+ [RUNNING]  Bag Time: 1678417401.743709   Duration: 15.723897 / 41.300000               --------processing 472.png-----------
+ [RUNNING]  Bag Time: 1678417401.778673   Duration: 15.758861 / 41.300000               --------processing 473.png-----------
+ [RUNNING]  Bag Time: 1678417401.811283   Duration: 15.791471 / 41.300000               --------processing 474.png-----------
+ [RUNNING]  Bag Time: 1678417401.845704   Duration: 15.825892 / 41.300000               --------processing 475.png-----------
+ [RUNNING]  Bag Time: 1678417401.877907   Duration: 15.858095 / 41.300000               --------processing 476.png-----------
+ [RUNNING]  Bag Time: 1678417401.910412   Duration: 15.890601 / 41.300000               --------processing 477.png-----------
+ [RUNNING]  Bag Time: 1678417401.945433   Duration: 15.925622 / 41.300000               --------processing 478.png-----------
+ [RUNNING]  Bag Time: 1678417401.977972   Duration: 15.958160 / 41.300000               --------processing 479.png-----------
+ [RUNNING]  Bag Time: 1678417402.011353   Duration: 15.991541 / 41.300000               --------processing 480.png-----------
+ [RUNNING]  Bag Time: 1678417402.044064   Duration: 16.024252 / 41.300000               --------processing 481.png-----------
+ [RUNNING]  Bag Time: 1678417402.080873   Duration: 16.061061 / 41.300000               --------processing 482.png-----------
+ [RUNNING]  Bag Time: 1678417402.111065   Duration: 16.091253 / 41.300000               --------processing 483.png-----------
+ [RUNNING]  Bag Time: 1678417402.144905   Duration: 16.125093 / 41.300000               --------processing 484.png-----------
+ [RUNNING]  Bag Time: 1678417402.177912   Duration: 16.158100 / 41.300000               --------processing 485.png-----------
+ [RUNNING]  Bag Time: 1678417402.213868   Duration: 16.194056 / 41.300000               --------processing 486.png-----------
+ [RUNNING]  Bag Time: 1678417402.244220   Duration: 16.224409 / 41.300000               --------processing 487.png-----------
+ [RUNNING]  Bag Time: 1678417402.277341   Duration: 16.257529 / 41.300000               Callback:: 29.866385 Hz
+--------processing 488.png-----------
+ [RUNNING]  Bag Time: 1678417402.313012   Duration: 16.293200 / 41.300000               --------processing 489.png-----------
+ [RUNNING]  Bag Time: 1678417402.344143   Duration: 16.324331 / 41.300000               --------processing 490.png-----------
+ [RUNNING]  Bag Time: 1678417402.378057   Duration: 16.358245 / 41.300000               --------processing 491.png-----------
+ [RUNNING]  Bag Time: 1678417402.410913   Duration: 16.391101 / 41.300000               --------processing 492.png-----------
+ [RUNNING]  Bag Time: 1678417402.445920   Duration: 16.426108 / 41.300000               --------processing 493.png-----------
+ [RUNNING]  Bag Time: 1678417402.478883   Duration: 16.459071 / 41.300000               --------processing 494.png-----------
+ [RUNNING]  Bag Time: 1678417402.512329   Duration: 16.492517 / 41.300000               --------processing 495.png-----------
+ [RUNNING]  Bag Time: 1678417402.545210   Duration: 16.525398 / 41.300000               --------processing 496.png-----------
+ [RUNNING]  Bag Time: 1678417402.579647   Duration: 16.559835 / 41.300000               --------processing 497.png-----------
+ [RUNNING]  Bag Time: 1678417402.612096   Duration: 16.592284 / 41.300000               --------processing 498.png-----------
+ [RUNNING]  Bag Time: 1678417402.645027   Duration: 16.625215 / 41.300000               --------processing 499.png-----------
+ [RUNNING]  Bag Time: 1678417402.678797   Duration: 16.658985 / 41.300000               --------processing 500.png-----------
+ [RUNNING]  Bag Time: 1678417402.710821   Duration: 16.691010 / 41.300000               --------processing 501.png-----------
+ [RUNNING]  Bag Time: 1678417402.747094   Duration: 16.727282 / 41.300000               --------processing 502.png-----------
+ [RUNNING]  Bag Time: 1678417402.778094   Duration: 16.758282 / 41.300000               --------processing 503.png-----------
+ [RUNNING]  Bag Time: 1678417402.812835   Duration: 16.793023 / 41.300000               --------processing 504.png-----------
+ [RUNNING]  Bag Time: 1678417402.845769   Duration: 16.825957 / 41.300000               --------processing 505.png-----------
+ [RUNNING]  Bag Time: 1678417402.878892   Duration: 16.859080 / 41.300000               --------processing 506.png-----------
+ [RUNNING]  Bag Time: 1678417402.911485   Duration: 16.891673 / 41.300000               --------processing 507.png-----------
+ [RUNNING]  Bag Time: 1678417402.944756   Duration: 16.924944 / 41.300000               --------processing 508.png-----------
+ [RUNNING]  Bag Time: 1678417402.977864   Duration: 16.958052 / 41.300000               --------processing 509.png-----------
+ [RUNNING]  Bag Time: 1678417403.012402   Duration: 16.992590 / 41.300000               --------processing 510.png-----------
+ [RUNNING]  Bag Time: 1678417403.044476   Duration: 17.024664 / 41.300000               --------processing 511.png-----------
+ [RUNNING]  Bag Time: 1678417403.077775   Duration: 17.057963 / 41.300000               --------processing 512.png-----------
+ [RUNNING]  Bag Time: 1678417403.110566   Duration: 17.090754 / 41.300000               --------processing 513.png-----------
+ [RUNNING]  Bag Time: 1678417403.143387   Duration: 17.123575 / 41.300000               --------processing 514.png-----------
+ [RUNNING]  Bag Time: 1678417403.176908   Duration: 17.157096 / 41.300000               --------processing 515.png-----------
+ [RUNNING]  Bag Time: 1678417403.210863   Duration: 17.191051 / 41.300000               --------processing 516.png-----------
+ [RUNNING]  Bag Time: 1678417403.244259   Duration: 17.224447 / 41.300000               --------processing 517.png-----------
+ [RUNNING]  Bag Time: 1678417403.277655   Duration: 17.257843 / 41.300000               --------processing 518.png-----------
+ [RUNNING]  Bag Time: 1678417403.311037   Duration: 17.291225 / 41.300000               Callback:: 29.997489 Hz
+--------processing 519.png-----------
+ [RUNNING]  Bag Time: 1678417403.349387   Duration: 17.329575 / 41.300000               --------processing 520.png-----------
+ [RUNNING]  Bag Time: 1678417403.379696   Duration: 17.359884 / 41.300000               --------processing 521.png-----------
+ [RUNNING]  Bag Time: 1678417403.410546   Duration: 17.390734 / 41.300000               --------processing 522.png-----------
+ [RUNNING]  Bag Time: 1678417403.444318   Duration: 17.424506 / 41.300000               --------processing 523.png-----------
+ [RUNNING]  Bag Time: 1678417403.477567   Duration: 17.457755 / 41.300000               --------processing 524.png-----------
+ [RUNNING]  Bag Time: 1678417403.511928   Duration: 17.492116 / 41.300000               --------processing 525.png-----------
+ [RUNNING]  Bag Time: 1678417403.544269   Duration: 17.524457 / 41.300000               --------processing 526.png-----------
+ [RUNNING]  Bag Time: 1678417403.579160   Duration: 17.559348 / 41.300000               --------processing 527.png-----------
+ [RUNNING]  Bag Time: 1678417403.612198   Duration: 17.592386 / 41.300000               --------processing 528.png-----------
+ [RUNNING]  Bag Time: 1678417403.644524   Duration: 17.624712 / 41.300000               --------processing 529.png-----------
+ [RUNNING]  Bag Time: 1678417403.678442   Duration: 17.658630 / 41.300000               --------processing 530.png-----------
+ [RUNNING]  Bag Time: 1678417403.711505   Duration: 17.691693 / 41.300000               --------processing 531.png-----------
+ [RUNNING]  Bag Time: 1678417403.744244   Duration: 17.724432 / 41.300000               --------processing 532.png-----------
+ [RUNNING]  Bag Time: 1678417403.777535   Duration: 17.757723 / 41.300000               --------processing 533.png-----------
+ [RUNNING]  Bag Time: 1678417403.810770   Duration: 17.790958 / 41.300000               --------processing 534.png-----------
+ [RUNNING]  Bag Time: 1678417403.844279   Duration: 17.824467 / 41.300000               --------processing 535.png-----------
+ [RUNNING]  Bag Time: 1678417403.877564   Duration: 17.857752 / 41.300000               --------processing 536.png-----------
+ [RUNNING]  Bag Time: 1678417403.910798   Duration: 17.890986 / 41.300000               --------processing 537.png-----------
+ [RUNNING]  Bag Time: 1678417403.944160   Duration: 17.924349 / 41.300000               --------processing 538.png-----------
+ [RUNNING]  Bag Time: 1678417403.977575   Duration: 17.957763 / 41.300000               --------processing 539.png-----------
+ [RUNNING]  Bag Time: 1678417404.011223   Duration: 17.991411 / 41.300000               --------processing 540.png-----------
+ [RUNNING]  Bag Time: 1678417404.044801   Duration: 18.024990 / 41.300000               --------processing 541.png-----------
+ [RUNNING]  Bag Time: 1678417404.077160   Duration: 18.057348 / 41.300000               --------processing 542.png-----------
+ [RUNNING]  Bag Time: 1678417404.110768   Duration: 18.090956 / 41.300000               --------processing 543.png-----------
+ [RUNNING]  Bag Time: 1678417404.144070   Duration: 18.124258 / 41.300000               --------processing 544.png-----------
+ [RUNNING]  Bag Time: 1678417404.177449   Duration: 18.157637 / 41.300000               --------processing 545.png-----------
+ [RUNNING]  Bag Time: 1678417404.211923   Duration: 18.192111 / 41.300000               --------processing 546.png-----------
+ [RUNNING]  Bag Time: 1678417404.244424   Duration: 18.224612 / 41.300000               --------processing 547.png-----------
+ [RUNNING]  Bag Time: 1678417404.278510   Duration: 18.258698 / 41.300000               --------processing 548.png-----------
+ [RUNNING]  Bag Time: 1678417404.310714   Duration: 18.290903 / 41.300000               --------processing 549.png-----------
+ [RUNNING]  Bag Time: 1678417404.344070   Duration: 18.324258 / 41.300000               Callback:: 30.122974 Hz
+--------processing 550.png-----------
+ [RUNNING]  Bag Time: 1678417404.377629   Duration: 18.357817 / 41.300000               --------processing 551.png-----------
+ [RUNNING]  Bag Time: 1678417404.410629   Duration: 18.390817 / 41.300000               --------processing 552.png-----------
+ [RUNNING]  Bag Time: 1678417404.445240   Duration: 18.425428 / 41.300000               --------processing 553.png-----------
+ [RUNNING]  Bag Time: 1678417404.478635   Duration: 18.458823 / 41.300000               --------processing 554.png-----------
+ [RUNNING]  Bag Time: 1678417404.511409   Duration: 18.491597 / 41.300000               --------processing 555.png-----------
+ [RUNNING]  Bag Time: 1678417404.545067   Duration: 18.525255 / 41.300000               --------processing 556.png-----------
+ [RUNNING]  Bag Time: 1678417404.578758   Duration: 18.558946 / 41.300000               --------processing 557.png-----------
+ [RUNNING]  Bag Time: 1678417404.610857   Duration: 18.591046 / 41.300000               --------processing 558.png-----------
+ [RUNNING]  Bag Time: 1678417404.645308   Duration: 18.625497 / 41.300000               --------processing 559.png-----------
+ [RUNNING]  Bag Time: 1678417404.677675   Duration: 18.657864 / 41.300000               --------processing 560.png-----------
+ [RUNNING]  Bag Time: 1678417404.711056   Duration: 18.691244 / 41.300000               --------processing 561.png-----------
+ [RUNNING]  Bag Time: 1678417404.744258   Duration: 18.724446 / 41.300000               --------processing 562.png-----------
+ [RUNNING]  Bag Time: 1678417404.778562   Duration: 18.758750 / 41.300000               --------processing 563.png-----------
+ [RUNNING]  Bag Time: 1678417404.810772   Duration: 18.790960 / 41.300000               --------processing 564.png-----------
+ [RUNNING]  Bag Time: 1678417404.844268   Duration: 18.824456 / 41.300000               --------processing 565.png-----------
+ [RUNNING]  Bag Time: 1678417404.877808   Duration: 18.857996 / 41.300000               --------processing 566.png-----------
+ [RUNNING]  Bag Time: 1678417404.910798   Duration: 18.890986 / 41.300000               --------processing 567.png-----------
+ [RUNNING]  Bag Time: 1678417404.944116   Duration: 18.924304 / 41.300000               --------processing 568.png-----------
+ [RUNNING]  Bag Time: 1678417404.977605   Duration: 18.957793 / 41.300000               --------processing 569.png-----------
+ [RUNNING]  Bag Time: 1678417405.010832   Duration: 18.991020 / 41.300000               --------processing 570.png-----------
+ [RUNNING]  Bag Time: 1678417405.044487   Duration: 19.024676 / 41.300000               --------processing 571.png-----------
+ [RUNNING]  Bag Time: 1678417405.077656   Duration: 19.057844 / 41.300000               --------processing 572.png-----------
+ [RUNNING]  Bag Time: 1678417405.111010   Duration: 19.091198 / 41.300000               --------processing 573.png-----------
+ [RUNNING]  Bag Time: 1678417405.145473   Duration: 19.125662 / 41.300000               --------processing 574.png-----------
+ [RUNNING]  Bag Time: 1678417405.178627   Duration: 19.158815 / 41.300000               --------processing 575.png-----------
+ [RUNNING]  Bag Time: 1678417405.211782   Duration: 19.191970 / 41.300000               --------processing 576.png-----------
+ [RUNNING]  Bag Time: 1678417405.245176   Duration: 19.225364 / 41.300000               --------processing 577.png-----------
+ [RUNNING]  Bag Time: 1678417405.277690   Duration: 19.257878 / 41.300000               --------processing 578.png-----------
+ [RUNNING]  Bag Time: 1678417405.311619   Duration: 19.291807 / 41.300000               --------processing 579.png-----------
+ [RUNNING]  Bag Time: 1678417405.344094   Duration: 19.324282 / 41.300000               Callback:: 29.986650 Hz
+--------processing 580.png-----------
+ [RUNNING]  Bag Time: 1678417405.377733   Duration: 19.357921 / 41.300000               --------processing 581.png-----------
+ [RUNNING]  Bag Time: 1678417405.410458   Duration: 19.390646 / 41.300000               --------processing 582.png-----------
+ [RUNNING]  Bag Time: 1678417405.444098   Duration: 19.424286 / 41.300000               --------processing 583.png-----------
+ [RUNNING]  Bag Time: 1678417405.477510   Duration: 19.457698 / 41.300000               --------processing 584.png-----------
+ [RUNNING]  Bag Time: 1678417405.510825   Duration: 19.491013 / 41.300000               --------processing 585.png-----------
+ [RUNNING]  Bag Time: 1678417405.544192   Duration: 19.524380 / 41.300000               --------processing 586.png-----------
+ [RUNNING]  Bag Time: 1678417405.577548   Duration: 19.557736 / 41.300000               --------processing 587.png-----------
+ [RUNNING]  Bag Time: 1678417405.610745   Duration: 19.590933 / 41.300000               --------processing 588.png-----------
+ [RUNNING]  Bag Time: 1678417405.644095   Duration: 19.624283 / 41.300000               --------processing 589.png-----------
+ [RUNNING]  Bag Time: 1678417405.677716   Duration: 19.657904 / 41.300000               --------processing 590.png-----------
+ [RUNNING]  Bag Time: 1678417405.710422   Duration: 19.690610 / 41.300000               --------processing 591.png-----------
+ [RUNNING]  Bag Time: 1678417405.743384   Duration: 19.723572 / 41.300000               --------processing 592.png-----------
+ [RUNNING]  Bag Time: 1678417405.776580   Duration: 19.756768 / 41.300000               --------processing 593.png-----------
+ [RUNNING]  Bag Time: 1678417405.809980   Duration: 19.790168 / 41.300000               --------processing 594.png-----------
+ [RUNNING]  Bag Time: 1678417405.843505   Duration: 19.823693 / 41.300000               --------processing 595.png-----------
+ [RUNNING]  Bag Time: 1678417405.876576   Duration: 19.856764 / 41.300000               --------processing 596.png-----------
+ [RUNNING]  Bag Time: 1678417405.909931   Duration: 19.890119 / 41.300000               --------processing 597.png-----------
+ [RUNNING]  Bag Time: 1678417405.943168   Duration: 19.923356 / 41.300000               --------processing 598.png-----------
+ [RUNNING]  Bag Time: 1678417405.976748   Duration: 19.956936 / 41.300000               --------processing 599.png-----------
+ [RUNNING]  Bag Time: 1678417406.009989   Duration: 19.990177 / 41.300000               --------processing 600.png-----------
+ [RUNNING]  Bag Time: 1678417406.043526   Duration: 20.023714 / 41.300000               --------processing 601.png-----------
+ [RUNNING]  Bag Time: 1678417406.076744   Duration: 20.056932 / 41.300000               --------processing 602.png-----------
+ [RUNNING]  Bag Time: 1678417406.109938   Duration: 20.090126 / 41.300000               --------processing 603.png-----------
+ [RUNNING]  Bag Time: 1678417406.143442   Duration: 20.123630 / 41.300000               --------processing 604.png-----------
+ [RUNNING]  Bag Time: 1678417406.176952   Duration: 20.157140 / 41.300000               --------processing 605.png-----------
+ [RUNNING]  Bag Time: 1678417406.210357   Duration: 20.190545 / 41.300000               --------processing 606.png-----------
+ [RUNNING]  Bag Time: 1678417406.243512   Duration: 20.223700 / 41.300000               --------processing 607.png-----------
+ [RUNNING]  Bag Time: 1678417406.276653   Duration: 20.256841 / 41.300000               --------processing 608.png-----------
+ [RUNNING]  Bag Time: 1678417406.309894   Duration: 20.290082 / 41.300000               --------processing 609.png-----------
+ [RUNNING]  Bag Time: 1678417406.343478   Duration: 20.323666 / 41.300000               --------processing 610.png-----------
+ [RUNNING]  Bag Time: 1678417406.376531   Duration: 20.356720 / 41.300000               Callback:: 30.071137 Hz
+--------processing 611.png-----------
+ [RUNNING]  Bag Time: 1678417406.409918   Duration: 20.390106 / 41.300000               --------processing 612.png-----------
+ [RUNNING]  Bag Time: 1678417406.443386   Duration: 20.423574 / 41.300000               --------processing 613.png-----------
+ [RUNNING]  Bag Time: 1678417406.477636   Duration: 20.457825 / 41.300000               --------processing 614.png-----------
+ [RUNNING]  Bag Time: 1678417406.510869   Duration: 20.491057 / 41.300000               --------processing 615.png-----------
+ [RUNNING]  Bag Time: 1678417406.544309   Duration: 20.524497 / 41.300000               --------processing 616.png-----------
+ [RUNNING]  Bag Time: 1678417406.576631   Duration: 20.556819 / 41.300000               --------processing 617.png-----------
+ [RUNNING]  Bag Time: 1678417406.610066   Duration: 20.590254 / 41.300000               --------processing 618.png-----------
+ [RUNNING]  Bag Time: 1678417406.643296   Duration: 20.623484 / 41.300000               --------processing 619.png-----------
+ [RUNNING]  Bag Time: 1678417406.676570   Duration: 20.656758 / 41.300000               --------processing 620.png-----------
+ [RUNNING]  Bag Time: 1678417406.709822   Duration: 20.690010 / 41.300000               --------processing 621.png-----------
+ [RUNNING]  Bag Time: 1678417406.743079   Duration: 20.723268 / 41.300000               --------processing 622.png-----------
+ [RUNNING]  Bag Time: 1678417406.778975   Duration: 20.759163 / 41.300000               --------processing 623.png-----------
+ [RUNNING]  Bag Time: 1678417406.809910   Duration: 20.790098 / 41.300000               --------processing 624.png-----------
+ [RUNNING]  Bag Time: 1678417406.845496   Duration: 20.825684 / 41.300000               --------processing 625.png-----------
+ [RUNNING]  Bag Time: 1678417406.877419   Duration: 20.857607 / 41.300000               --------processing 626.png-----------
+ [RUNNING]  Bag Time: 1678417406.910110   Duration: 20.890298 / 41.300000               --------processing 627.png-----------
+ [RUNNING]  Bag Time: 1678417406.943320   Duration: 20.923508 / 41.300000               --------processing 628.png-----------
+ [RUNNING]  Bag Time: 1678417406.976689   Duration: 20.956877 / 41.300000               --------processing 629.png-----------
+ [RUNNING]  Bag Time: 1678417407.010652   Duration: 20.990840 / 41.300000               --------processing 630.png-----------
+ [RUNNING]  Bag Time: 1678417407.043671   Duration: 21.023859 / 41.300000               --------processing 631.png-----------
+ [RUNNING]  Bag Time: 1678417407.078108   Duration: 21.058296 / 41.300000               --------processing 632.png-----------
+ [RUNNING]  Bag Time: 1678417407.109982   Duration: 21.090170 / 41.300000               --------processing 633.png-----------
+ [RUNNING]  Bag Time: 1678417407.143577   Duration: 21.123765 / 41.300000               --------processing 634.png-----------
+ [RUNNING]  Bag Time: 1678417407.177259   Duration: 21.157448 / 41.300000               --------processing 635.png-----------
+ [RUNNING]  Bag Time: 1678417407.210067   Duration: 21.190255 / 41.300000               --------processing 636.png-----------
+ [RUNNING]  Bag Time: 1678417407.243603   Duration: 21.223791 / 41.300000               --------processing 637.png-----------
+ [RUNNING]  Bag Time: 1678417407.276956   Duration: 21.257144 / 41.300000               --------processing 638.png-----------
+ [RUNNING]  Bag Time: 1678417407.310112   Duration: 21.290300 / 41.300000               --------processing 639.png-----------
+ [RUNNING]  Bag Time: 1678417407.343544   Duration: 21.323732 / 41.300000               --------processing 640.png-----------
+ [RUNNING]  Bag Time: 1678417407.376947   Duration: 21.357135 / 41.300000               Callback:: 29.969128 Hz
+--------processing 641.png-----------
+ [RUNNING]  Bag Time: 1678417407.409800   Duration: 21.389989 / 41.300000               --------processing 642.png-----------
+ [RUNNING]  Bag Time: 1678417407.443314   Duration: 21.423502 / 41.300000               --------processing 643.png-----------
+ [RUNNING]  Bag Time: 1678417407.482196   Duration: 21.462384 / 41.300000               --------processing 644.png-----------
+ [RUNNING]  Bag Time: 1678417407.512378   Duration: 21.492566 / 41.300000               --------processing 645.png-----------
+ [RUNNING]  Bag Time: 1678417407.543734   Duration: 21.523922 / 41.300000               --------processing 646.png-----------
+ [RUNNING]  Bag Time: 1678417407.586297   Duration: 21.566485 / 41.300000               --------processing 647.png-----------
+ [RUNNING]  Bag Time: 1678417407.616497   Duration: 21.596685 / 41.300000               --------processing 648.png-----------
+ [RUNNING]  Bag Time: 1678417407.646758   Duration: 21.626946 / 41.300000               --------processing 649.png-----------
+ [RUNNING]  Bag Time: 1678417407.676997   Duration: 21.657185 / 41.300000               --------processing 650.png-----------
+ [RUNNING]  Bag Time: 1678417407.709921   Duration: 21.690110 / 41.300000               --------processing 651.png-----------
+ [RUNNING]  Bag Time: 1678417407.743229   Duration: 21.723417 / 41.300000               --------processing 652.png-----------
+ [RUNNING]  Bag Time: 1678417407.776576   Duration: 21.756764 / 41.300000               --------processing 653.png-----------
+ [RUNNING]  Bag Time: 1678417407.818354   Duration: 21.798542 / 41.300000               --------processing 654.png-----------
+ [RUNNING]  Bag Time: 1678417407.848564   Duration: 21.828752 / 41.300000               --------processing 655.png-----------
+ [RUNNING]  Bag Time: 1678417407.878791   Duration: 21.858979 / 41.300000               --------processing 656.png-----------
+ [RUNNING]  Bag Time: 1678417407.910817   Duration: 21.891005 / 41.300000               --------processing 657.png-----------
+ [RUNNING]  Bag Time: 1678417407.943220   Duration: 21.923408 / 41.300000               --------processing 658.png-----------
+ [RUNNING]  Bag Time: 1678417407.976614   Duration: 21.956802 / 41.300000               --------processing 659.png-----------
+ [RUNNING]  Bag Time: 1678417408.009790   Duration: 21.989979 / 41.300000               --------processing 660.png-----------
+ [RUNNING]  Bag Time: 1678417408.043264   Duration: 22.023452 / 41.300000               --------processing 661.png-----------
+ [RUNNING]  Bag Time: 1678417408.078057   Duration: 22.058245 / 41.300000               --------processing 662.png-----------
+ [RUNNING]  Bag Time: 1678417408.110903   Duration: 22.091091 / 41.300000               --------processing 663.png-----------
+ [RUNNING]  Bag Time: 1678417408.143956   Duration: 22.124144 / 41.300000               --------processing 664.png-----------
+ [RUNNING]  Bag Time: 1678417408.177130   Duration: 22.157318 / 41.300000               --------processing 665.png-----------
+ [RUNNING]  Bag Time: 1678417408.211204   Duration: 22.191392 / 41.300000               --------processing 666.png-----------
+ [RUNNING]  Bag Time: 1678417408.244260   Duration: 22.224449 / 41.300000               --------processing 667.png-----------
+ [RUNNING]  Bag Time: 1678417408.276732   Duration: 22.256920 / 41.300000               --------processing 668.png-----------
+ [RUNNING]  Bag Time: 1678417408.309994   Duration: 22.290182 / 41.300000               --------processing 669.png-----------
+ [RUNNING]  Bag Time: 1678417408.344456   Duration: 22.324644 / 41.300000               --------processing 670.png-----------
+ [RUNNING]  Bag Time: 1678417408.377428   Duration: 22.357616 / 41.300000               Callback:: 29.971201 Hz
+--------processing 671.png-----------
+ [RUNNING]  Bag Time: 1678417408.410386   Duration: 22.390574 / 41.300000               --------processing 672.png-----------
+ [RUNNING]  Bag Time: 1678417408.443087   Duration: 22.423275 / 41.300000               --------processing 673.png-----------
+ [RUNNING]  Bag Time: 1678417408.476984   Duration: 22.457172 / 41.300000               --------processing 674.png-----------
+ [RUNNING]  Bag Time: 1678417408.519444   Duration: 22.499632 / 41.300000               --------processing 675.png-----------
+ [RUNNING]  Bag Time: 1678417408.549766   Duration: 22.529954 / 41.300000               --------processing 676.png-----------
+ [RUNNING]  Bag Time: 1678417408.579952   Duration: 22.560140 / 41.300000               --------processing 677.png-----------
+ [RUNNING]  Bag Time: 1678417408.610146   Duration: 22.590334 / 41.300000               --------processing 678.png-----------
+ [RUNNING]  Bag Time: 1678417408.643714   Duration: 22.623903 / 41.300000               --------processing 679.png-----------
+ [RUNNING]  Bag Time: 1678417408.676685   Duration: 22.656873 / 41.300000               --------processing 680.png-----------
+ [RUNNING]  Bag Time: 1678417408.710700   Duration: 22.690888 / 41.300000               --------processing 681.png-----------
+ [RUNNING]  Bag Time: 1678417408.744513   Duration: 22.724701 / 41.300000               --------processing 682.png-----------
+ [RUNNING]  Bag Time: 1678417408.777368   Duration: 22.757556 / 41.300000               --------processing 683.png-----------
+ [RUNNING]  Bag Time: 1678417408.815564   Duration: 22.795752 / 41.300000               --------processing 684.png-----------
+ [RUNNING]  Bag Time: 1678417408.845858   Duration: 22.826046 / 41.300000               --------processing 685.png-----------
+ [RUNNING]  Bag Time: 1678417408.878761   Duration: 22.858949 / 41.300000               --------processing 686.png-----------
+ [RUNNING]  Bag Time: 1678417408.911911   Duration: 22.892100 / 41.300000               --------processing 687.png-----------
+ [RUNNING]  Bag Time: 1678417408.945539   Duration: 22.925727 / 41.300000               --------processing 688.png-----------
+ [RUNNING]  Bag Time: 1678417408.977951   Duration: 22.958139 / 41.300000               --------processing 689.png-----------
+ [RUNNING]  Bag Time: 1678417409.010936   Duration: 22.991124 / 41.300000               --------processing 690.png-----------
+ [RUNNING]  Bag Time: 1678417409.044841   Duration: 23.025029 / 41.300000               --------processing 691.png-----------
+ [RUNNING]  Bag Time: 1678417409.077676   Duration: 23.057864 / 41.300000               --------processing 692.png-----------
+ [RUNNING]  Bag Time: 1678417409.110789   Duration: 23.090977 / 41.300000               --------processing 693.png-----------
+ [RUNNING]  Bag Time: 1678417409.144406   Duration: 23.124595 / 41.300000               --------processing 694.png-----------
+ [RUNNING]  Bag Time: 1678417409.177892   Duration: 23.158080 / 41.300000               --------processing 695.png-----------
+ [RUNNING]  Bag Time: 1678417409.210643   Duration: 23.190831 / 41.300000               --------processing 696.png-----------
+ [RUNNING]  Bag Time: 1678417409.244113   Duration: 23.224301 / 41.300000               --------processing 697.png-----------
+ [RUNNING]  Bag Time: 1678417409.277539   Duration: 23.257727 / 41.300000               --------processing 698.png-----------
+ [RUNNING]  Bag Time: 1678417409.310867   Duration: 23.291055 / 41.300000               --------processing 699.png-----------
+ [RUNNING]  Bag Time: 1678417409.344110   Duration: 23.324298 / 41.300000               --------processing 700.png-----------
+ [RUNNING]  Bag Time: 1678417409.377641   Duration: 23.357829 / 41.300000               --------processing 701.png-----------
+ [RUNNING]  Bag Time: 1678417409.410278   Duration: 23.390466 / 41.300000               Callback:: 30.005658 Hz
+--------processing 702.png-----------
+ [RUNNING]  Bag Time: 1678417409.443096   Duration: 23.423284 / 41.300000               --------processing 703.png-----------
+ [RUNNING]  Bag Time: 1678417409.476839   Duration: 23.457027 / 41.300000               --------processing 704.png-----------
+ [RUNNING]  Bag Time: 1678417409.519793   Duration: 23.499981 / 41.300000               --------processing 705.png-----------
+ [RUNNING]  Bag Time: 1678417409.550250   Duration: 23.530438 / 41.300000               --------processing 706.png-----------
+ [RUNNING]  Bag Time: 1678417409.580564   Duration: 23.560752 / 41.300000               --------processing 707.png-----------
+ [RUNNING]  Bag Time: 1678417409.610820   Duration: 23.591008 / 41.300000               --------processing 708.png-----------
+ [RUNNING]  Bag Time: 1678417409.643761   Duration: 23.623949 / 41.300000               --------processing 709.png-----------
+ [RUNNING]  Bag Time: 1678417409.676425   Duration: 23.656613 / 41.300000               --------processing 710.png-----------
+ [RUNNING]  Bag Time: 1678417409.710540   Duration: 23.690728 / 41.300000               --------processing 711.png-----------
+ [RUNNING]  Bag Time: 1678417409.753036   Duration: 23.733225 / 41.300000               --------processing 712.png-----------
+ [RUNNING]  Bag Time: 1678417409.783291   Duration: 23.763479 / 41.300000               --------processing 713.png-----------
+ [RUNNING]  Bag Time: 1678417409.813678   Duration: 23.793866 / 41.300000               --------processing 714.png-----------
+ [RUNNING]  Bag Time: 1678417409.844161   Duration: 23.824349 / 41.300000               --------processing 715.png-----------
+ [RUNNING]  Bag Time: 1678417409.877100   Duration: 23.857288 / 41.300000               --------processing 716.png-----------
+ [RUNNING]  Bag Time: 1678417409.910475   Duration: 23.890663 / 41.300000               --------processing 717.png-----------
+ [RUNNING]  Bag Time: 1678417409.943963   Duration: 23.924151 / 41.300000               --------processing 718.png-----------
+ [RUNNING]  Bag Time: 1678417409.979133   Duration: 23.959321 / 41.300000               --------processing 719.png-----------
+ [RUNNING]  Bag Time: 1678417410.011196   Duration: 23.991384 / 41.300000               --------processing 720.png-----------
+ [RUNNING]  Bag Time: 1678417410.043764   Duration: 24.023952 / 41.300000               --------processing 721.png-----------
+ [RUNNING]  Bag Time: 1678417410.076885   Duration: 24.057073 / 41.300000               --------processing 722.png-----------
+ [RUNNING]  Bag Time: 1678417410.110157   Duration: 24.090345 / 41.300000               --------processing 723.png-----------
+ [RUNNING]  Bag Time: 1678417410.143870   Duration: 24.124058 / 41.300000               --------processing 724.png-----------
+ [RUNNING]  Bag Time: 1678417410.178447   Duration: 24.158635 / 41.300000               --------processing 725.png-----------
+ [RUNNING]  Bag Time: 1678417410.211374   Duration: 24.191562 / 41.300000               --------processing 726.png-----------
+ [RUNNING]  Bag Time: 1678417410.244804   Duration: 24.224992 / 41.300000               --------processing 727.png-----------
+ [RUNNING]  Bag Time: 1678417410.276917   Duration: 24.257105 / 41.300000               --------processing 728.png-----------
+ [RUNNING]  Bag Time: 1678417410.309988   Duration: 24.290176 / 41.300000               --------processing 729.png-----------
+ [RUNNING]  Bag Time: 1678417410.344719   Duration: 24.324907 / 41.300000               --------processing 730.png-----------
+ [RUNNING]  Bag Time: 1678417410.376513   Duration: 24.356702 / 41.300000               --------processing 731.png-----------
+ [RUNNING]  Bag Time: 1678417410.411625   Duration: 24.391813 / 41.300000               --------processing 732.png-----------
+ [RUNNING]  Bag Time: 1678417410.443483   Duration: 24.423671 / 41.300000               Callback:: 29.999227 Hz
+--------processing 733.png-----------
+ [RUNNING]  Bag Time: 1678417410.476654   Duration: 24.456843 / 41.300000               --------processing 734.png-----------
+ [RUNNING]  Bag Time: 1678417410.519727   Duration: 24.499915 / 41.300000               --------processing 735.png-----------
+ [RUNNING]  Bag Time: 1678417410.549951   Duration: 24.530139 / 41.300000               --------processing 736.png-----------
+ [RUNNING]  Bag Time: 1678417410.580194   Duration: 24.560382 / 41.300000               --------processing 737.png-----------
+ [RUNNING]  Bag Time: 1678417410.611098   Duration: 24.591286 / 41.300000               --------processing 738.png-----------
+ [RUNNING]  Bag Time: 1678417410.644544   Duration: 24.624732 / 41.300000               --------processing 739.png-----------
+ [RUNNING]  Bag Time: 1678417410.677295   Duration: 24.657483 / 41.300000               --------processing 740.png-----------
+ [RUNNING]  Bag Time: 1678417410.710811   Duration: 24.690999 / 41.300000               --------processing 741.png-----------
+ [RUNNING]  Bag Time: 1678417410.744277   Duration: 24.724465 / 41.300000               --------processing 742.png-----------
+ [RUNNING]  Bag Time: 1678417410.777534   Duration: 24.757722 / 41.300000               --------processing 743.png-----------
+ [RUNNING]  Bag Time: 1678417410.811127   Duration: 24.791315 / 41.300000               --------processing 744.png-----------
+ [RUNNING]  Bag Time: 1678417410.844375   Duration: 24.824563 / 41.300000               --------processing 745.png-----------
+ [RUNNING]  Bag Time: 1678417410.886472   Duration: 24.866660 / 41.300000               --------processing 746.png-----------
+ [RUNNING]  Bag Time: 1678417410.916665   Duration: 24.896853 / 41.300000               --------processing 747.png-----------
+ [RUNNING]  Bag Time: 1678417410.946895   Duration: 24.927083 / 41.300000               --------processing 748.png-----------
+ [RUNNING]  Bag Time: 1678417410.977295   Duration: 24.957483 / 41.300000               --------processing 749.png-----------
+ [RUNNING]  Bag Time: 1678417411.009753   Duration: 24.989941 / 41.300000               --------processing 750.png-----------
+ [RUNNING]  Bag Time: 1678417411.043334   Duration: 25.023522 / 41.300000               --------processing 751.png-----------
+ [RUNNING]  Bag Time: 1678417411.076648   Duration: 25.056836 / 41.300000               --------processing 752.png-----------
+ [RUNNING]  Bag Time: 1678417411.110861   Duration: 25.091049 / 41.300000               --------processing 753.png-----------
+ [RUNNING]  Bag Time: 1678417411.144420   Duration: 25.124608 / 41.300000               --------processing 754.png-----------
+ [RUNNING]  Bag Time: 1678417411.179716   Duration: 25.159904 / 41.300000               --------processing 755.png-----------
+ [RUNNING]  Bag Time: 1678417411.210626   Duration: 25.190814 / 41.300000               --------processing 756.png-----------
+ [RUNNING]  Bag Time: 1678417411.244722   Duration: 25.224910 / 41.300000               --------processing 757.png-----------
+ [RUNNING]  Bag Time: 1678417411.278227   Duration: 25.258415 / 41.300000               --------processing 758.png-----------
+ [RUNNING]  Bag Time: 1678417411.310072   Duration: 25.290260 / 41.300000               --------processing 759.png-----------
+ [RUNNING]  Bag Time: 1678417411.344451   Duration: 25.324639 / 41.300000               --------processing 760.png-----------
+ [RUNNING]  Bag Time: 1678417411.378868   Duration: 25.359056 / 41.300000               --------processing 761.png-----------
+ [RUNNING]  Bag Time: 1678417411.410719   Duration: 25.390907 / 41.300000               --------processing 762.png-----------
+ [RUNNING]  Bag Time: 1678417411.444292   Duration: 25.424480 / 41.300000               Callback:: 29.904319 Hz
+--------processing 763.png-----------
+ [RUNNING]  Bag Time: 1678417411.479357   Duration: 25.459545 / 41.300000               --------processing 764.png-----------
+ [RUNNING]  Bag Time: 1678417411.510665   Duration: 25.490854 / 41.300000               --------processing 765.png-----------
+ [RUNNING]  Bag Time: 1678417411.544360   Duration: 25.524548 / 41.300000               --------processing 766.png-----------
+ [RUNNING]  Bag Time: 1678417411.578141   Duration: 25.558329 / 41.300000               --------processing 767.png-----------
+ [RUNNING]  Bag Time: 1678417411.611478   Duration: 25.591666 / 41.300000               --------processing 768.png-----------
+ [RUNNING]  Bag Time: 1678417411.643919   Duration: 25.624107 / 41.300000               --------processing 769.png-----------
+ [RUNNING]  Bag Time: 1678417411.677960   Duration: 25.658149 / 41.300000               --------processing 770.png-----------
+ [RUNNING]  Bag Time: 1678417411.711452   Duration: 25.691641 / 41.300000               --------processing 771.png-----------
+ [RUNNING]  Bag Time: 1678417411.744178   Duration: 25.724366 / 41.300000               --------processing 772.png-----------
+ [RUNNING]  Bag Time: 1678417411.778581   Duration: 25.758769 / 41.300000               --------processing 773.png-----------
+ [RUNNING]  Bag Time: 1678417411.813897   Duration: 25.794085 / 41.300000               --------processing 774.png-----------
+ [RUNNING]  Bag Time: 1678417411.845304   Duration: 25.825492 / 41.300000               --------processing 775.png-----------
+ [RUNNING]  Bag Time: 1678417411.878738   Duration: 25.858927 / 41.300000               --------processing 776.png-----------
+ [RUNNING]  Bag Time: 1678417411.912302   Duration: 25.892491 / 41.300000               --------processing 777.png-----------
+ [RUNNING]  Bag Time: 1678417411.945594   Duration: 25.925783 / 41.300000               --------processing 778.png-----------
+ [RUNNING]  Bag Time: 1678417411.979480   Duration: 25.959668 / 41.300000               --------processing 779.png-----------
+ [RUNNING]  Bag Time: 1678417412.012406   Duration: 25.992594 / 41.300000               --------processing 780.png-----------
+ [RUNNING]  Bag Time: 1678417412.047896   Duration: 26.028084 / 41.300000               --------processing 781.png-----------
+ [RUNNING]  Bag Time: 1678417412.081002   Duration: 26.061190 / 41.300000               --------processing 782.png-----------
+ [RUNNING]  Bag Time: 1678417412.114011   Duration: 26.094199 / 41.300000               --------processing 783.png-----------
+ [RUNNING]  Bag Time: 1678417412.147944   Duration: 26.128133 / 41.300000               --------processing 784.png-----------
+ [RUNNING]  Bag Time: 1678417412.183653   Duration: 26.163841 / 41.300000               --------processing 785.png-----------
+ [RUNNING]  Bag Time: 1678417412.218603   Duration: 26.198791 / 41.300000               --------processing 786.png-----------
+ [RUNNING]  Bag Time: 1678417412.248799   Duration: 26.228988 / 41.300000               --------processing 787.png-----------
+ [RUNNING]  Bag Time: 1678417412.282118   Duration: 26.262306 / 41.300000               --------processing 788.png-----------
+ [RUNNING]  Bag Time: 1678417412.319184   Duration: 26.299372 / 41.300000               --------processing 789.png-----------
+ [RUNNING]  Bag Time: 1678417412.349380   Duration: 26.329568 / 41.300000               --------processing 790.png-----------
+ [RUNNING]  Bag Time: 1678417412.380548   Duration: 26.360736 / 41.300000               --------processing 791.png-----------
+ [RUNNING]  Bag Time: 1678417412.415148   Duration: 26.395336 / 41.300000               --------processing 792.png-----------
+ [RUNNING]  Bag Time: 1678417412.449250   Duration: 26.429438 / 41.300000               Callback:: 29.891953 Hz
+--------processing 793.png-----------
+ [RUNNING]  Bag Time: 1678417412.485575   Duration: 26.465763 / 41.300000               --------processing 794.png-----------
+ [RUNNING]  Bag Time: 1678417412.515821   Duration: 26.496009 / 41.300000               --------processing 795.png-----------
+ [RUNNING]  Bag Time: 1678417412.546132   Duration: 26.526320 / 41.300000               --------processing 796.png-----------
+ [RUNNING]  Bag Time: 1678417412.579359   Duration: 26.559547 / 41.300000               --------processing 797.png-----------
+ [RUNNING]  Bag Time: 1678417412.613902   Duration: 26.594091 / 41.300000               --------processing 798.png-----------
+ [RUNNING]  Bag Time: 1678417412.645346   Duration: 26.625534 / 41.300000               --------processing 799.png-----------
+ [RUNNING]  Bag Time: 1678417412.678287   Duration: 26.658475 / 41.300000               --------processing 800.png-----------
+ [RUNNING]  Bag Time: 1678417412.713318   Duration: 26.693507 / 41.300000               --------processing 801.png-----------
+ [RUNNING]  Bag Time: 1678417412.745289   Duration: 26.725477 / 41.300000               --------processing 802.png-----------
+ [RUNNING]  Bag Time: 1678417412.778810   Duration: 26.758998 / 41.300000               --------processing 803.png-----------
+ [RUNNING]  Bag Time: 1678417412.811972   Duration: 26.792160 / 41.300000               --------processing 804.png-----------
+ [RUNNING]  Bag Time: 1678417412.847359   Duration: 26.827547 / 41.300000               --------processing 805.png-----------
+ [RUNNING]  Bag Time: 1678417412.878977   Duration: 26.859165 / 41.300000               --------processing 806.png-----------
+ [RUNNING]  Bag Time: 1678417412.915259   Duration: 26.895447 / 41.300000               --------processing 807.png-----------
+ [RUNNING]  Bag Time: 1678417412.946226   Duration: 26.926414 / 41.300000               --------processing 808.png-----------
+ [RUNNING]  Bag Time: 1678417412.978720   Duration: 26.958908 / 41.300000               --------processing 809.png-----------
+ [RUNNING]  Bag Time: 1678417413.011080   Duration: 26.991268 / 41.300000               --------processing 810.png-----------
+ [RUNNING]  Bag Time: 1678417413.045431   Duration: 27.025619 / 41.300000               --------processing 811.png-----------
+ [RUNNING]  Bag Time: 1678417413.078781   Duration: 27.058969 / 41.300000               --------processing 812.png-----------
+ [RUNNING]  Bag Time: 1678417413.112118   Duration: 27.092306 / 41.300000               --------processing 813.png-----------
+ [RUNNING]  Bag Time: 1678417413.145976   Duration: 27.126164 / 41.300000               --------processing 814.png-----------
+ [RUNNING]  Bag Time: 1678417413.177691   Duration: 27.157879 / 41.300000               --------processing 815.png-----------
+ [RUNNING]  Bag Time: 1678417413.212398   Duration: 27.192586 / 41.300000               --------processing 816.png-----------
+ [RUNNING]  Bag Time: 1678417413.245474   Duration: 27.225663 / 41.300000               --------processing 817.png-----------
+ [RUNNING]  Bag Time: 1678417413.278807   Duration: 27.258995 / 41.300000               --------processing 818.png-----------
+ [RUNNING]  Bag Time: 1678417413.311819   Duration: 27.292007 / 41.300000               --------processing 819.png-----------
+ [RUNNING]  Bag Time: 1678417413.344977   Duration: 27.325165 / 41.300000               --------processing 820.png-----------
+ [RUNNING]  Bag Time: 1678417413.378863   Duration: 27.359051 / 41.300000               --------processing 821.png-----------
+ [RUNNING]  Bag Time: 1678417413.415946   Duration: 27.396134 / 41.300000               --------processing 822.png-----------
+ [RUNNING]  Bag Time: 1678417413.446229   Duration: 27.426417 / 41.300000               --------processing 823.png-----------
+ [RUNNING]  Bag Time: 1678417413.483011   Duration: 27.463200 / 41.300000               Callback:: 30.026110 Hz
+--------processing 824.png-----------
+ [RUNNING]  Bag Time: 1678417413.515813   Duration: 27.496001 / 41.300000               --------processing 825.png-----------
+ [RUNNING]  Bag Time: 1678417413.550969   Duration: 27.531157 / 41.300000               --------processing 826.png-----------
+ [RUNNING]  Bag Time: 1678417413.583155   Duration: 27.563344 / 41.300000               --------processing 827.png-----------
+ [RUNNING]  Bag Time: 1678417413.614723   Duration: 27.594911 / 41.300000               --------processing 828.png-----------
+ [RUNNING]  Bag Time: 1678417413.647704   Duration: 27.627892 / 41.300000               --------processing 829.png-----------
+ [RUNNING]  Bag Time: 1678417413.681046   Duration: 27.661234 / 41.300000               --------processing 830.png-----------
+ [RUNNING]  Bag Time: 1678417413.715495   Duration: 27.695683 / 41.300000               --------processing 831.png-----------
+ [RUNNING]  Bag Time: 1678417413.747431   Duration: 27.727619 / 41.300000               --------processing 832.png-----------
+ [RUNNING]  Bag Time: 1678417413.784146   Duration: 27.764334 / 41.300000               --------processing 833.png-----------
+ [RUNNING]  Bag Time: 1678417413.814382   Duration: 27.794570 / 41.300000               --------processing 834.png-----------
+ [RUNNING]  Bag Time: 1678417413.851593   Duration: 27.831781 / 41.300000               --------processing 835.png-----------
+ [RUNNING]  Bag Time: 1678417413.884118   Duration: 27.864306 / 41.300000               --------processing 836.png-----------
+ [RUNNING]  Bag Time: 1678417413.916033   Duration: 27.896221 / 41.300000               --------processing 837.png-----------
+ [RUNNING]  Bag Time: 1678417413.946916   Duration: 27.927104 / 41.300000               --------processing 838.png-----------
+ [RUNNING]  Bag Time: 1678417413.980529   Duration: 27.960717 / 41.300000               --------processing 839.png-----------
+ [RUNNING]  Bag Time: 1678417414.013687   Duration: 27.993875 / 41.300000               --------processing 840.png-----------
+ [RUNNING]  Bag Time: 1678417414.047400   Duration: 28.027588 / 41.300000               --------processing 841.png-----------
+ [RUNNING]  Bag Time: 1678417414.080132   Duration: 28.060320 / 41.300000               --------processing 842.png-----------
+ [RUNNING]  Bag Time: 1678417414.114892   Duration: 28.095081 / 41.300000               --------processing 843.png-----------
+ [RUNNING]  Bag Time: 1678417414.147172   Duration: 28.127360 / 41.300000               --------processing 844.png-----------
+ [RUNNING]  Bag Time: 1678417414.180895   Duration: 28.161083 / 41.300000               --------processing 845.png-----------
+ [RUNNING]  Bag Time: 1678417414.213975   Duration: 28.194164 / 41.300000               --------processing 846.png-----------
+ [RUNNING]  Bag Time: 1678417414.247582   Duration: 28.227770 / 41.300000               --------processing 847.png-----------
+ [RUNNING]  Bag Time: 1678417414.279967   Duration: 28.260155 / 41.300000               --------processing 848.png-----------
+ [RUNNING]  Bag Time: 1678417414.314223   Duration: 28.294411 / 41.300000               --------processing 849.png-----------
+ [RUNNING]  Bag Time: 1678417414.347013   Duration: 28.327201 / 41.300000               --------processing 850.png-----------
+ [RUNNING]  Bag Time: 1678417414.380359   Duration: 28.360548 / 41.300000               --------processing 851.png-----------
+ [RUNNING]  Bag Time: 1678417414.413227   Duration: 28.393416 / 41.300000               --------processing 852.png-----------
+ [RUNNING]  Bag Time: 1678417414.447364   Duration: 28.427552 / 41.300000               --------processing 853.png-----------
+ [RUNNING]  Bag Time: 1678417414.481695   Duration: 28.461883 / 41.300000               --------processing 854.png-----------
+ [RUNNING]  Bag Time: 1678417414.514486   Duration: 28.494674 / 41.300000               Callback:: 30.034854 Hz
+--------processing 855.png-----------
+ [RUNNING]  Bag Time: 1678417414.547022   Duration: 28.527211 / 41.300000               --------processing 856.png-----------
+ [RUNNING]  Bag Time: 1678417414.582867   Duration: 28.563055 / 41.300000               --------processing 857.png-----------
+ [RUNNING]  Bag Time: 1678417414.616744   Duration: 28.596932 / 41.300000               --------processing 858.png-----------
+ [RUNNING]  Bag Time: 1678417414.650133   Duration: 28.630321 / 41.300000               --------processing 859.png-----------
+ [RUNNING]  Bag Time: 1678417414.682562   Duration: 28.662750 / 41.300000               --------processing 860.png-----------
+ [RUNNING]  Bag Time: 1678417414.715240   Duration: 28.695428 / 41.300000               --------processing 861.png-----------
+ [RUNNING]  Bag Time: 1678417414.749274   Duration: 28.729462 / 41.300000               --------processing 862.png-----------
+ [RUNNING]  Bag Time: 1678417414.778816   Duration: 28.759004 / 41.300000               --------processing 863.png-----------
+ [RUNNING]  Bag Time: 1678417414.815580   Duration: 28.795768 / 41.300000               --------processing 864.png-----------
+ [RUNNING]  Bag Time: 1678417414.845691   Duration: 28.825880 / 41.300000               --------processing 865.png-----------
+ [RUNNING]  Bag Time: 1678417414.880529   Duration: 28.860717 / 41.300000               --------processing 866.png-----------
+ [RUNNING]  Bag Time: 1678417414.915548   Duration: 28.895736 / 41.300000               --------processing 867.png-----------
+ [RUNNING]  Bag Time: 1678417414.949510   Duration: 28.929698 / 41.300000               --------processing 868.png-----------
+ [RUNNING]  Bag Time: 1678417414.983757   Duration: 28.963945 / 41.300000               --------processing 869.png-----------
+ [RUNNING]  Bag Time: 1678417415.017537   Duration: 28.997725 / 41.300000               --------processing 870.png-----------
+ [RUNNING]  Bag Time: 1678417415.042196   Duration: 29.022384 / 41.300000               --------processing 871.png-----------
+ [RUNNING]  Bag Time: 1678417415.085500   Duration: 29.065688 / 41.300000               --------processing 872.png-----------
+ [RUNNING]  Bag Time: 1678417415.117451   Duration: 29.097639 / 41.300000               --------processing 873.png-----------
+ [RUNNING]  Bag Time: 1678417415.147104   Duration: 29.127292 / 41.300000               --------processing 874.png-----------
+ [RUNNING]  Bag Time: 1678417415.182483   Duration: 29.162671 / 41.300000               --------processing 875.png-----------
+ [RUNNING]  Bag Time: 1678417415.215548   Duration: 29.195736 / 41.300000               --------processing 876.png-----------
+ [RUNNING]  Bag Time: 1678417415.250918   Duration: 29.231106 / 41.300000               --------processing 877.png-----------
+ [RUNNING]  Bag Time: 1678417415.277044   Duration: 29.257232 / 41.300000               --------processing 878.png-----------
+ [RUNNING]  Bag Time: 1678417415.315679   Duration: 29.295867 / 41.300000               --------processing 879.png-----------
+ [RUNNING]  Bag Time: 1678417415.345831   Duration: 29.326019 / 41.300000               --------processing 880.png-----------
+ [RUNNING]  Bag Time: 1678417415.381534   Duration: 29.361722 / 41.300000               --------processing 881.png-----------
+ [RUNNING]  Bag Time: 1678417415.414085   Duration: 29.394273 / 41.300000               --------processing 882.png-----------
+ [RUNNING]  Bag Time: 1678417415.449574   Duration: 29.429762 / 41.300000               --------processing 883.png-----------
+ [RUNNING]  Bag Time: 1678417415.482068   Duration: 29.462256 / 41.300000               --------processing 884.png-----------
+ [RUNNING]  Bag Time: 1678417415.514820   Duration: 29.495008 / 41.300000               Callback:: 29.975161 Hz
+--------processing 885.png-----------
+ [RUNNING]  Bag Time: 1678417415.548022   Duration: 29.528211 / 41.300000               --------processing 886.png-----------
+ [RUNNING]  Bag Time: 1678417415.581690   Duration: 29.561878 / 41.300000               --------processing 887.png-----------
+ [RUNNING]  Bag Time: 1678417415.613075   Duration: 29.593263 / 41.300000               --------processing 888.png-----------
+ [RUNNING]  Bag Time: 1678417415.647671   Duration: 29.627859 / 41.300000               --------processing 889.png-----------
+ [RUNNING]  Bag Time: 1678417415.681726   Duration: 29.661914 / 41.300000               --------processing 890.png-----------
+ [RUNNING]  Bag Time: 1678417415.713768   Duration: 29.693956 / 41.300000               --------processing 891.png-----------
+ [RUNNING]  Bag Time: 1678417415.747031   Duration: 29.727219 / 41.300000               --------processing 892.png-----------
+ [RUNNING]  Bag Time: 1678417415.782029   Duration: 29.762217 / 41.300000               --------processing 893.png-----------
+ [RUNNING]  Bag Time: 1678417415.814276   Duration: 29.794464 / 41.300000               --------processing 894.png-----------
+ [RUNNING]  Bag Time: 1678417415.848161   Duration: 29.828349 / 41.300000               --------processing 895.png-----------
+ [RUNNING]  Bag Time: 1678417415.881775   Duration: 29.861963 / 41.300000               --------processing 896.png-----------
+ [RUNNING]  Bag Time: 1678417415.915652   Duration: 29.895840 / 41.300000               --------processing 897.png-----------
+ [RUNNING]  Bag Time: 1678417415.946363   Duration: 29.926551 / 41.300000               --------processing 898.png-----------
+ [RUNNING]  Bag Time: 1678417415.984962   Duration: 29.965150 / 41.300000               --------processing 899.png-----------
+ [RUNNING]  Bag Time: 1678417416.015824   Duration: 29.996012 / 41.300000               --------processing 900.png-----------
+ [RUNNING]  Bag Time: 1678417416.047833   Duration: 30.028021 / 41.300000               --------processing 901.png-----------
+ [RUNNING]  Bag Time: 1678417416.080854   Duration: 30.061043 / 41.300000               --------processing 902.png-----------
+ [RUNNING]  Bag Time: 1678417416.114365   Duration: 30.094553 / 41.300000               --------processing 903.png-----------
+ [RUNNING]  Bag Time: 1678417416.146494   Duration: 30.126682 / 41.300000               --------processing 904.png-----------
+ [RUNNING]  Bag Time: 1678417416.185147   Duration: 30.165335 / 41.300000               --------processing 905.png-----------
+ [RUNNING]  Bag Time: 1678417416.215491   Duration: 30.195679 / 41.300000               --------processing 906.png-----------
+ [RUNNING]  Bag Time: 1678417416.247769   Duration: 30.227957 / 41.300000               --------processing 907.png-----------
+ [RUNNING]  Bag Time: 1678417416.281776   Duration: 30.261964 / 41.300000               --------processing 908.png-----------
+ [RUNNING]  Bag Time: 1678417416.313430   Duration: 30.293618 / 41.300000               --------processing 909.png-----------
+ [RUNNING]  Bag Time: 1678417416.348382   Duration: 30.328570 / 41.300000               --------processing 910.png-----------
+ [RUNNING]  Bag Time: 1678417416.380611   Duration: 30.360799 / 41.300000               --------processing 911.png-----------
+ [RUNNING]  Bag Time: 1678417416.414058   Duration: 30.394246 / 41.300000               --------processing 912.png-----------
+ [RUNNING]  Bag Time: 1678417416.447062   Duration: 30.427250 / 41.300000               --------processing 913.png-----------
+ [RUNNING]  Bag Time: 1678417416.479667   Duration: 30.459855 / 41.300000               --------processing 914.png-----------
+ [RUNNING]  Bag Time: 1678417416.513619   Duration: 30.493807 / 41.300000               --------processing 915.png-----------
+ [RUNNING]  Bag Time: 1678417416.546308   Duration: 30.526496 / 41.300000               Callback:: 30.044828 Hz
+--------processing 916.png-----------
+ [RUNNING]  Bag Time: 1678417416.581871   Duration: 30.562059 / 41.300000               --------processing 917.png-----------
+ [RUNNING]  Bag Time: 1678417416.613357   Duration: 30.593546 / 41.300000               --------processing 918.png-----------
+ [RUNNING]  Bag Time: 1678417416.647319   Duration: 30.627507 / 41.300000               --------processing 919.png-----------
+ [RUNNING]  Bag Time: 1678417416.681541   Duration: 30.661729 / 41.300000               --------processing 920.png-----------
+ [RUNNING]  Bag Time: 1678417416.715548   Duration: 30.695736 / 41.300000               --------processing 921.png-----------
+ [RUNNING]  Bag Time: 1678417416.746472   Duration: 30.726660 / 41.300000               --------processing 922.png-----------
+ [RUNNING]  Bag Time: 1678417416.781615   Duration: 30.761803 / 41.300000               --------processing 923.png-----------
+ [RUNNING]  Bag Time: 1678417416.813753   Duration: 30.793941 / 41.300000               --------processing 924.png-----------
+ [RUNNING]  Bag Time: 1678417416.848717   Duration: 30.828905 / 41.300000               --------processing 925.png-----------
+ [RUNNING]  Bag Time: 1678417416.880160   Duration: 30.860348 / 41.300000               --------processing 926.png-----------
+ [RUNNING]  Bag Time: 1678417416.913609   Duration: 30.893797 / 41.300000               --------processing 927.png-----------
+ [RUNNING]  Bag Time: 1678417416.948188   Duration: 30.928376 / 41.300000               --------processing 928.png-----------
+ [RUNNING]  Bag Time: 1678417416.983750   Duration: 30.963939 / 41.300000               --------processing 929.png-----------
+ [RUNNING]  Bag Time: 1678417417.014174   Duration: 30.994362 / 41.300000               --------processing 930.png-----------
+ [RUNNING]  Bag Time: 1678417417.047668   Duration: 31.027856 / 41.300000               --------processing 931.png-----------
+ [RUNNING]  Bag Time: 1678417417.079794   Duration: 31.059982 / 41.300000               --------processing 932.png-----------
+ [RUNNING]  Bag Time: 1678417417.113625   Duration: 31.093813 / 41.300000               --------processing 933.png-----------
+ [RUNNING]  Bag Time: 1678417417.146477   Duration: 31.126666 / 41.300000               --------processing 934.png-----------
+ [RUNNING]  Bag Time: 1678417417.182711   Duration: 31.162899 / 41.300000               --------processing 935.png-----------
+ [RUNNING]  Bag Time: 1678417417.213463   Duration: 31.193651 / 41.300000               --------processing 936.png-----------
+ [RUNNING]  Bag Time: 1678417417.246858   Duration: 31.227046 / 41.300000               --------processing 937.png-----------
+ [RUNNING]  Bag Time: 1678417417.279851   Duration: 31.260039 / 41.300000               --------processing 938.png-----------
+ [RUNNING]  Bag Time: 1678417417.313343   Duration: 31.293531 / 41.300000               --------processing 939.png-----------
+ [RUNNING]  Bag Time: 1678417417.346351   Duration: 31.326539 / 41.300000               --------processing 940.png-----------
+ [RUNNING]  Bag Time: 1678417417.380405   Duration: 31.360594 / 41.300000               --------processing 941.png-----------
+ [RUNNING]  Bag Time: 1678417417.412724   Duration: 31.392913 / 41.300000               --------processing 942.png-----------
+ [RUNNING]  Bag Time: 1678417417.447057   Duration: 31.427245 / 41.300000               --------processing 943.png-----------
+ [RUNNING]  Bag Time: 1678417417.479708   Duration: 31.459896 / 41.300000               --------processing 944.png-----------
+ [RUNNING]  Bag Time: 1678417417.514359   Duration: 31.494547 / 41.300000               --------processing 945.png-----------
+ [RUNNING]  Bag Time: 1678417417.546761   Duration: 31.526949 / 41.300000               --------processing 946.png-----------
+ [RUNNING]  Bag Time: 1678417417.580476   Duration: 31.560664 / 41.300000               Callback:: 30.019556 Hz
+--------processing 947.png-----------
+ [RUNNING]  Bag Time: 1678417417.613461   Duration: 31.593649 / 41.300000               --------processing 948.png-----------
+ [RUNNING]  Bag Time: 1678417417.646939   Duration: 31.627127 / 41.300000               --------processing 949.png-----------
+ [RUNNING]  Bag Time: 1678417417.680044   Duration: 31.660232 / 41.300000               --------processing 950.png-----------
+ [RUNNING]  Bag Time: 1678417417.714178   Duration: 31.694366 / 41.300000               --------processing 951.png-----------
+ [RUNNING]  Bag Time: 1678417417.747032   Duration: 31.727221 / 41.300000               --------processing 952.png-----------
+ [RUNNING]  Bag Time: 1678417417.781031   Duration: 31.761220 / 41.300000               --------processing 953.png-----------
+ [RUNNING]  Bag Time: 1678417417.813475   Duration: 31.793663 / 41.300000               --------processing 954.png-----------
+ [RUNNING]  Bag Time: 1678417417.847426   Duration: 31.827614 / 41.300000               --------processing 955.png-----------
+ [RUNNING]  Bag Time: 1678417417.879641   Duration: 31.859830 / 41.300000               --------processing 956.png-----------
+ [RUNNING]  Bag Time: 1678417417.913397   Duration: 31.893585 / 41.300000               --------processing 957.png-----------
+ [RUNNING]  Bag Time: 1678417417.946644   Duration: 31.926832 / 41.300000               --------processing 958.png-----------
+ [RUNNING]  Bag Time: 1678417417.981146   Duration: 31.961334 / 41.300000               --------processing 959.png-----------
+ [RUNNING]  Bag Time: 1678417418.013134   Duration: 31.993322 / 41.300000               --------processing 960.png-----------
+ [RUNNING]  Bag Time: 1678417418.046963   Duration: 32.027151 / 41.300000               --------processing 961.png-----------
+ [RUNNING]  Bag Time: 1678417418.080086   Duration: 32.060274 / 41.300000               --------processing 962.png-----------
+ [RUNNING]  Bag Time: 1678417418.114881   Duration: 32.095069 / 41.300000               --------processing 963.png-----------
+ [RUNNING]  Bag Time: 1678417418.147018   Duration: 32.127206 / 41.300000               --------processing 964.png-----------
+ [RUNNING]  Bag Time: 1678417418.181653   Duration: 32.161841 / 41.300000               --------processing 965.png-----------
+ [RUNNING]  Bag Time: 1678417418.214012   Duration: 32.194200 / 41.300000               --------processing 966.png-----------
+ [RUNNING]  Bag Time: 1678417418.248158   Duration: 32.228346 / 41.300000               --------processing 967.png-----------
+ [RUNNING]  Bag Time: 1678417418.281055   Duration: 32.261244 / 41.300000               --------processing 968.png-----------
+ [RUNNING]  Bag Time: 1678417418.315136   Duration: 32.295325 / 41.300000               --------processing 969.png-----------
+ [RUNNING]  Bag Time: 1678417418.347975   Duration: 32.328163 / 41.300000               --------processing 970.png-----------
+ [RUNNING]  Bag Time: 1678417418.382569   Duration: 32.362757 / 41.300000               --------processing 971.png-----------
+ [RUNNING]  Bag Time: 1678417418.414548   Duration: 32.394736 / 41.300000               --------processing 972.png-----------
+ [RUNNING]  Bag Time: 1678417418.448368   Duration: 32.428556 / 41.300000               --------processing 973.png-----------
+ [RUNNING]  Bag Time: 1678417418.480983   Duration: 32.461172 / 41.300000               --------processing 974.png-----------
+ [RUNNING]  Bag Time: 1678417418.515295   Duration: 32.495483 / 41.300000               --------processing 975.png-----------
+ [RUNNING]  Bag Time: 1678417418.548221   Duration: 32.528409 / 41.300000               --------processing 976.png-----------
+ [RUNNING]  Bag Time: 1678417418.581712   Duration: 32.561901 / 41.300000               Callback:: 29.992523 Hz
+--------processing 977.png-----------
+ [RUNNING]  Bag Time: 1678417418.615268   Duration: 32.595456 / 41.300000               --------processing 978.png-----------
+ [RUNNING]  Bag Time: 1678417418.649791   Duration: 32.629980 / 41.300000               --------processing 979.png-----------
+ [RUNNING]  Bag Time: 1678417418.681944   Duration: 32.662132 / 41.300000               --------processing 980.png-----------
+ [RUNNING]  Bag Time: 1678417418.715912   Duration: 32.696100 / 41.300000               --------processing 981.png-----------
+ [RUNNING]  Bag Time: 1678417418.748279   Duration: 32.728467 / 41.300000               --------processing 982.png-----------
+ [RUNNING]  Bag Time: 1678417418.782654   Duration: 32.762842 / 41.300000               --------processing 983.png-----------
+ [RUNNING]  Bag Time: 1678417418.814778   Duration: 32.794966 / 41.300000               --------processing 984.png-----------
+ [RUNNING]  Bag Time: 1678417418.848684   Duration: 32.828872 / 41.300000               --------processing 985.png-----------
+ [RUNNING]  Bag Time: 1678417418.880282   Duration: 32.860470 / 41.300000               --------processing 986.png-----------
+ [RUNNING]  Bag Time: 1678417418.913462   Duration: 32.893650 / 41.300000               --------processing 987.png-----------
+ [RUNNING]  Bag Time: 1678417418.947181   Duration: 32.927369 / 41.300000               --------processing 988.png-----------
+ [RUNNING]  Bag Time: 1678417418.980678   Duration: 32.960866 / 41.300000               --------processing 989.png-----------
+ [RUNNING]  Bag Time: 1678417419.012715   Duration: 32.992903 / 41.300000               --------processing 990.png-----------
+ [RUNNING]  Bag Time: 1678417419.047129   Duration: 33.027317 / 41.300000               --------processing 991.png-----------
+ [RUNNING]  Bag Time: 1678417419.081300   Duration: 33.061488 / 41.300000               --------processing 992.png-----------
+ [RUNNING]  Bag Time: 1678417419.116954   Duration: 33.097142 / 41.300000               --------processing 993.png-----------
+ [RUNNING]  Bag Time: 1678417419.148101   Duration: 33.128289 / 41.300000               --------processing 994.png-----------
+ [RUNNING]  Bag Time: 1678417419.181970   Duration: 33.162158 / 41.300000               --------processing 995.png-----------
+ [RUNNING]  Bag Time: 1678417419.214599   Duration: 33.194787 / 41.300000               --------processing 996.png-----------
+ [RUNNING]  Bag Time: 1678417419.249514   Duration: 33.229702 / 41.300000               --------processing 997.png-----------
+ [RUNNING]  Bag Time: 1678417419.281636   Duration: 33.261824 / 41.300000               --------processing 998.png-----------
+ [RUNNING]  Bag Time: 1678417419.315431   Duration: 33.295619 / 41.300000               --------processing 999.png-----------
+ [RUNNING]  Bag Time: 1678417419.347899   Duration: 33.328087 / 41.300000               --------processing 1000.png-----------
+ [RUNNING]  Bag Time: 1678417419.381787   Duration: 33.361975 / 41.300000               --------processing 1001.png-----------
+ [RUNNING]  Bag Time: 1678417419.414312   Duration: 33.394500 / 41.300000               --------processing 1002.png-----------
+ [RUNNING]  Bag Time: 1678417419.445153   Duration: 33.425341 / 41.300000               --------processing 1003.png-----------
+ [RUNNING]  Bag Time: 1678417419.481376   Duration: 33.461564 / 41.300000               --------processing 1004.png-----------
+ [RUNNING]  Bag Time: 1678417419.511737   Duration: 33.491926 / 41.300000               --------processing 1005.png-----------
+ [RUNNING]  Bag Time: 1678417419.548403   Duration: 33.528591 / 41.300000               --------processing 1006.png-----------
+ [RUNNING]  Bag Time: 1678417419.576519   Duration: 33.556707 / 41.300000               --------processing 1007.png-----------
+ [RUNNING]  Bag Time: 1678417419.614415   Duration: 33.594603 / 41.300000               Callback:: 29.945914 Hz
+--------processing 1008.png-----------
+ [RUNNING]  Bag Time: 1678417419.649461   Duration: 33.629649 / 41.300000               --------processing 1009.png-----------
+ [RUNNING]  Bag Time: 1678417419.679837   Duration: 33.660025 / 41.300000               --------processing 1010.png-----------
+ [RUNNING]  Bag Time: 1678417419.713451   Duration: 33.693639 / 41.300000               --------processing 1011.png-----------
+ [RUNNING]  Bag Time: 1678417419.746212   Duration: 33.726400 / 41.300000               --------processing 1012.png-----------
+ [RUNNING]  Bag Time: 1678417419.780289   Duration: 33.760477 / 41.300000               --------processing 1013.png-----------
+ [RUNNING]  Bag Time: 1678417419.810387   Duration: 33.790575 / 41.300000               --------processing 1014.png-----------
+ [RUNNING]  Bag Time: 1678417419.847533   Duration: 33.827721 / 41.300000               --------processing 1015.png-----------
+ [RUNNING]  Bag Time: 1678417419.882623   Duration: 33.862811 / 41.300000               --------processing 1016.png-----------
+ [RUNNING]  Bag Time: 1678417419.913347   Duration: 33.893535 / 41.300000               --------processing 1017.png-----------
+ [RUNNING]  Bag Time: 1678417419.946403   Duration: 33.926591 / 41.300000               --------processing 1018.png-----------
+ [RUNNING]  Bag Time: 1678417419.980125   Duration: 33.960313 / 41.300000               --------processing 1019.png-----------
+ [RUNNING]  Bag Time: 1678417420.012931   Duration: 33.993119 / 41.300000               --------processing 1020.png-----------
+ [RUNNING]  Bag Time: 1678417420.048221   Duration: 34.028410 / 41.300000               --------processing 1021.png-----------
+ [RUNNING]  Bag Time: 1678417420.081182   Duration: 34.061371 / 41.300000               --------processing 1022.png-----------
+ [RUNNING]  Bag Time: 1678417420.111207   Duration: 34.091395 / 41.300000               --------processing 1023.png-----------
+ [RUNNING]  Bag Time: 1678417420.147357   Duration: 34.127545 / 41.300000               --------processing 1024.png-----------
+ [RUNNING]  Bag Time: 1678417420.183455   Duration: 34.163643 / 41.300000               --------processing 1025.png-----------
+ [RUNNING]  Bag Time: 1678417420.215785   Duration: 34.195973 / 41.300000               --------processing 1026.png-----------
+ [RUNNING]  Bag Time: 1678417420.250536   Duration: 34.230724 / 41.300000               --------processing 1027.png-----------
+ [RUNNING]  Bag Time: 1678417420.281647   Duration: 34.261835 / 41.300000               --------processing 1028.png-----------
+ [RUNNING]  Bag Time: 1678417420.309864   Duration: 34.290052 / 41.300000               --------processing 1029.png-----------
+ [RUNNING]  Bag Time: 1678417420.348377   Duration: 34.328565 / 41.300000               --------processing 1030.png-----------
+ [RUNNING]  Bag Time: 1678417420.381094   Duration: 34.361282 / 41.300000               --------processing 1031.png-----------
+ [RUNNING]  Bag Time: 1678417420.414504   Duration: 34.394692 / 41.300000               --------processing 1032.png-----------
+ [RUNNING]  Bag Time: 1678417420.448427   Duration: 34.428615 / 41.300000               --------processing 1033.png-----------
+ [RUNNING]  Bag Time: 1678417420.484907   Duration: 34.465095 / 41.300000               --------processing 1034.png-----------
+ [RUNNING]  Bag Time: 1678417420.518897   Duration: 34.499085 / 41.300000               --------processing 1035.png-----------
+ [RUNNING]  Bag Time: 1678417420.550937   Duration: 34.531125 / 41.300000               --------processing 1036.png-----------
+ [RUNNING]  Bag Time: 1678417420.585307   Duration: 34.565495 / 41.300000               --------processing 1037.png-----------
+ [RUNNING]  Bag Time: 1678417420.615529   Duration: 34.595717 / 41.300000               --------processing 1038.png-----------
+ [RUNNING]  Bag Time: 1678417420.647817   Duration: 34.628005 / 41.300000               Callback:: 30.022421 Hz
+--------processing 1039.png-----------
+ [RUNNING]  Bag Time: 1678417420.680322   Duration: 34.660510 / 41.300000               --------processing 1040.png-----------
+ [RUNNING]  Bag Time: 1678417420.714766   Duration: 34.694954 / 41.300000               --------processing 1041.png-----------
+ [RUNNING]  Bag Time: 1678417420.747746   Duration: 34.727934 / 41.300000               --------processing 1042.png-----------
+ [RUNNING]  Bag Time: 1678417420.784636   Duration: 34.764824 / 41.300000               --------processing 1043.png-----------
+ [RUNNING]  Bag Time: 1678417420.814995   Duration: 34.795183 / 41.300000               --------processing 1044.png-----------
+ [RUNNING]  Bag Time: 1678417420.848406   Duration: 34.828594 / 41.300000               --------processing 1045.png-----------
+ [RUNNING]  Bag Time: 1678417420.880916   Duration: 34.861104 / 41.300000               --------processing 1046.png-----------
+ [RUNNING]  Bag Time: 1678417420.914347   Duration: 34.894535 / 41.300000               --------processing 1047.png-----------
+ [RUNNING]  Bag Time: 1678417420.946959   Duration: 34.927147 / 41.300000               --------processing 1048.png-----------
+ [RUNNING]  Bag Time: 1678417420.981077   Duration: 34.961265 / 41.300000               --------processing 1049.png-----------
+ [RUNNING]  Bag Time: 1678417421.017222   Duration: 34.997410 / 41.300000               --------processing 1050.png-----------
+ [RUNNING]  Bag Time: 1678417421.048640   Duration: 35.028828 / 41.300000               --------processing 1051.png-----------
+ [RUNNING]  Bag Time: 1678417421.080857   Duration: 35.061045 / 41.300000               --------processing 1052.png-----------
+ [RUNNING]  Bag Time: 1678417421.114383   Duration: 35.094572 / 41.300000               --------processing 1053.png-----------
+ [RUNNING]  Bag Time: 1678417421.146556   Duration: 35.126744 / 41.300000               --------processing 1054.png-----------
+ [RUNNING]  Bag Time: 1678417421.180448   Duration: 35.160636 / 41.300000               --------processing 1055.png-----------
+ [RUNNING]  Bag Time: 1678417421.213984   Duration: 35.194172 / 41.300000               --------processing 1056.png-----------
+ [RUNNING]  Bag Time: 1678417421.248884   Duration: 35.229072 / 41.300000               --------processing 1057.png-----------
+ [RUNNING]  Bag Time: 1678417421.280734   Duration: 35.260922 / 41.300000               --------processing 1058.png-----------
+ [RUNNING]  Bag Time: 1678417421.314209   Duration: 35.294397 / 41.300000               --------processing 1059.png-----------
+ [RUNNING]  Bag Time: 1678417421.348110   Duration: 35.328298 / 41.300000               --------processing 1060.png-----------
+ [RUNNING]  Bag Time: 1678417421.382359   Duration: 35.362547 / 41.300000               --------processing 1061.png-----------
+ [RUNNING]  Bag Time: 1678417421.415244   Duration: 35.395432 / 41.300000               --------processing 1062.png-----------
+ [RUNNING]  Bag Time: 1678417421.449837   Duration: 35.430026 / 41.300000               --------processing 1063.png-----------
+ [RUNNING]  Bag Time: 1678417421.481895   Duration: 35.462083 / 41.300000               --------processing 1064.png-----------
+ [RUNNING]  Bag Time: 1678417421.515304   Duration: 35.495492 / 41.300000               --------processing 1065.png-----------
+ [RUNNING]  Bag Time: 1678417421.550683   Duration: 35.530871 / 41.300000               --------processing 1066.png-----------
+ [RUNNING]  Bag Time: 1678417421.581181   Duration: 35.561369 / 41.300000               --------processing 1067.png-----------
+ [RUNNING]  Bag Time: 1678417421.612993   Duration: 35.593181 / 41.300000               --------processing 1068.png-----------
+ [RUNNING]  Bag Time: 1678417421.647252   Duration: 35.627440 / 41.300000               --------processing 1069.png-----------
+ [RUNNING]  Bag Time: 1678417421.680137   Duration: 35.660325 / 41.300000               Callback:: 30.103692 Hz
+--------processing 1070.png-----------
+ [RUNNING]  Bag Time: 1678417421.713744   Duration: 35.693932 / 41.300000               --------processing 1071.png-----------
+ [RUNNING]  Bag Time: 1678417421.746732   Duration: 35.726920 / 41.300000               --------processing 1072.png-----------
+ [RUNNING]  Bag Time: 1678417421.780803   Duration: 35.760991 / 41.300000               --------processing 1073.png-----------
+ [RUNNING]  Bag Time: 1678417421.813139   Duration: 35.793327 / 41.300000               --------processing 1074.png-----------
+ [RUNNING]  Bag Time: 1678417421.847460   Duration: 35.827648 / 41.300000               --------processing 1075.png-----------
+ [RUNNING]  Bag Time: 1678417421.879675   Duration: 35.859863 / 41.300000               --------processing 1076.png-----------
+ [RUNNING]  Bag Time: 1678417421.914485   Duration: 35.894673 / 41.300000               --------processing 1077.png-----------
+ [RUNNING]  Bag Time: 1678417421.946694   Duration: 35.926882 / 41.300000               --------processing 1078.png-----------
+ [RUNNING]  Bag Time: 1678417421.980511   Duration: 35.960699 / 41.300000               --------processing 1079.png-----------
+ [RUNNING]  Bag Time: 1678417422.012938   Duration: 35.993127 / 41.300000               --------processing 1080.png-----------
+ [RUNNING]  Bag Time: 1678417422.047326   Duration: 36.027514 / 41.300000               --------processing 1081.png-----------
+ [RUNNING]  Bag Time: 1678417422.079660   Duration: 36.059848 / 41.300000               --------processing 1082.png-----------
+ [RUNNING]  Bag Time: 1678417422.114450   Duration: 36.094638 / 41.300000               --------processing 1083.png-----------
+ [RUNNING]  Bag Time: 1678417422.147509   Duration: 36.127698 / 41.300000               --------processing 1084.png-----------
+ [RUNNING]  Bag Time: 1678417422.181781   Duration: 36.161969 / 41.300000               --------processing 1085.png-----------
+ [RUNNING]  Bag Time: 1678417422.213443   Duration: 36.193632 / 41.300000               --------processing 1086.png-----------
+ [RUNNING]  Bag Time: 1678417422.248640   Duration: 36.228828 / 41.300000               --------processing 1087.png-----------
+ [RUNNING]  Bag Time: 1678417422.277787   Duration: 36.257975 / 41.300000               --------processing 1088.png-----------
+ [RUNNING]  Bag Time: 1678417422.313838   Duration: 36.294026 / 41.300000               --------processing 1089.png-----------
+ [RUNNING]  Bag Time: 1678417422.346940   Duration: 36.327128 / 41.300000               --------processing 1090.png-----------
+ [RUNNING]  Bag Time: 1678417422.380541   Duration: 36.360729 / 41.300000               --------processing 1091.png-----------
+ [RUNNING]  Bag Time: 1678417422.413416   Duration: 36.393604 / 41.300000               --------processing 1092.png-----------
+ [RUNNING]  Bag Time: 1678417422.448037   Duration: 36.428225 / 41.300000               --------processing 1093.png-----------
+ [RUNNING]  Bag Time: 1678417422.479812   Duration: 36.460000 / 41.300000               --------processing 1094.png-----------
+ [RUNNING]  Bag Time: 1678417422.513532   Duration: 36.493721 / 41.300000               --------processing 1095.png-----------
+ [RUNNING]  Bag Time: 1678417422.546082   Duration: 36.526270 / 41.300000               --------processing 1096.png-----------
+ [RUNNING]  Bag Time: 1678417422.580555   Duration: 36.560743 / 41.300000               --------processing 1097.png-----------
+ [RUNNING]  Bag Time: 1678417422.614025   Duration: 36.594213 / 41.300000               --------processing 1098.png-----------
+ [RUNNING]  Bag Time: 1678417422.647957   Duration: 36.628145 / 41.300000               --------processing 1099.png-----------
+ [RUNNING]  Bag Time: 1678417422.681750   Duration: 36.661938 / 41.300000               Callback:: 29.691891 Hz
+--------processing 1100.png-----------
+ [RUNNING]  Bag Time: 1678417422.711099   Duration: 36.691288 / 41.300000               --------processing 1101.png-----------
+ [RUNNING]  Bag Time: 1678417422.745961   Duration: 36.726149 / 41.300000               --------processing 1102.png-----------
+ [RUNNING]  Bag Time: 1678417422.781377   Duration: 36.761565 / 41.300000               --------processing 1103.png-----------
+ [RUNNING]  Bag Time: 1678417422.812824   Duration: 36.793012 / 41.300000               --------processing 1104.png-----------
+ [RUNNING]  Bag Time: 1678417422.844495   Duration: 36.824683 / 41.300000               --------processing 1105.png-----------
+ [RUNNING]  Bag Time: 1678417422.879541   Duration: 36.859729 / 41.300000               --------processing 1106.png-----------
+ [RUNNING]  Bag Time: 1678417422.913807   Duration: 36.893995 / 41.300000               --------processing 1107.png-----------
+ [RUNNING]  Bag Time: 1678417422.946217   Duration: 36.926405 / 41.300000               --------processing 1108.png-----------
+ [RUNNING]  Bag Time: 1678417422.981394   Duration: 36.961582 / 41.300000               --------processing 1109.png-----------
+ [RUNNING]  Bag Time: 1678417423.012715   Duration: 36.992903 / 41.300000               --------processing 1110.png-----------
+ [RUNNING]  Bag Time: 1678417423.047900   Duration: 37.028089 / 41.300000               --------processing 1111.png-----------
+ [RUNNING]  Bag Time: 1678417423.080723   Duration: 37.060911 / 41.300000               --------processing 1112.png-----------
+ [RUNNING]  Bag Time: 1678417423.109889   Duration: 37.090077 / 41.300000               --------processing 1113.png-----------
+ [RUNNING]  Bag Time: 1678417423.146725   Duration: 37.126913 / 41.300000               --------processing 1114.png-----------
+ [RUNNING]  Bag Time: 1678417423.178705   Duration: 37.158894 / 41.300000               --------processing 1115.png-----------
+ [RUNNING]  Bag Time: 1678417423.212518   Duration: 37.192706 / 41.300000               --------processing 1116.png-----------
+ [RUNNING]  Bag Time: 1678417423.249297   Duration: 37.229485 / 41.300000               --------processing 1117.png-----------
+ [RUNNING]  Bag Time: 1678417423.279597   Duration: 37.259785 / 41.300000               --------processing 1118.png-----------
+ [RUNNING]  Bag Time: 1678417423.313567   Duration: 37.293755 / 41.300000               --------processing 1119.png-----------
+ [RUNNING]  Bag Time: 1678417423.346282   Duration: 37.326471 / 41.300000               --------processing 1120.png-----------
+ [RUNNING]  Bag Time: 1678417423.380267   Duration: 37.360456 / 41.300000               --------processing 1121.png-----------
+ [RUNNING]  Bag Time: 1678417423.413437   Duration: 37.393625 / 41.300000               --------processing 1122.png-----------
+ [RUNNING]  Bag Time: 1678417423.447334   Duration: 37.427522 / 41.300000               --------processing 1123.png-----------
+ [RUNNING]  Bag Time: 1678417423.479497   Duration: 37.459685 / 41.300000               --------processing 1124.png-----------
+ [RUNNING]  Bag Time: 1678417423.513386   Duration: 37.493574 / 41.300000               --------processing 1125.png-----------
+ [RUNNING]  Bag Time: 1678417423.546349   Duration: 37.526537 / 41.300000               --------processing 1126.png-----------
+ [RUNNING]  Bag Time: 1678417423.580299   Duration: 37.560487 / 41.300000               --------processing 1127.png-----------
+ [RUNNING]  Bag Time: 1678417423.615715   Duration: 37.595903 / 41.300000               --------processing 1128.png-----------
+ [RUNNING]  Bag Time: 1678417423.646693   Duration: 37.626881 / 41.300000               --------processing 1129.png-----------
+ [RUNNING]  Bag Time: 1678417423.679368   Duration: 37.659557 / 41.300000               --------processing 1130.png-----------
+ [RUNNING]  Bag Time: 1678417423.714523   Duration: 37.694711 / 41.300000               Callback:: 30.201253 Hz
+--------processing 1131.png-----------
+ [RUNNING]  Bag Time: 1678417423.749015   Duration: 37.729203 / 41.300000               --------processing 1132.png-----------
+ [RUNNING]  Bag Time: 1678417423.780445   Duration: 37.760633 / 41.300000               --------processing 1133.png-----------
+ [RUNNING]  Bag Time: 1678417423.813656   Duration: 37.793844 / 41.300000               --------processing 1134.png-----------
+ [RUNNING]  Bag Time: 1678417423.847406   Duration: 37.827594 / 41.300000               --------processing 1135.png-----------
+ [RUNNING]  Bag Time: 1678417423.879844   Duration: 37.860032 / 41.300000               --------processing 1136.png-----------
+ [RUNNING]  Bag Time: 1678417423.914362   Duration: 37.894550 / 41.300000               --------processing 1137.png-----------
+ [RUNNING]  Bag Time: 1678417423.946037   Duration: 37.926225 / 41.300000               --------processing 1138.png-----------
+ [RUNNING]  Bag Time: 1678417423.980419   Duration: 37.960607 / 41.300000               --------processing 1139.png-----------
+ [RUNNING]  Bag Time: 1678417424.012949   Duration: 37.993137 / 41.300000               --------processing 1140.png-----------
+ [RUNNING]  Bag Time: 1678417424.045013   Duration: 38.025201 / 41.300000               --------processing 1141.png-----------
+ [RUNNING]  Bag Time: 1678417424.081071   Duration: 38.061259 / 41.300000               --------processing 1142.png-----------
+ [RUNNING]  Bag Time: 1678417424.117361   Duration: 38.097549 / 41.300000               --------processing 1143.png-----------
+ [RUNNING]  Bag Time: 1678417424.148236   Duration: 38.128424 / 41.300000               --------processing 1144.png-----------
+ [RUNNING]  Bag Time: 1678417424.182976   Duration: 38.163165 / 41.300000               --------processing 1145.png-----------
+ [RUNNING]  Bag Time: 1678417424.215125   Duration: 38.195313 / 41.300000               --------processing 1146.png-----------
+ [RUNNING]  Bag Time: 1678417424.249478   Duration: 38.229666 / 41.300000               --------processing 1147.png-----------
+ [RUNNING]  Bag Time: 1678417424.282169   Duration: 38.262357 / 41.300000               --------processing 1148.png-----------
+ [RUNNING]  Bag Time: 1678417424.315449   Duration: 38.295637 / 41.300000               --------processing 1149.png-----------
+ [RUNNING]  Bag Time: 1678417424.347995   Duration: 38.328183 / 41.300000               --------processing 1150.png-----------
+ [RUNNING]  Bag Time: 1678417424.380582   Duration: 38.360770 / 41.300000               --------processing 1151.png-----------
+ [RUNNING]  Bag Time: 1678417424.414815   Duration: 38.395004 / 41.300000               --------processing 1152.png-----------
+ [RUNNING]  Bag Time: 1678417424.452169   Duration: 38.432357 / 41.300000               --------processing 1153.png-----------
+ [RUNNING]  Bag Time: 1678417424.482402   Duration: 38.462590 / 41.300000               --------processing 1154.png-----------
+ [RUNNING]  Bag Time: 1678417424.515090   Duration: 38.495278 / 41.300000               --------processing 1155.png-----------
+ [RUNNING]  Bag Time: 1678417424.548225   Duration: 38.528413 / 41.300000               --------processing 1156.png-----------
+ [RUNNING]  Bag Time: 1678417424.579550   Duration: 38.559738 / 41.300000               --------processing 1157.png-----------
+ [RUNNING]  Bag Time: 1678417424.614369   Duration: 38.594558 / 41.300000               --------processing 1158.png-----------
+ [RUNNING]  Bag Time: 1678417424.649375   Duration: 38.629564 / 41.300000               --------processing 1159.png-----------
+ [RUNNING]  Bag Time: 1678417424.681385   Duration: 38.661573 / 41.300000               --------processing 1160.png-----------
+ [RUNNING]  Bag Time: 1678417424.712741   Duration: 38.692930 / 41.300000               --------processing 1161.png-----------
+ [RUNNING]  Bag Time: 1678417424.747784   Duration: 38.727972 / 41.300000               Callback:: 30.012189 Hz
+--------processing 1162.png-----------
+ [RUNNING]  Bag Time: 1678417424.782468   Duration: 38.762656 / 41.300000               --------processing 1163.png-----------
+ [RUNNING]  Bag Time: 1678417424.814774   Duration: 38.794962 / 41.300000               --------processing 1164.png-----------
+ [RUNNING]  Bag Time: 1678417424.844932   Duration: 38.825120 / 41.300000               --------processing 1165.png-----------
+ [RUNNING]  Bag Time: 1678417424.880834   Duration: 38.861022 / 41.300000               --------processing 1166.png-----------
+ [RUNNING]  Bag Time: 1678417424.915480   Duration: 38.895668 / 41.300000               --------processing 1167.png-----------
+ [RUNNING]  Bag Time: 1678417424.948298   Duration: 38.928486 / 41.300000               --------processing 1168.png-----------
+ [RUNNING]  Bag Time: 1678417424.982933   Duration: 38.963121 / 41.300000               --------processing 1169.png-----------
+ [RUNNING]  Bag Time: 1678417425.015151   Duration: 38.995339 / 41.300000               --------processing 1170.png-----------
+ [RUNNING]  Bag Time: 1678417425.049964   Duration: 39.030152 / 41.300000               --------processing 1171.png-----------
+ [RUNNING]  Bag Time: 1678417425.080541   Duration: 39.060729 / 41.300000               --------processing 1172.png-----------
+ [RUNNING]  Bag Time: 1678417425.113719   Duration: 39.093907 / 41.300000               --------processing 1173.png-----------
+ [RUNNING]  Bag Time: 1678417425.146370   Duration: 39.126558 / 41.300000               --------processing 1174.png-----------
+ [RUNNING]  Bag Time: 1678417425.180610   Duration: 39.160798 / 41.300000               --------processing 1175.png-----------
+ [RUNNING]  Bag Time: 1678417425.213055   Duration: 39.193243 / 41.300000               --------processing 1176.png-----------
+ [RUNNING]  Bag Time: 1678417425.247160   Duration: 39.227349 / 41.300000               --------processing 1177.png-----------
+ [RUNNING]  Bag Time: 1678417425.281266   Duration: 39.261454 / 41.300000               --------processing 1178.png-----------
+ [RUNNING]  Bag Time: 1678417425.314897   Duration: 39.295085 / 41.300000               --------processing 1179.png-----------
+ [RUNNING]  Bag Time: 1678417425.346874   Duration: 39.327063 / 41.300000               --------processing 1180.png-----------
+ [RUNNING]  Bag Time: 1678417425.380606   Duration: 39.360794 / 41.300000               --------processing 1181.png-----------
+ [RUNNING]  Bag Time: 1678417425.418201   Duration: 39.398389 / 41.300000               --------processing 1182.png-----------
+ [RUNNING]  Bag Time: 1678417425.448444   Duration: 39.428632 / 41.300000               --------processing 1183.png-----------
+ [RUNNING]  Bag Time: 1678417425.480151   Duration: 39.460339 / 41.300000               --------processing 1184.png-----------
+ [RUNNING]  Bag Time: 1678417425.518314   Duration: 39.498502 / 41.300000               --------processing 1185.png-----------
+ [RUNNING]  Bag Time: 1678417425.548810   Duration: 39.528998 / 41.300000               --------processing 1186.png-----------
+ [RUNNING]  Bag Time: 1678417425.580579   Duration: 39.560767 / 41.300000               --------processing 1187.png-----------
+ [RUNNING]  Bag Time: 1678417425.613974   Duration: 39.594162 / 41.300000               --------processing 1188.png-----------
+ [RUNNING]  Bag Time: 1678417425.647206   Duration: 39.627394 / 41.300000               --------processing 1189.png-----------
+ [RUNNING]  Bag Time: 1678417425.679704   Duration: 39.659892 / 41.300000               --------processing 1190.png-----------
+ [RUNNING]  Bag Time: 1678417425.713734   Duration: 39.693923 / 41.300000               --------processing 1191.png-----------
+ [RUNNING]  Bag Time: 1678417425.746009   Duration: 39.726197 / 41.300000               --------processing 1192.png-----------
+ [RUNNING]  Bag Time: 1678417425.780510   Duration: 39.760698 / 41.300000               Callback:: 30.096825 Hz
+--------processing 1193.png-----------
+ [RUNNING]  Bag Time: 1678417425.812760   Duration: 39.792949 / 41.300000               --------processing 1194.png-----------
+ [RUNNING]  Bag Time: 1678417425.847439   Duration: 39.827627 / 41.300000               --------processing 1195.png-----------
+ [RUNNING]  Bag Time: 1678417425.879905   Duration: 39.860093 / 41.300000               --------processing 1196.png-----------
+ [RUNNING]  Bag Time: 1678417425.913660   Duration: 39.893848 / 41.300000               --------processing 1197.png-----------
+ [RUNNING]  Bag Time: 1678417425.946938   Duration: 39.927126 / 41.300000               --------processing 1198.png-----------
+ [RUNNING]  Bag Time: 1678417425.980850   Duration: 39.961038 / 41.300000               --------processing 1199.png-----------
+ [RUNNING]  Bag Time: 1678417426.013080   Duration: 39.993268 / 41.300000               --------processing 1200.png-----------
+ [RUNNING]  Bag Time: 1678417426.047124   Duration: 40.027312 / 41.300000               --------processing 1201.png-----------
+ [RUNNING]  Bag Time: 1678417426.081031   Duration: 40.061219 / 41.300000               --------processing 1202.png-----------
+ [RUNNING]  Bag Time: 1678417426.113864   Duration: 40.094052 / 41.300000               --------processing 1203.png-----------
+ [RUNNING]  Bag Time: 1678417426.146921   Duration: 40.127110 / 41.300000               --------processing 1204.png-----------
+ [RUNNING]  Bag Time: 1678417426.184579   Duration: 40.164767 / 41.300000               --------processing 1205.png-----------
+ [RUNNING]  Bag Time: 1678417426.214790   Duration: 40.194978 / 41.300000               --------processing 1206.png-----------
+ [RUNNING]  Bag Time: 1678417426.247281   Duration: 40.227469 / 41.300000               --------processing 1207.png-----------
+ [RUNNING]  Bag Time: 1678417426.283409   Duration: 40.263597 / 41.300000               --------processing 1208.png-----------
+ [RUNNING]  Bag Time: 1678417426.313746   Duration: 40.293934 / 41.300000               --------processing 1209.png-----------
+ [RUNNING]  Bag Time: 1678417426.346835   Duration: 40.327023 / 41.300000               --------processing 1210.png-----------
+ [RUNNING]  Bag Time: 1678417426.382376   Duration: 40.362564 / 41.300000               --------processing 1211.png-----------
+ [RUNNING]  Bag Time: 1678417426.412957   Duration: 40.393146 / 41.300000               --------processing 1212.png-----------
+ [RUNNING]  Bag Time: 1678417426.448273   Duration: 40.428461 / 41.300000               --------processing 1213.png-----------
+ [RUNNING]  Bag Time: 1678417426.481260   Duration: 40.461448 / 41.300000               --------processing 1214.png-----------
+ [RUNNING]  Bag Time: 1678417426.515636   Duration: 40.495824 / 41.300000               --------processing 1215.png-----------
+ [RUNNING]  Bag Time: 1678417426.543541   Duration: 40.523729 / 41.300000               --------processing 1216.png-----------
+ [RUNNING]  Bag Time: 1678417426.582762   Duration: 40.562950 / 41.300000               --------processing 1217.png-----------
+ [RUNNING]  Bag Time: 1678417426.615822   Duration: 40.596010 / 41.300000               --------processing 1218.png-----------
+ [RUNNING]  Bag Time: 1678417426.648870   Duration: 40.629059 / 41.300000               --------processing 1219.png-----------
+ [RUNNING]  Bag Time: 1678417426.681123   Duration: 40.661311 / 41.300000               --------processing 1220.png-----------
+ [RUNNING]  Bag Time: 1678417426.715615   Duration: 40.695803 / 41.300000               --------processing 1221.png-----------
+ [RUNNING]  Bag Time: 1678417426.747771   Duration: 40.727959 / 41.300000               --------processing 1222.png-----------
+ [RUNNING]  Bag Time: 1678417426.781927   Duration: 40.762115 / 41.300000               Callback:: 29.937144 Hz
+--------processing 1223.png-----------
+ [RUNNING]  Bag Time: 1678417426.814656   Duration: 40.794844 / 41.300000               --------processing 1224.png-----------
+ [RUNNING]  Bag Time: 1678417426.849468   Duration: 40.829656 / 41.300000               --------processing 1225.png-----------
+ [RUNNING]  Bag Time: 1678417426.881367   Duration: 40.861555 / 41.300000               --------processing 1226.png-----------
+ [RUNNING]  Bag Time: 1678417426.918098   Duration: 40.898286 / 41.300000               --------processing 1227.png-----------
+ [RUNNING]  Bag Time: 1678417426.949204   Duration: 40.929392 / 41.300000               --------processing 1228.png-----------
+ [RUNNING]  Bag Time: 1678417426.983024   Duration: 40.963212 / 41.300000               --------processing 1229.png-----------
+ [RUNNING]  Bag Time: 1678417427.014804   Duration: 40.994992 / 41.300000               --------processing 1230.png-----------
+ [RUNNING]  Bag Time: 1678417427.048730   Duration: 41.028918 / 41.300000               --------processing 1231.png-----------
+ [RUNNING]  Bag Time: 1678417427.076654   Duration: 41.056842 / 41.300000               --------processing 1232.png-----------
+ [RUNNING]  Bag Time: 1678417427.116451   Duration: 41.096639 / 41.300000               --------processing 1233.png-----------
+ [RUNNING]  Bag Time: 1678417427.150872   Duration: 41.131061 / 41.300000               --------processing 1234.png-----------
+ [RUNNING]  Bag Time: 1678417427.182277   Duration: 41.162465 / 41.300000               --------processing 1235.png-----------
+ [RUNNING]  Bag Time: 1678417427.214602   Duration: 41.194790 / 41.300000               --------processing 1236.png-----------
+ [RUNNING]  Bag Time: 1678417427.249978   Duration: 41.230166 / 41.300000               --------processing 1237.png-----------
+ [RUNNING]  Bag Time: 1678417427.281205   Duration: 41.261393 / 41.300000               --------processing 1238.png-----------
+
+Done.
+--------processing 1239.png-----------
+[0m[ INFO] [1684069627.359558108]: Waiting for tf transform data between frames world and ni_slam to become available[0m
+... logging to /home/zheng/.ros/log/3a50726e-f258-11ed-abd8-8544cfaa254e/roslaunch-zheng-32399.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/home/zheng/projects/ni_slam_ws/src/ni_slam/launch/ni_slam_demo_icl.launch
+[1mstarted roslaunch server http://zheng:46381/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /axonometric/image_height: 360
+ * /axonometric/image_width: 480
+ * /depth/image_height: 480
+ * /depth/image_width: 640
+ * /est/trajectory_server_ni_slam/source_frame_name: ni_slam
+ * /est/trajectory_server_ni_slam/target_frame_name: world
+ * /est/trajectory_server_ni_slam/trajectory_publish_rate: 20.0
+ * /est/trajectory_server_ni_slam/trajectory_update_rate: 20.0
+ * /ni_slam_node/adaptive/mu: 0.8
+ * /ni_slam_node/debug/is_debugging: False
+ * /ni_slam_node/debug/visualization: False
+ * /ni_slam_node/frame_name/child: ni_slam
+ * /ni_slam_node/frame_name/parent: world
+ * /ni_slam_node/gtposes/file_path: /home/zheng/datas...
+ * /ni_slam_node/incremental_keypose_with_covariance/publish_flag: True
+ * /ni_slam_node/queue_size/cloud: 1000
+ * /ni_slam_node/queue_size/imu: 1000
+ * /ni_slam_node/queue_size/sync: 1000
+ * /ni_slam_node/refined_frame/publish_flag: False
+ * /ni_slam_node/saveposes/filename_prefix: /home/zheng/proje...
+ * /ni_slam_node/topic/time_diff: 0.03
+ * /ni_slam_node/train/psr_bound: 50.0
+ * /ni_slam_node/twist_with_covariance/publish_flag: False
+ * /rosdistro: noetic
+ * /rosversion: 1.16.0
+ * /rotation/imu: [0, 0, 0]
+ * /use_sim_time: True
+
+NODES
+  /
+    ni_slam_node (ni_slam/ni_slam_node)
+    play_bag_node (rosbag/play)
+  /est/
+    trajectory_server_ni_slam (hector_trajectory_server/hector_trajectory_server)
+
+auto-starting new master
+[1mprocess[master]: started with pid [32422][0m
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/home/zheng/projects/ni_slam_ws/src/ni_slam/launch/ni_slam_demo_icl.launch http://localhost:11311
+[1msetting /run_id to 3a50726e-f258-11ed-abd8-8544cfaa254e[0m
+[1mprocess[rosout-1]: started with pid [32462][0m
+started core service [/rosout]
+[1mprocess[play_bag_node-2]: started with pid [32469][0m
+[1mprocess[ni_slam_node-3]: started with pid [32470][0m
+[1mprocess[est/trajectory_server_ni_slam-4]: started with pid [32471][0m
+[1m[play_bag_node-2] process has finished cleanly
+log file: /home/zheng/.ros/log/3a50726e-f258-11ed-abd8-8544cfaa254e/play_bag_node-2*.log[0m
+[est/trajectory_server_ni_slam-4] killing on exit
+[ni_slam_node-3] killing on exit
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

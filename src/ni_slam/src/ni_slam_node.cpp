@@ -202,7 +202,7 @@ int main(int argc, char ** argv)
     auto start = std::chrono::high_resolution_clock::now();
     
     ros::spin();
-    ni_slam.ShutDown();
+    
     // end timer    
     auto end = std::chrono::high_resolution_clock::now();
 
@@ -215,6 +215,6 @@ int main(int argc, char ** argv)
 
     std::cout << "Total execution time: " << elapsed.count() << " milliseconds.\n";
 
-    
+    ni_slam.ShutDown();
     return 0;
 }

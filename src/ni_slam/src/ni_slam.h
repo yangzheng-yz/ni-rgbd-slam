@@ -68,6 +68,7 @@ typedef Array<bool,Dynamic,Dynamic> ArrayXXb;
 struct InputData{
     cv::Mat depth_image;
     int time;
+    // std::chrono::monotonic_clock::time_point start_time;
     CloudType::ConstPtr pcl_cloud;
     InputData() {};
     InputData& operator =(InputData& other){
@@ -108,6 +109,9 @@ public:
     void SetKeyRot();
     bool IsKeyRot();
     CloudType::ConstPtr GetPclCloud();
+
+// public:
+//     std::chrono::monotonic_clock::time_point start_time;
 
 
 private:
@@ -268,6 +272,8 @@ public:
     string child_frame;          // child frame name
     float adaptive_mu;             // F(x) = hist/his_seq + mu * his_seq
     bool is_debugging{false};
+    std::chrono::steady_clock::time_point t1;
+    std::chrono::steady_clock::time_point t2;
 
 private:
 
