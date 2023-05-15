@@ -296,7 +296,7 @@ void NI_SLAM::EstimateNormalMapThread(){
 
 
 
-        while(_normalMap_buffer.size()>=2){
+        while(_normalMap_buffer.size()>=5){
             usleep(2000);
         }
 
@@ -358,6 +358,11 @@ void NI_SLAM::EstimateRotationThread(){
             ROS_WARN("Trained. %d times with PSR: %.1f............", train_num++, psr);
         }
         else{
+            // if((frame_id+1)%10 != 0){
+            //     continue;
+            // }
+
+
             cv::Mat AnglesMap = cv::Mat::ones(cv::Size(depth_height/maxPyramidLevel, depth_width/maxPyramidLevel), CV_64FC3)*720;
             Eigen::Matrix3d rotation_matrix;
             EfficientNormal2RotationMat(normalsCV_last, normal_map->normal_map, rotation_matrix, AnglesMap);
@@ -427,7 +432,7 @@ void NI_SLAM::EstimateTranslationThread(){
 
         bool rotation_key = frame->IsKeyRot();
 
-        if (!(psr > psrbound) || rotation_key){
+        if (!(psr > psrbound)){ // || rotation_key){
 
             adapt_field_of_view(cur_pcl_cloud);
 
