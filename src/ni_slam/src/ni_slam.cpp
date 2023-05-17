@@ -268,8 +268,8 @@ void NI_SLAM::EstimateNormalMapThread(){
             continue;
         }
 
-        // count time
-        auto start = std::chrono::high_resolution_clock::now();
+        // // count time
+        // auto start = std::chrono::high_resolution_clock::now();
 
         InputDataPtr input_data;
         _dataBuffer_mutex.lock();
@@ -280,7 +280,7 @@ void NI_SLAM::EstimateNormalMapThread(){
         int frame_id = input_data->time;
         cv::Mat depth_image = input_data->depth_image.clone();
 
-        std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
+
 
         normalsCV = cv::Mat::zeros(cv::Size(depth_height/maxPyramidLevel, depth_width/maxPyramidLevel), CV_64FC3);
         EfficientDepth2NormalMap(depth_image, normalsCV, cellSize, vertexMapx, vertexMapy);
@@ -291,10 +291,11 @@ void NI_SLAM::EstimateNormalMapThread(){
         normalMap_data->normal_map = normalsCV.clone();
         normalMap_data->pcl_cloud = input_data->pcl_cloud;
 
-        // count time 
-        auto end = std::chrono::high_resolution_clock::now();
-        auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-        std::cout << "Thread [EstimateNormalMapThread] took " << elapsed.count() << " milliseconds to execute.\n";
+
+        // // count time 
+        // auto end = std::chrono::high_resolution_clock::now();
+        // auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+        // std::cout << "Thread [EstimateNormalMapThread] took " << elapsed.count() << " milliseconds to execute.\n";
 
 
 
@@ -316,8 +317,8 @@ void NI_SLAM::EstimateRotationThread(){
             continue;
         }
 
-        // count time
-        auto start = std::chrono::high_resolution_clock::now();
+        // // count time
+        // auto start = std::chrono::high_resolution_clock::now();
 
         NormalMapPtr normal_map;
         _normalMap_mutex.lock();
@@ -385,10 +386,10 @@ void NI_SLAM::EstimateRotationThread(){
 
         // cout << frame_id << "!!!!!!!!!!!!!!!!!!!rotation_rot is : " << rotation_cur_rot.getAngle() << endl;
 
-        // count time 
-        auto end = std::chrono::high_resolution_clock::now();
-        auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-        std::cout << "Thread [EstimateRotationThread] took " << elapsed.count() << " milliseconds to execute.\n";
+        // // count time 
+        // auto end = std::chrono::high_resolution_clock::now();
+        // auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+        // std::cout << "Thread [EstimateRotationThread] took " << elapsed.count() << " milliseconds to execute.\n";
 
 
         _frame_mutex.lock();
@@ -405,8 +406,8 @@ void NI_SLAM::EstimateTranslationThread(){
             continue;
         }
 
-        // count time
-        auto start = std::chrono::high_resolution_clock::now();
+        // // count time
+        // auto start = std::chrono::high_resolution_clock::now();
 
         _frame_mutex.lock();
         FramePtr frame = _frame_buffer.front();
@@ -415,6 +416,7 @@ void NI_SLAM::EstimateTranslationThread(){
 
         int frame_id = frame->GetFrameId();
         if(frame_id==0){
+            t1 = std::chrono::steady_clock::now();
             continue;
         }
         translation_cur_rot = frame->GetRotation();
@@ -435,9 +437,9 @@ void NI_SLAM::EstimateTranslationThread(){
 
         frame->SetPose(pose);
 
-        // bool rotation_key = frame->IsKeyRot();
+        bool rotation_key = frame->IsKeyRot();
 
-        if (!(psr > psrbound)){ // || rotation_key){
+        if (!(psr > psrbound)){ // || tf::Transform(translation_key_rot.inverse()*translation_cur_rot).getRotation().getAngle() >= 0.3){ // || rotation_key){
 
             adapt_field_of_view(cur_pcl_cloud);
 
@@ -448,13 +450,15 @@ void NI_SLAM::EstimateTranslationThread(){
             ROS_WARN("Trained. %d times with PSR: %.1f............", train_num++, psr);
 
             if(flag_save_file)
+                ROS_WARN("write %d times into file", train_num);
                 save_file(frame);
+                ROS_WARN("written %d times into file", train_num);
         }
     
-        // count time 
-        auto end = std::chrono::high_resolution_clock::now();
-        auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-        std::cout << "Thread [EstimateTranslationThread] took " << elapsed.count() << " milliseconds to execute.\n";
+        // // count time 
+        // auto end = std::chrono::high_resolution_clock::now();
+        // auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+        // std::cout << "Thread [EstimateTranslationThread] took " << elapsed.count() << " milliseconds to execute.\n";
     }
 }
 
@@ -1333,6 +1337,10 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
      
 }
 
+inline void NI_SLAM::HashEfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::Mat &_normalsCV, Eigen::Matrix3d &_R, cv::Mat &_AnglesMap){
+    
+}
+
 void NI_SLAM::set_publish_refined_keyframe()
 {
     flag_publish_refined_keyframe = true;
@@ -1620,7 +1628,7 @@ void NI_SLAM::save_file()
         <<pose.getRotation().x()<<" "
         <<pose.getRotation().y()<<" "
         <<pose.getRotation().z()<<" "
-        <<pose.getRotation().w()<< " " << total_time / float(nth_frame+1) << "\n"; // " " <<max_response<<" "<<psr<<" "<<time_use<<"\n";
+        <<pose.getRotation().w()<< "\n"; // " " << total_time / float(nth_frame+1) << "\n"; // " " <<max_response<<" "<<psr<<" "<<time_use<<"\n";
         // <<pose_real.getOrigin()[0]<<" "
         // <<pose_real.getOrigin()[1]<<" "
         // <<pose_real.getOrigin()[2]<<" "
@@ -1647,8 +1655,8 @@ void NI_SLAM::save_file(FramePtr frame)
     int frame_id = frame->GetFrameId();
     tf::Transform pose_to_save = frame->GetPose();
 
-    std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
-    double total_time = std::chrono::duration_cast<std::chrono::duration<double> >(t2 - t1).count();
+    t2 = std::chrono::steady_clock::now();
+    double total_time = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1).count();
 
 
     file<<frame_id+1<<" "
@@ -1658,7 +1666,7 @@ void NI_SLAM::save_file(FramePtr frame)
         <<pose_to_save.getRotation().x()<<" "
         <<pose_to_save.getRotation().y()<<" "
         <<pose_to_save.getRotation().z()<<" "
-        <<pose_to_save.getRotation().w()<< " " << total_time << "\n";
+        <<pose_to_save.getRotation().w()<< " " << total_time / (frame_id+1)<< "\n";
     
     file.close();
 }

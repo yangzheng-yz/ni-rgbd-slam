@@ -65,6 +65,34 @@ typedef pcl::PointCloud<pcl::PointXYZRGB> CloudType;
 
 typedef Array<bool,Dynamic,Dynamic> ArrayXXb;
 
+struct ModeData {
+    vector<Eigen::Vector2i> coordinates;
+    DynamicMedian normal_x;
+    DynamicMedian normal_x_last;
+    DynamicMedian normal_y;
+    DynamicMedian normal_y_last;
+    DynamicMedian normal_z;
+    DynamicMedian normal_z_last;
+    int count = 0;
+};
+
+struct Vec3dHash {
+    std::size_t operator() (const cv::Vec3d &vec) const {
+        std::size_t h1 = std::hash<double>{}(vec[0]);
+        std::size_t h2 = std::hash<double>{}(vec[1]);
+        std::size_t h3 = std::hash<double>{}(vec[2]);
+        return h1 ^ (h2 << 1) ^ (h3 << 2);
+    }
+};
+
+struct Vec3dEqual {
+    bool operator() (const cv::Vec3d &vec1, const cv::Vec3d &vec2) const {
+        return (vec1.t() * vec2)[0] >= 0.999;
+    }
+};
+
+using ModeMap = std::unordered_map<cv::Vec3d, ModeData, Vec3dHash, Vec3dEqual>;
+
 struct InputData{
     cv::Mat depth_image;
     int time;
@@ -273,8 +301,8 @@ public:
     string child_frame;          // child frame name
     float adaptive_mu;             // F(x) = hist/his_seq + mu * his_seq
     bool is_debugging{false};
-    // std::chrono::steady_clock::time_point t1;
-    // std::chrono::steady_clock::time_point t2;
+    std::chrono::steady_clock::time_point t1;
+    std::chrono::steady_clock::time_point t2;
 
 private:
 
