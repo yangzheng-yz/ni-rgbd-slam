@@ -2,8 +2,8 @@
 <launch>
     <param name="use_sim_time" value="true" />
     <!-- <param name="use_sim_time" value="false" /> -->
-    <arg name="dataset" value="icl_ofkt0"/>
-    <arg name="gt_file_path" value="/home/zheng/datasets/public_dataset/ICL-NUIM/of_kt1/groundtruth.txt"/>
+    <arg name="dataset" value="icl_ofkt3"/>
+    <arg name="gt_file_path" value="/home/zheng/datasets/public_dataset/ICL-NUIM/of_kt3/groundtruth.txt"/>
     <arg name="visualization" value="false"/> <!-- This is for debug publisher-->
     <arg name="publish_refined_keyframe" value="false"/>
     <arg name="publish_increnmental_keypose_with_covariance" value="true"/>

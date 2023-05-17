@@ -84,11 +84,13 @@ struct NormalMap{
     cv::Mat normal_map;
     int time;
     CloudType::ConstPtr pcl_cloud;
+    std::chrono::steady_clock::time_point start_time;
     NormalMap() {};
     NormalMap& operator =(NormalMap& other){
         normal_map = other.normal_map.clone();
         time = other.time;
-        pcl_cloud = other.pcl_cloud; // TODO: is this right copy?
+        start_time = start_time;
+        pcl_cloud = other.pcl_cloud;
         return *this;
     }
 };
@@ -110,9 +112,8 @@ public:
     bool IsKeyRot();
     CloudType::ConstPtr GetPclCloud();
 
-// public:
-//     std::chrono::monotonic_clock::time_point start_time;
-
+public:
+    std::chrono::steady_clock::time_point start_time;
 
 private:
     int _frame_id;
@@ -272,8 +273,8 @@ public:
     string child_frame;          // child frame name
     float adaptive_mu;             // F(x) = hist/his_seq + mu * his_seq
     bool is_debugging{false};
-    std::chrono::steady_clock::time_point t1;
-    std::chrono::steady_clock::time_point t2;
+    // std::chrono::steady_clock::time_point t1;
+    // std::chrono::steady_clock::time_point t2;
 
 private:
 
