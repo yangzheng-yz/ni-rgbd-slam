@@ -65,6 +65,19 @@ typedef pcl::PointCloud<pcl::PointXYZRGB> CloudType;
 
 typedef Array<bool,Dynamic,Dynamic> ArrayXXb;
 
+
+class DynamicMedian{
+private:
+    priority_queue<double> big_heap;
+    priority_queue<double, vector<double>, greater<double>> small_heap;
+    double _sum{0};
+    int _count{0};
+public:
+    void addNum(double _num);
+    double findMedian();
+    double findMean();
+};
+
 struct ModeData {
     vector<Eigen::Vector2i> coordinates;
     DynamicMedian normal_x;
@@ -87,7 +100,7 @@ struct Vec3dHash {
 
 struct Vec3dEqual {
     bool operator() (const cv::Vec3d &vec1, const cv::Vec3d &vec2) const {
-        return (vec1.t() * vec2)[0] >= 0.999;
+        return (vec1.t() * vec2).val[0] >= 0.999;
     }
 };
 
@@ -123,6 +136,39 @@ struct NormalMap{
     }
 };
 typedef std::shared_ptr <NormalMap> NormalMapPtr;
+
+struct DataModes{
+    vector<cv::Vec3d> modes; // save different plane modes
+    vector<int> mode_count; // to record the number of normals in each plane mode 
+    vector<vector<Eigen::Vector2i>> mode_coor; // save the pixel coordinates of normals for each plane mode (may be optimized later) 
+    vector<DynamicMedian> mode_normals_x;
+    vector<DynamicMedian> mode_normals_y;
+    vector<DynamicMedian> mode_normals_z;
+    vector<DynamicMedian> mode_normals_x_last;
+    vector<DynamicMedian> mode_normals_y_last;
+    vector<DynamicMedian> mode_normals_z_last;
+    cv::Mat _normal_map;
+    int _frame_id;
+    CloudType::ConstPtr _pcl_cloud;
+
+    DataModes() {};
+    DataModes& operator =(DataModes& other){
+        modes = other.modes;
+        mode_count = other.mode_count;
+        mode_coor = other.mode_coor;
+        mode_normals_x = other.mode_normals_x;
+        mode_normals_y = other.mode_normals_y;
+        mode_normals_z = other.mode_normals_z;
+        mode_normals_x_last = other.mode_normals_x_last;
+        mode_normals_y_last = other.mode_normals_y_last;
+        mode_normals_z_last = other.mode_normals_z_last;
+        _normal_map = other._normal_map.clone();
+        _frame_id = other._frame_id;
+        _pcl_cloud = other._pcl_cloud;
+        return *this;
+    }
+};
+typedef std::shared_ptr <DataModes> DataModesPtr;
 
 class Frame{
 public:
@@ -186,6 +232,10 @@ public:
 
     void EstimateRotationThread();
 
+    void EstimateRotationPart1Thread();
+
+    void EstimateRotationPart2Thread();
+
     void EstimateTranslationThread();
     // vector<double> DirectRotationEst(bool &initialized);
 
@@ -234,6 +284,13 @@ private:
 
     inline void EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::Mat &_normalsCV, Eigen::Matrix3d &_R, cv::Mat &_AnglesMap);
 
+    inline DataModesPtr EfficientNormal2RotationMatPart1(cv::Mat &_normalsCV_last, cv::Mat &_normalsCV);
+
+    inline void EfficientNormal2RotationMatPart2(DataModesPtr _dataModes, Eigen::Matrix3d &_R);
+
+
+    inline void HashEfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::Mat &_normalsCV, Eigen::Matrix3d &_R, cv::Mat &_AnglesMap);
+
     
 
 private:
@@ -251,6 +308,11 @@ private:
     std::queue<FramePtr> _frame_buffer;
     std::thread _rotation_thread;
     std::thread _translation_thread;
+
+    std::thread _rotation_part1_thread;
+    std::mutex _modesData_mutex;
+    std::queue<DataModesPtr> _modesData_buffer;
+    std::thread _rotation_part2_thread;
     
 
 
@@ -408,20 +470,5 @@ private:
     image_transport::Publisher image_pub_new;
     image_transport::Publisher image_pub_response;
 };
-
-class DynamicMedian{
-private:
-    priority_queue<double> big_heap;
-    priority_queue<double, vector<double>, greater<double>> small_heap;
-    double _sum{0};
-    int _count{0};
-public:
-    void addNum(double _num);
-    double findMedian();
-    double findMean();
-};
-
-
-
 
 #endif

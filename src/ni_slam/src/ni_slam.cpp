@@ -88,8 +88,12 @@ NI_SLAM::NI_SLAM(ros::NodeHandle n, int height, int width, int depth_height, int
     
     // for parallel programming
     _normalMap_thread = std::thread(boost::bind(&NI_SLAM::EstimateNormalMapThread, this));
-    _rotation_thread = std::thread(boost::bind(&NI_SLAM::EstimateRotationThread, this));
+    // _rotation_thread = std::thread(boost::bind(&NI_SLAM::EstimateRotationThread, this));
     _translation_thread = std::thread(boost::bind(&NI_SLAM::EstimateTranslationThread, this));
+
+    // further parallel
+    _rotation_part1_thread = std::thread(boost::bind(&NI_SLAM::EstimateRotationPart1Thread, this));
+    _rotation_part2_thread = std::thread(boost::bind(&NI_SLAM::EstimateRotationPart2Thread, this));
 
 }
 
@@ -317,8 +321,8 @@ void NI_SLAM::EstimateRotationThread(){
             continue;
         }
 
-        // // count time
-        // auto start = std::chrono::high_resolution_clock::now();
+        // count time
+        auto start = std::chrono::high_resolution_clock::now();
 
         NormalMapPtr normal_map;
         _normalMap_mutex.lock();
@@ -365,7 +369,7 @@ void NI_SLAM::EstimateRotationThread(){
 
             cv::Mat AnglesMap = cv::Mat::ones(cv::Size(depth_height/maxPyramidLevel, depth_width/maxPyramidLevel), CV_64FC3)*720;
             Eigen::Matrix3d rotation_matrix;
-            EfficientNormal2RotationMat(normalsCV_last, normal_map->normal_map, rotation_matrix, AnglesMap);
+            HashEfficientNormal2RotationMat(normalsCV_last, normal_map->normal_map, rotation_matrix, AnglesMap);
             Eigen::Quaterniond q_rel(rotation_matrix);
             rotation_rel = tf::Quaternion(q_rel.coeffs()[0], q_rel.coeffs()[1], q_rel.coeffs()[2], q_rel.coeffs()[3]);
             rotation_cur_rot = (rotation_key_rot * rotation_rel).normalized(); // current rotation relative to inital frame
@@ -386,10 +390,10 @@ void NI_SLAM::EstimateRotationThread(){
 
         // cout << frame_id << "!!!!!!!!!!!!!!!!!!!rotation_rot is : " << rotation_cur_rot.getAngle() << endl;
 
-        // // count time 
-        // auto end = std::chrono::high_resolution_clock::now();
-        // auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-        // std::cout << "Thread [EstimateRotationThread] took " << elapsed.count() << " milliseconds to execute.\n";
+        // count time 
+        auto end = std::chrono::high_resolution_clock::now();
+        auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+        std::cout << "Thread [EstimateRotationThread] took " << elapsed.count() << " milliseconds to execute.\n";
 
 
         _frame_mutex.lock();
@@ -397,6 +401,147 @@ void NI_SLAM::EstimateRotationThread(){
         _frame_mutex.unlock();
     }
 }
+
+void NI_SLAM::EstimateRotationPart1Thread(){
+    while(!_shutdown){
+        // std::cout << "Function 2 is being executed by thread " << std::this_thread::get_id() << std::endl;
+        if(_normalMap_buffer.empty()){
+            usleep(2000);
+            continue;
+        }
+
+        // count time
+        auto start = std::chrono::high_resolution_clock::now();
+
+        NormalMapPtr normal_map;
+        _normalMap_mutex.lock();
+        normal_map = _normalMap_buffer.front();
+        _normalMap_buffer.pop();
+        _normalMap_mutex.unlock();
+
+        int frame_id = normal_map->time;
+        
+
+        // FramePtr frame = std::shared_ptr<Frame>(new Frame(frame_id, normal_map->normal_map, normal_map->pcl_cloud));
+        // frame->start_time = normal_map->start_time;
+
+        if(!initialized){
+            FramePtr frame = std::shared_ptr<Frame>(new Frame(frame_id, normal_map->normal_map, normal_map->pcl_cloud));
+            frame->start_time = normal_map->start_time;
+            rotation_rel = tf::Quaternion(0,0,0,1);
+            rotation_key_rot = rotation_rel;
+            normalsCV_last = normal_map->normal_map.clone();
+            rotation_cur_rot = rotation_rel; // current rotation relative to inital frame
+            translation_cur_rot = rotation_rel;
+            init_poses();
+            
+            adapt_field_of_view(normal_map->pcl_cloud); // need rotation, so should get rotation before this
+            // cout << frame_id << "!!!!!!!!pcl_cloud checking: " << normal_map->pcl_cloud->at(100, 100).x << endl;
+            reproject(normal_map->pcl_cloud);
+            // cout << frame_id << "!!!!!!!!pcl_cloud checking: " << normal_map->pcl_cloud->at(100, 100).x << endl;
+            train();
+
+            
+
+            initialized = true;
+
+            // cout << frame_id << "!!!!!!!!!!!!!!!!!!!initialized rotation_rot is : " << rotation_cur_rot.getAngle() << endl;
+
+            frame->SetRotation(rotation_cur_rot);
+            frame->SetPose(pose);
+            // frame->start_time = normalMap->start_time;
+
+            if(flag_save_file)
+                save_file(frame);
+
+            ROS_WARN("Trained. %d times with PSR: %.1f............", train_num++, psr);
+
+            _frame_mutex.lock();
+            _frame_buffer.push(frame);
+            _frame_mutex.unlock();
+        }
+        else{
+            if((frame_id+1)%5 != 1){
+                continue;
+            }
+
+            // cv::Mat AnglesMap = cv::Mat::ones(cv::Size(depth_height/maxPyramidLevel, depth_width/maxPyramidLevel), CV_64FC3)*720;
+            DataModesPtr dataModes = std::shared_ptr<DataModes>(new DataModes());
+            Eigen::Matrix3d rotation_matrix;
+            dataModes = EfficientNormal2RotationMatPart1(normalsCV_last, normal_map->normal_map);
+            Eigen::Quaterniond q_rel(rotation_matrix);
+            rotation_rel = tf::Quaternion(q_rel.coeffs()[0], q_rel.coeffs()[1], q_rel.coeffs()[2], q_rel.coeffs()[3]);
+            rotation_cur_rot = (rotation_key_rot * rotation_rel).normalized(); // current rotation relative to inital frame
+
+            dataModes->_normal_map = normal_map->normal_map;
+            dataModes->_frame_id = frame_id;
+            dataModes->_pcl_cloud = normal_map->pcl_cloud;
+
+            normalsCV_last = normal_map->normal_map.clone();
+
+            _modesData_mutex.lock();
+            _modesData_buffer.push(dataModes);
+            _modesData_mutex.unlock();
+        }
+
+        // cout << frame_id << "!!!!!!!!!!!!!!!!!!!rotation_rot is : " << rotation_cur_rot.getAngle() << endl;
+
+        // count time 
+        auto end = std::chrono::high_resolution_clock::now();
+        auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+        std::cout << "Thread [EstimateRotationThreadPart1] took " << elapsed.count() << " milliseconds to execute.\n";
+    }
+}
+
+void NI_SLAM::EstimateRotationPart2Thread(){
+    while(!_shutdown){
+        // std::cout << "Function 2 is being executed by thread " << std::this_thread::get_id() << std::endl;
+        if(_modesData_buffer.empty()){
+            usleep(2000);
+            continue;
+        }
+
+        // count time
+        auto start = std::chrono::high_resolution_clock::now();
+
+        DataModesPtr dataModes = std::shared_ptr<DataModes>(new DataModes());
+        _modesData_mutex.lock();
+        dataModes = _modesData_buffer.front();
+        _modesData_buffer.pop();
+        _modesData_mutex.unlock();
+
+        int frame_id = dataModes->_frame_id;
+        
+
+        FramePtr frame = std::shared_ptr<Frame>(new Frame(frame_id, dataModes->_normal_map, dataModes->_pcl_cloud));
+        // frame->start_time = normal_map->start_time;
+
+
+        Eigen::Matrix3d rotation_matrix;
+        EfficientNormal2RotationMatPart2(dataModes, rotation_matrix);
+        Eigen::Quaterniond q_rel(rotation_matrix);
+        rotation_rel = tf::Quaternion(q_rel.coeffs()[0], q_rel.coeffs()[1], q_rel.coeffs()[2], q_rel.coeffs()[3]);
+        rotation_cur_rot = (rotation_key_rot * rotation_rel).normalized(); // current rotation relative to inital frame
+
+        rotation_key_rot = rotation_cur_rot;
+        frame->SetKeyRot();
+        frame->SetRotation(rotation_cur_rot);
+ 
+
+        // cout << frame_id << "!!!!!!!!!!!!!!!!!!!rotation_rot is : " << rotation_cur_rot.getAngle() << endl;
+
+        // count time 
+        auto end = std::chrono::high_resolution_clock::now();
+        auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+        std::cout << "Thread [EstimateRotationThreadPart2] took " << elapsed.count() << " milliseconds to execute.\n";
+
+
+        _frame_mutex.lock();
+        _frame_buffer.push(frame);
+        _frame_mutex.unlock();
+    }
+}
+
 
 void NI_SLAM::EstimateTranslationThread(){
     while(!_shutdown){
@@ -921,6 +1066,429 @@ inline void NI_SLAM::EfficientDepth2NormalMap(cv::Mat &_imD, cv::Mat &_normalsCV
     cv::merge(channels_all, _normalsCV);
 }
 
+inline DataModesPtr NI_SLAM::EfficientNormal2RotationMatPart1(cv::Mat &_normalsCV_last, cv::Mat &_normalsCV)
+{
+    cv::Vec3d zeros{0, 0, 0};
+    cv::Vec3d N{1,0,0};
+    // vector<cv::Vec3d> modes; // save different plane modes
+    // vector<int> mode_count; // to record the number of normals in each plane mode 
+    // vector<vector<Eigen::Vector2i>> mode_coor; // save the pixel coordinates of normals for each plane mode (may be optimized later) 
+    vector<Eigen::Vector2i> tmp_coor; // to create a new mode in mode_coor
+    // vector<DynamicMedian> mode_normals_x;
+    // vector<DynamicMedian> mode_normals_y;
+    // vector<DynamicMedian> mode_normals_z;
+    // vector<DynamicMedian> mode_normals_x_last;
+    // vector<DynamicMedian> mode_normals_y_last;
+    // vector<DynamicMedian> mode_normals_z_last;
+    DynamicMedian tmp_mode_normals;
+    DataModesPtr dataModes = std::shared_ptr<DataModes>(new DataModes());;
+
+
+    //** this loop is to perform selection mechanism 
+    for(int v=0; v<_normalsCV.rows;v++)
+        for(int u=0; u<_normalsCV.cols;u++)
+        {
+            //** exclude invalid points (noise from depth sensor)
+            if((_normalsCV.at<cv::Vec3d>(v, u) == zeros) || (_normalsCV_last.at<cv::Vec3d>(v, u) == zeros) || (v <= 10) || (u <= 10) || (abs(v-_normalsCV.rows) <= 10) || (abs(u-_normalsCV.cols) <= 10))
+            {
+                continue;
+            }
+            //** exclude non-overlapped points
+            if((_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v, u)).val[0] < 0.9){ //0.7){
+                continue;
+            }
+            //** aim to cancel the points on edge
+            if((_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV.at<cv::Vec3d>(v-1, u)).val[0] < 0.999 ||
+            (_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV.at<cv::Vec3d>(v+1, u)).val[0] < 0.999 ||
+            (_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV.at<cv::Vec3d>(v, u-1)).val[0] < 0.999 ||
+            (_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV.at<cv::Vec3d>(v, u+1)).val[0] < 0.999 ||
+            (_normalsCV_last.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v-1, u)).val[0] < 0.999 ||
+            (_normalsCV_last.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v+1, u)).val[0] < 0.999 ||
+            (_normalsCV_last.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v, u-1)).val[0] < 0.999 ||
+            (_normalsCV_last.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v, u+1)).val[0] < 0.999){
+                continue;
+            }
+            //** perform mode selection mechanism
+            int sizeofMode = static_cast<int>(dataModes->modes.size());
+            if(sizeofMode == 0){
+
+                // if(debug){
+                //     cout << "============find new mode[" << static_cast<int>(modes.size()) << "]!!!" << "at (" << v << ", " << u << ")===============" << endl;
+                // }
+                //** the below four lines are used to create a new mode
+                //** include modes updating/mode_coor updating/saved_selected_mode_normals updating/mode_count updating
+                dataModes->modes.push_back(_normalsCV.at<cv::Vec3d>(v, u));
+                dataModes->mode_coor.push_back(tmp_coor);
+                // saved_selected_mode_normals.push_back(tmp_saved_selected_mode_normals);
+                // saved_selected_mode_normals_last.push_back(tmp_saved_selected_mode_normals);
+                dataModes->mode_normals_x.push_back(tmp_mode_normals);
+                dataModes->mode_normals_x_last.push_back(tmp_mode_normals);
+                dataModes->mode_normals_y.push_back(tmp_mode_normals);
+                dataModes->mode_normals_y_last.push_back(tmp_mode_normals);
+                dataModes->mode_normals_z.push_back(tmp_mode_normals);
+                dataModes->mode_normals_z_last.push_back(tmp_mode_normals);
+                dataModes->mode_count.push_back(0);
+            }
+            else{
+                bool found_mode = false;
+                //** perform normal-mode matching
+                for(int i=0; i<sizeofMode; i++){
+                    if((dataModes->modes[i].t() * _normalsCV.at<cv::Vec3d>(v, u)).val[0] >= 0.999){
+                        found_mode = true;
+                        Eigen::Vector2i x{v, u};
+                        dataModes->mode_coor[i].push_back(x);
+                        dataModes->mode_normals_x[i].addNum(_normalsCV.at<cv::Vec3d>(v, u)[0]);
+                        dataModes->mode_normals_x_last[i].addNum(_normalsCV_last.at<cv::Vec3d>(v, u)[0]);
+                        dataModes->mode_normals_y[i].addNum(_normalsCV.at<cv::Vec3d>(v, u)[1]);
+                        dataModes->mode_normals_y_last[i].addNum(_normalsCV_last.at<cv::Vec3d>(v, u)[1]);
+                        dataModes->mode_normals_z[i].addNum(_normalsCV.at<cv::Vec3d>(v, u)[2]);
+                        dataModes->mode_normals_z_last[i].addNum(_normalsCV_last.at<cv::Vec3d>(v, u)[2]);
+                        dataModes->mode_count[i]++;
+                        break;
+                    }
+                }
+                if(found_mode == false){
+                    if((_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV.at<cv::Vec3d>(v-1, u)).val[0] < 0.999 ||
+                    (_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV.at<cv::Vec3d>(v+1, u)).val[0] < 0.999 ||
+                    (_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV.at<cv::Vec3d>(v, u-1)).val[0] < 0.999 ||
+                    (_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV.at<cv::Vec3d>(v, u+1)).val[0] < 0.999 ||
+                    (_normalsCV_last.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v-1, u)).val[0] < 0.999 ||
+                    (_normalsCV_last.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v+1, u)).val[0] < 0.999 ||
+                    (_normalsCV_last.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v, u-1)).val[0] < 0.999 ||
+                    (_normalsCV_last.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v, u+1)).val[0] < 0.999){
+                        continue;
+                    }
+                    // if(debug){
+                    //     cout << "============find new mode[" << static_cast<int>(modes.size()) << "]!!!" << "at (" << v << ", " << u << ")===============" << endl;
+                    // }
+                    dataModes->modes.push_back(_normalsCV.at<cv::Vec3d>(v, u));
+                    dataModes->mode_coor.push_back(tmp_coor);
+                    // saved_selected_mode_normals.push_back(tmp_saved_selected_mode_normals);
+                    // saved_selected_mode_normals_last.push_back(tmp_saved_selected_mode_normals);
+                    dataModes->mode_normals_x.push_back(tmp_mode_normals);
+                    dataModes->mode_normals_x_last.push_back(tmp_mode_normals);
+                    dataModes->mode_normals_y.push_back(tmp_mode_normals);
+                    dataModes->mode_normals_y_last.push_back(tmp_mode_normals);
+                    dataModes->mode_normals_z.push_back(tmp_mode_normals);
+                    dataModes->mode_normals_z_last.push_back(tmp_mode_normals);
+                    dataModes->mode_count.push_back(0);
+                }
+            }
+        }
+    return dataModes;
+  
+}
+
+inline void NI_SLAM::EfficientNormal2RotationMatPart2(DataModesPtr _dataModes, Eigen::Matrix3d &_R)
+{
+    //** After finishing selecting modes
+    int sizeofMode = static_cast<int>(_dataModes->modes.size()); // sizeofmode saves the amount of modes which indicates how many planes there are
+    // Eigen::VectorXi mode_count_eigen = Eigen::Map<Eigen::VectorXi, Eigen::Unaligned>(mode_count.data(), mode_count.size());
+    // Eigen::Array<bool, Eigen::Dynamic, 1> mask = (mode_count_eigen.array()>12000);
+    // int count_valid_mode = mask.count(); // define a counter to count the modes with points more than 12000
+    int count_valid_mode{0};
+    vector<int> selected_mode; // define a vector to save the number of selected modes
+    // cout << "how many: " << modes.size() << endl;
+    // cout << count_valid_mode << endl;
+    int sumPoints{0};
+    for(int i=0; i<sizeofMode; i++){ 
+        if(_dataModes->mode_count[i] > 12000){
+            if(is_debugging){
+                cout << "**************************mode" << i << ": " << _dataModes->modes[i] << endl;
+                cout << "totally " << _dataModes->mode_count[i] << " points" << endl;
+            }
+
+            sumPoints+=_dataModes->mode_count[i];
+            selected_mode.push_back(i);
+            count_valid_mode++;
+        }
+    }
+    if(is_debugging){
+        cout << count_valid_mode << endl;
+    }
+    
+    int count_second_max{0};
+    //** if only one mode is more than 10000 points, will select one more mode if this new mode is more than 5000
+    //** otherwise, will select two modes if they are less than 5000
+    // if(count_valid_mode<2){
+    //     cout << "=====================================================================================" << endl;
+    //     cout << "mode smaller than 2, will select one (>5000 points) or more (<5000 points) mode from plane with points less than 10000" << endl;
+    //     selected_mode.push_back(0);
+    //     for(int i=0; i<sizeofMode; i++){
+    //         if(i == selected_mode[0]){
+    //             continue;
+    //         }
+    //         if(mode_count[i]>=3000 && mode_count[i]<=10000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_second_max){
+    //             count_second_max = mode_count[i];
+    //             selected_mode[1] = i;
+    //         }
+    //     }
+    //     cout << "**************************mode" << selected_mode[1] << ": " << modes[selected_mode[1]] << endl;
+    //     cout << "totally " << mode_coor[selected_mode[1]].size() << " points" << endl;
+    //     if(count_second_max != 0){
+    //         count_valid_mode++;
+    //     }
+        
+    //     if(count_second_max<5000){
+    //         selected_mode.push_back(0);
+    //         int count_third_max{0};
+    //         for(int i=0; i<sizeofMode; i++){
+    //             if(i == selected_mode[0] || i == selected_mode[1]){
+    //                 continue;
+    //             }
+    //             if(mode_count[i]>=1000 && mode_count[i]<=10000 && (modes[i].t() * modes[selected_mode[0]]).val[0]<0.5 && mode_count[i]>count_third_max &&
+    //             (modes[i].t() * modes[selected_mode[1]]).val[0]<0.5){
+    //                 count_third_max = mode_count[i];
+    //                 selected_mode[2] = i;
+    //             }
+    //         }
+    //         if(count_third_max != 0){
+    //             count_valid_mode++;
+    //             cout << "**************************mode" << selected_mode[2] << ": " << modes[selected_mode[2]] << endl;
+    //             cout << "totally " << mode_coor[selected_mode[2]].size() << " points" << endl;
+    //         }
+
+    //     }
+    //     if(count_valid_mode == 1){
+    //         cout << "cannot work, because only one plane exists" << endl;
+    //     }
+    // }
+
+    if(count_valid_mode<2){
+        if(is_debugging){
+            cout << "=====================================================================================" << endl;
+            cout << "mode smaller than 2, will select one (>12000 points) or more (<12000 points) mode from plane with points less than 12000" << endl;
+        }
+        selected_mode.push_back(0);
+        for(int i=0; i<sizeofMode; i++){
+            if(i == selected_mode[0]){
+                continue;
+            }
+            if(_dataModes->mode_count[i]>=1000 && _dataModes->mode_count[i]<=12000 && (_dataModes->modes[i].t() * _dataModes->modes[selected_mode[0]]).val[0]<0.5 && _dataModes->mode_count[i]>count_second_max){
+                count_second_max = _dataModes->mode_count[i];
+                selected_mode[1] = i;
+                // selected_mode.push_back(i);
+            }
+        }
+
+        if(count_second_max != 0){
+            count_valid_mode++;
+            if(is_debugging){
+                cout << "**************************mode" << selected_mode[1] << ": " << _dataModes->modes[selected_mode[1]] << endl;
+                cout << "totally (>1000) " << _dataModes->mode_coor[selected_mode[1]].size() << " points" << endl;
+            }
+        }
+        else{
+            selected_mode.pop_back();
+        }
+        
+        if(count_valid_mode==2 && count_second_max<12000){
+            selected_mode.push_back(0);
+            int count_third_max{0};
+            for(int i=0; i<sizeofMode; i++){
+                if(i == selected_mode[0] || i == selected_mode[1]){
+                    continue;
+                }
+                if(_dataModes->mode_count[i]>=1000 && _dataModes->mode_count[i]<=12000 && (_dataModes->modes[i].t() * _dataModes->modes[selected_mode[0]]).val[0]<0.5 && _dataModes->mode_count[i]>count_third_max &&
+                (_dataModes->modes[i].t() * _dataModes->modes[selected_mode[1]]).val[0]<0.5){
+                    count_third_max = _dataModes->mode_count[i];
+                    selected_mode[2] = i;
+                }
+            }
+            if(count_third_max != 0){
+                count_valid_mode++;
+                if(is_debugging){
+                    cout << "**************************mode" << selected_mode[2] << ": " << _dataModes->modes[selected_mode[2]] << endl;
+                    cout << "totally (>1000) " << _dataModes->mode_coor[selected_mode[2]].size() << " points" << endl;
+                }
+            }
+            else{
+                selected_mode.pop_back();
+            }
+
+        }
+        else if(count_valid_mode==1){
+            selected_mode.push_back(0);
+            for(int i=0; i<sizeofMode; i++){
+                if(i == selected_mode[0]){
+                    continue;
+                }
+                if(_dataModes->mode_count[i]>=500 && _dataModes->mode_count[i]<=12000 && (_dataModes->modes[i].t() * _dataModes->modes[selected_mode[0]]).val[0]<0.5 && _dataModes->mode_count[i]>count_second_max){
+                    count_second_max = _dataModes->mode_count[i];
+                    selected_mode[1] = i;
+                }
+            }
+            if(count_second_max != 0){
+                count_valid_mode++;
+                if(is_debugging){
+                    cout << "**************************mode" << selected_mode[1] << ": " << _dataModes->modes[selected_mode[1]] << endl;
+                    cout << "totally (>500) " << _dataModes->mode_coor[selected_mode[1]].size() << " points" << endl;
+                }
+            }
+            else{
+                selected_mode.pop_back();
+                std::cerr << "only one plane detected!" << endl;
+            }
+
+        }
+    }
+
+    //** if more than 2 valid modes, we have to calculate rotation matrix from each pair and evaluate which is the best
+    //** paired_modes used to store number of a pair of modes
+    //** first for loop used to generate all combinations of modes
+    //** traverse each paired_mode to generate a rotation matrix, and use the rest of modes to evaluate the rotation matrix
+    //** note that 'paired_modes' save the No. of modes, 'selected_mode' also save the No. of modes
+    if(count_valid_mode>2){
+        if(is_debugging){
+            cout << "count valid mode: " << count_valid_mode << endl;
+            cout << "---------------------------------------------------------" << endl;
+            cout << "mode more than 2, will compare which paired modes is best" << endl;
+        }
+
+        vector<vector<int>> paired_modes;
+        for(int i=0; i<count_valid_mode; i++)
+            for(int j=i+1; j<count_valid_mode; j++){
+                paired_modes.push_back({selected_mode[i],selected_mode[j]});
+        }
+
+        Eigen::Vector3d v1;
+        Eigen::Vector3d v11;
+        Eigen::Vector3d v2;
+        Eigen::Vector3d v22;
+        Eigen::Matrix3d R_;
+        int best_paired_modes{0};
+        double error{999999};
+        for(size_t i=0; i<(paired_modes.size()); i++){
+            if(is_debugging){
+                cout << "**current paired modes is: " << paired_modes[i][0] << " and " << paired_modes[i][1] << "**" << endl;
+            }
+            // v1 = oneVectorFromMultiVectors(normalsCV_last, mode_coor[paired_modes[i][0]]);
+            // v11 = oneVectorFromMultiVectors(normalsCV, mode_coor[paired_modes[i][0]]);
+            // v2 = oneVectorFromMultiVectors(normalsCV_last, mode_coor[paired_modes[i][1]]);
+            // v22 = oneVectorFromMultiVectors(normalsCV, mode_coor[paired_modes[i][1]]);
+
+            // v1 = oneVectorFromMultiVectors(mode_count[paired_modes[i][0]], saved_selected_mode_normals_last[paired_modes[i][0]]);
+            // v11 = oneVectorFromMultiVectors(mode_count[paired_modes[i][0]], saved_selected_mode_normals[paired_modes[i][0]]);
+            // v2 = oneVectorFromMultiVectors(mode_count[paired_modes[i][1]], saved_selected_mode_normals_last[paired_modes[i][1]]);
+            // v22 = oneVectorFromMultiVectors(mode_count[paired_modes[i][1]], saved_selected_mode_normals[paired_modes[i][1]]);
+
+            v1 = {_dataModes->mode_normals_x_last[paired_modes[i][0]].findMedian(), 
+                    _dataModes->mode_normals_y_last[paired_modes[i][0]].findMedian(), 
+                        _dataModes->mode_normals_z_last[paired_modes[i][0]].findMedian()};
+            v11 = {_dataModes->mode_normals_x[paired_modes[i][0]].findMedian(), 
+                    _dataModes->mode_normals_y[paired_modes[i][0]].findMedian(), 
+                        _dataModes->mode_normals_z[paired_modes[i][0]].findMedian()};
+            v2 = {_dataModes->mode_normals_x_last[paired_modes[i][1]].findMedian(), 
+                    _dataModes->mode_normals_y_last[paired_modes[i][1]].findMedian(), 
+                        _dataModes->mode_normals_z_last[paired_modes[i][1]].findMedian()};
+            v22 = {_dataModes->mode_normals_x[paired_modes[i][1]].findMedian(), 
+                    _dataModes->mode_normals_y[paired_modes[i][1]].findMedian(), 
+                        _dataModes->mode_normals_z[paired_modes[i][1]].findMedian()};
+            v22 = v22.normalized();
+            v2 = v2.normalized();
+            v11 = v11.normalized();
+            v1 = v1.normalized();            
+
+            // cout << "**v1 is : " << v1[0] << ", " << v1[1] << ", " << v1[2] << " **" << endl;
+            // cout << "new v1 is : " << mode_normals_x_last[paired_modes[i][0]].findMedian() << "," <<
+            //         mode_normals_y_last[paired_modes[i][0]].findMedian() << "," << 
+            //             mode_normals_z_last[paired_modes[i][0]].findMedian() << endl;
+            // cout << "**v11 is : " << v11[0] << ", " << v11[1] << ", " << v11[2] << " **" << endl;
+            // cout << "new v11 is : " << mode_normals_x[paired_modes[i][0]].findMedian() << "," <<
+            //         mode_normals_y[paired_modes[i][0]].findMedian() << "," << 
+            //             mode_normals_z[paired_modes[i][0]].findMedian() << endl;
+            // cout << "**v2 is : " << v2[0] << ", " << v2[1] << ", " << v2[2] << " **" << endl;
+            // cout << "new v2 is : " << mode_normals_x_last[paired_modes[i][1]].findMedian() << "," <<
+            //         mode_normals_y_last[paired_modes[i][1]].findMedian() << "," << 
+            //             mode_normals_z_last[paired_modes[i][1]].findMedian() << endl;
+            // cout << "**v22 is : " << v22[0] << ", " << v22[1] << ", " << v22[2] << " **" << endl;
+            // cout << "new v22 is : " << mode_normals_x[paired_modes[i][1]].findMedian() << "," <<
+            //         mode_normals_y[paired_modes[i][1]].findMedian() << "," << 
+            //             mode_normals_z[paired_modes[i][1]].findMedian() << endl;
+            rotationFromTwoPlanes(v1, v11, v2, v22, R_);
+            double count{0.0};
+            double error_cur{0};
+            for(int j=0; j<count_valid_mode; j++){
+                if(selected_mode[j]==paired_modes[i][1] || selected_mode[j]==paired_modes[i][0]){
+                    continue;
+                }
+                count += 1.0;
+                // float weight = float(mode_count[selected_mode[j]]) / float(sumPoints);
+                // Eigen::Vector3d vTest = oneVectorFromMultiVectors(normalsCV_last, mode_coor[selected_mode[j]]);
+                // Eigen::Vector3d vTTest = oneVectorFromMultiVectors(normalsCV, mode_coor[selected_mode[j]]);
+                
+                // Eigen::Vector3d vTest = oneVectorFromMultiVectors(mode_count[selected_mode[j]], saved_selected_mode_normals_last[selected_mode[j]]);
+                // Eigen::Vector3d vTTest = oneVectorFromMultiVectors(mode_count[selected_mode[j]], saved_selected_mode_normals[selected_mode[j]]);
+
+                Eigen::Vector3d vTest = {_dataModes->mode_normals_x_last[selected_mode[j]].findMedian(), 
+                                            _dataModes->mode_normals_y_last[selected_mode[j]].findMedian(), 
+                                                _dataModes->mode_normals_z_last[selected_mode[j]].findMedian()};
+                Eigen::Vector3d vTTest = {_dataModes->mode_normals_x[selected_mode[j]].findMedian(), 
+                                            _dataModes->mode_normals_y[selected_mode[j]].findMedian(), 
+                                                _dataModes->mode_normals_z[selected_mode[j]].findMedian()};  
+                vTest = vTest.normalized();
+                vTTest = vTTest.normalized();
+                
+                Eigen::Vector3d vTTest_rotated = R_ * vTTest;
+                // cout << "vTest: " << vTest << endl;
+                // cout << "vTTest_rotated: " << vTest.transpose()*vTTest_rotated << endl;
+                // error_cur += (weight * vTest.cross(vTTest_rotated).norm());
+                error_cur += (vTest.cross(vTTest_rotated).norm());
+            }
+            if(is_debugging){
+                cout << "**current paired modes' (weighted) error is: " << error_cur/count << " **\n" << endl;
+            }
+            if(error_cur/count < error){
+                error = error_cur/count;
+                _R = R_;
+                best_paired_modes = i;
+            }
+        }
+        if(is_debugging){
+            cout << "---------------------------------------------------------" << endl;
+            cout << "------------best paired mode IS: " << paired_modes[best_paired_modes][0] << " and " << paired_modes[best_paired_modes][1] << " ------------------" << endl;
+        }
+        valid_points = min(_dataModes->mode_count[paired_modes[best_paired_modes][0]], _dataModes->mode_count[paired_modes[best_paired_modes][1]]);
+    }
+    else if(count_valid_mode==2){
+        Eigen::Vector3d v1{0,0,0};
+        Eigen::Vector3d v11{0,0,0};
+        Eigen::Vector3d v2{0,0,0};
+        Eigen::Vector3d v22{0,0,0};
+
+        if(is_debugging){
+            cout << "=====================================================================================" << endl;
+            cout << "mode equal to 2" << endl;
+        }
+        v1 = {_dataModes->mode_normals_x_last[selected_mode[0]].findMedian(), 
+                _dataModes->mode_normals_y_last[selected_mode[0]].findMedian(), 
+                    _dataModes->mode_normals_z_last[selected_mode[0]].findMedian()};
+        v11 = {_dataModes->mode_normals_x[selected_mode[0]].findMedian(), 
+                _dataModes->mode_normals_y[selected_mode[0]].findMedian(), 
+                    _dataModes->mode_normals_z[selected_mode[0]].findMedian()};
+        v2 = {_dataModes->mode_normals_x_last[selected_mode[1]].findMedian(), 
+                _dataModes->mode_normals_y_last[selected_mode[1]].findMedian(), 
+                    _dataModes->mode_normals_z_last[selected_mode[1]].findMedian()};
+        v22 = {_dataModes->mode_normals_x[selected_mode[1]].findMedian(), 
+                _dataModes->mode_normals_y[selected_mode[1]].findMedian(), 
+                    _dataModes->mode_normals_z[selected_mode[1]].findMedian()};
+        v22 = v22.normalized();
+        v2 = v2.normalized();
+        v11 = v11.normalized();
+        v1 = v1.normalized();
+
+        if(is_debugging){
+            cout << "=====================================================================================" << endl;
+        }
+        valid_points = min(_dataModes->mode_count[selected_mode[0]], _dataModes->mode_count[selected_mode[1]]);
+        rotationFromTwoPlanes(v1, v11, v2, v22, _R);
+    }
+    else{
+        cerr << "only one valid plane!" << endl;
+    }
+     
+}
+
 inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::Mat &_normalsCV, Eigen::Matrix3d &_R, cv::Mat &_AnglesMap)
 {
     cv::Vec3d zeros{0, 0, 0};
@@ -1029,6 +1597,7 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
                 }
             }
         }
+    
     //** After finishing selecting modes
     int sizeofMode = static_cast<int>(modes.size()); // sizeofmode saves the amount of modes which indicates how many planes there are
     // Eigen::VectorXi mode_count_eigen = Eigen::Map<Eigen::VectorXi, Eigen::Unaligned>(mode_count.data(), mode_count.size());
@@ -1338,7 +1907,333 @@ inline void NI_SLAM::EfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::M
 }
 
 inline void NI_SLAM::HashEfficientNormal2RotationMat(cv::Mat &_normalsCV_last, cv::Mat &_normalsCV, Eigen::Matrix3d &_R, cv::Mat &_AnglesMap){
+    //** cannot work, because hash can only search totally equal key 
+    ModeMap modeMap;
+    cv::Vec3d zeros{0, 0, 0};
+    cv::Vec3d N{1,0,0};
+    for(int v=0; v<_normalsCV.rows;v++)
+        for(int u=0; u<_normalsCV.cols;u++){
+            //** exclude invalid points (noise from depth sensor)
+            if((_normalsCV.at<cv::Vec3d>(v, u) == zeros) || (_normalsCV_last.at<cv::Vec3d>(v, u) == zeros) || (v <= 10) || (u <= 10) || (abs(v-_normalsCV.rows) <= 10) || (abs(u-_normalsCV.cols) <= 10))
+            {
+                continue;
+            }
+            //** exclude non-overlapped points
+            if((_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v, u)).val[0] < 0.9){ //0.7){
+                continue;
+            }
+            //** aim to cancel the points on edge
+            if((_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV.at<cv::Vec3d>(v-1, u)).val[0] < 0.999 ||
+            (_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV.at<cv::Vec3d>(v+1, u)).val[0] < 0.999 ||
+            (_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV.at<cv::Vec3d>(v, u-1)).val[0] < 0.999 ||
+            (_normalsCV.at<cv::Vec3d>(v, u).t() * _normalsCV.at<cv::Vec3d>(v, u+1)).val[0] < 0.999 ||
+            (_normalsCV_last.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v-1, u)).val[0] < 0.999 ||
+            (_normalsCV_last.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v+1, u)).val[0] < 0.999 ||
+            (_normalsCV_last.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v, u-1)).val[0] < 0.999 ||
+            (_normalsCV_last.at<cv::Vec3d>(v, u).t() * _normalsCV_last.at<cv::Vec3d>(v, u+1)).val[0] < 0.999){
+                continue;
+            }
+            //** perform mode selection mechanism
+            auto normal = _normalsCV.at<cv::Vec3d>(v, u);
+            auto &modeData = modeMap[normal];
+
+            Eigen::Vector2i x{v, u};
+            modeData.coordinates.push_back(x);
+            modeData.normal_x.addNum(normal[0]);
+            modeData.normal_x_last.addNum(_normalsCV_last.at<cv::Vec3d>(v, u)[0]);
+            modeData.normal_y.addNum(normal[1]);
+            modeData.normal_y_last.addNum(_normalsCV_last.at<cv::Vec3d>(v, u)[1]);
+            modeData.normal_z.addNum(normal[2]);
+            modeData.normal_z_last.addNum(_normalsCV_last.at<cv::Vec3d>(v, u)[2]);
+            modeData.count++;
+        }
+
+    //** After finishing selecting modes
+    // int sizeofMode = static_cast<int>(modes.size()); // sizeofmode saves the amount of modes which indicates how many planes there are
+    // Eigen::VectorXi mode_count_eigen = Eigen::Map<Eigen::VectorXi, Eigen::Unaligned>(mode_count.data(), mode_count.size());
+    // Eigen::Array<bool, Eigen::Dynamic, 1> mask = (mode_count_eigen.array()>12000);
+    // int count_valid_mode = mask.count(); // define a counter to count the modes with points more than 12000
+    int count_valid_mode{0};
+    vector<cv::Vec3d> selected_mode; // define a vector to save the number of selected modes
+    // cout << "how many: " << modes.size() << endl;
+    // cout << count_valid_mode << endl;
+    // int sumPoints{0};
+
+    if(is_debugging){
+        cout << "modeMap's size: " << modeMap.size() << endl;
+    }
+
+    for (const auto& pair : modeMap) {
+        const cv::Vec3d& key = pair.first;
+        const ModeData& value = pair.second;
+        if(value.count > 12000){
+            if(is_debugging){
+                cout << "**************************mode" << " : " << key << endl;
+                cout << "totally " << value.count << " points" << endl;
+            }
+            selected_mode.push_back(key);
+            count_valid_mode++;
+        }
+
+    }
+
+    if(is_debugging){
+        cout << "> 12000 valid modes is: " << count_valid_mode << endl;
+    }
     
+    int count_second_max{0};
+    //** if only one mode is more than 10000 points, will select one more mode if this new mode is more than 5000
+    //** otherwise, will select two modes if they are less than 5000
+    if(count_valid_mode<2){
+        if(is_debugging){
+            cout << "=====================================================================================" << endl;
+            cout << "mode smaller than 2, will select one (>5000 points) or more (<5000 points) mode from plane with points less than 10000" << endl;
+        }
+
+        cv::Vec3d max_mode_key;
+        bool found{false};
+
+        for(const auto& entry : modeMap){
+            const cv::Vec3d& key = entry.first;
+            const ModeData& mode = entry.second;
+
+            // 检查 mode 是否满足条件
+            if(mode.count >= 1000 && mode.count <= 12000 && (key.t() * selected_mode[0]).val[0]<0.5) {
+                // 如果我们还没有找到满足条件的模式，或者找到的新模式大于当前的最大模式，
+                // 我们就更新最大模式的键。
+                if(!found || mode.count > modeMap[max_mode_key].count) {
+                    max_mode_key = key;
+                    count_second_max = mode.count;
+                    found = true;
+                }
+            }
+        }
+
+        if(found) {
+            // 在这里，你可以处理找到的最大模式。
+            // 例如，打印键：
+            // const cv::Vec3d& key = *max_mode_key;
+            selected_mode.push_back(max_mode_key);
+            if(is_debugging){
+                cout << "**************************mode" <<" : " << max_mode_key << endl;
+                cout << "totally " << modeMap[max_mode_key].count << " points" << endl;
+            }
+            count_valid_mode++;
+            if(count_second_max>0){
+                int count_third_max{0};
+                cv::Vec3d second_max_mode_key;
+                bool found_again{false};
+
+                for(const auto& entry : modeMap) {
+                    const cv::Vec3d& key = entry.first;
+                    const ModeData& mode = entry.second;
+
+                    // 检查 mode 是否满足条件
+                    if(mode.count >= 1000 && mode.count <= 12000 && (key.t() * selected_mode[0]).val[0]<0.5 && (key.t() * selected_mode[1]).val[0]<0.5) {
+                        // 如果我们还没有找到满足条件的模式，或者找到的新模式大于当前的最大模式，
+                        // 我们就更新最大模式的键。
+                        if(!found_again || mode.count > modeMap[second_max_mode_key].count) {
+                            second_max_mode_key = key;
+                            count_third_max = mode.count;
+                            found_again = true;
+                        }
+                    }
+                }
+
+                if(found_again) {
+                    // 在这里，你可以处理找到的最大模式。
+                    // 例如，打印键：
+                    // const cv::Vec3d& key = *second_max_mode_key;
+                    selected_mode.push_back(second_max_mode_key);
+                    if(is_debugging){
+                        cout << "**************************mode" <<" : " << second_max_mode_key << endl;
+                        cout << "totally " << modeMap[second_max_mode_key].count << " points" << endl;
+                    }
+                    count_valid_mode++;
+                }
+            }
+        }
+        else{
+            int count_third_max{0};
+            cv::Vec3d second_max_mode_key;
+            bool found_again{false};
+            for(const auto& entry : modeMap) {
+                const cv::Vec3d& key = entry.first;
+                const ModeData& mode = entry.second;
+
+                // 检查 mode 是否满足条件
+                if(mode.count >= 500 && mode.count <= 12000 && (key.t() * selected_mode[0]).val[0]<0.5) {
+                    // 如果我们还没有找到满足条件的模式，或者找到的新模式大于当前的最大模式，
+                    // 我们就更新最大模式的键。
+                    if(!found_again || mode.count > modeMap[second_max_mode_key].count) {
+                        second_max_mode_key = key;
+                        count_third_max = mode.count;
+                        found_again = true;
+                    }
+                }
+            }
+
+            if(found_again) {
+                // 在这里，你可以处理找到的最大模式。
+                // 例如，打印键：
+                // const cv::Vec3d& key = *second_max_mode_key;
+                selected_mode.push_back(second_max_mode_key);
+                if(is_debugging){
+                    cout << "**************************mode" <<" : " << second_max_mode_key << endl;
+                    cout << "totally " << modeMap[second_max_mode_key].count << " points" << endl;
+                }
+                count_valid_mode++;
+            }
+        }
+
+        if(count_valid_mode == 1){
+            cerr << "cannot work, because only one plane exists" << endl;
+        }
+    }
+
+    //** if more than 2 valid modes, we have to calculate rotation matrix from each pair and evaluate which is the best
+    //** paired_modes used to store number of a pair of modes
+    //** first for loop used to generate all combinations of modes
+    //** traverse each paired_mode to generate a rotation matrix, and use the rest of modes to evaluate the rotation matrix
+    //** note that 'paired_modes' save the No. of modes, 'selected_mode' also save the No. of modes
+    if(count_valid_mode>2){
+        if(is_debugging){
+            cout << "count valid mode: " << count_valid_mode << endl;
+            cout << "---------------------------------------------------------" << endl;
+            cout << "mode more than 2, will compare which paired modes is best" << endl;
+        }
+
+        vector<vector<cv::Vec3d>> paired_modes;
+        for(int i=0; i<count_valid_mode; i++)
+            for(int j=i+1; j<count_valid_mode; j++){
+                paired_modes.push_back({selected_mode[i],selected_mode[j]});
+        }
+
+        Eigen::Vector3d v1;
+        Eigen::Vector3d v11;
+        Eigen::Vector3d v2;
+        Eigen::Vector3d v22;
+        Eigen::Matrix3d R_;
+        int best_paired_modes{0};
+        double error{999999};
+        for(size_t i=0; i<(paired_modes.size()); i++){
+            if(is_debugging){
+                cout << "**current paired modes is: " << paired_modes[i][0] << " and " << paired_modes[i][1] << "**" << endl;
+            }
+            v1 = {modeMap[paired_modes[i][0]].normal_x_last.findMedian(), 
+                    modeMap[paired_modes[i][0]].normal_y_last.findMedian(), 
+                        modeMap[paired_modes[i][0]].normal_z_last.findMedian()};
+            v11 = {modeMap[paired_modes[i][0]].normal_x.findMedian(), 
+                    modeMap[paired_modes[i][0]].normal_y.findMedian(), 
+                        modeMap[paired_modes[i][0]].normal_y.findMedian()};
+            v2 = {modeMap[paired_modes[i][1]].normal_x_last.findMedian(), 
+                    modeMap[paired_modes[i][1]].normal_y_last.findMedian(), 
+                        modeMap[paired_modes[i][1]].normal_z_last.findMedian()};
+            v22 = {modeMap[paired_modes[i][1]].normal_x.findMedian(), 
+                    modeMap[paired_modes[i][1]].normal_y.findMedian(), 
+                        modeMap[paired_modes[i][1]].normal_y.findMedian()};
+            v22 = v22.normalized();
+            v2 = v2.normalized();
+            v11 = v11.normalized();
+            v1 = v1.normalized();            
+
+            // cout << "**v1 is : " << v1[0] << ", " << v1[1] << ", " << v1[2] << " **" << endl;
+            // cout << "new v1 is : " << mode_normals_x_last[paired_modes[i][0]].findMedian() << "," <<
+            //         mode_normals_y_last[paired_modes[i][0]].findMedian() << "," << 
+            //             mode_normals_z_last[paired_modes[i][0]].findMedian() << endl;
+            // cout << "**v11 is : " << v11[0] << ", " << v11[1] << ", " << v11[2] << " **" << endl;
+            // cout << "new v11 is : " << mode_normals_x[paired_modes[i][0]].findMedian() << "," <<
+            //         mode_normals_y[paired_modes[i][0]].findMedian() << "," << 
+            //             mode_normals_z[paired_modes[i][0]].findMedian() << endl;
+            // cout << "**v2 is : " << v2[0] << ", " << v2[1] << ", " << v2[2] << " **" << endl;
+            // cout << "new v2 is : " << mode_normals_x_last[paired_modes[i][1]].findMedian() << "," <<
+            //         mode_normals_y_last[paired_modes[i][1]].findMedian() << "," << 
+            //             mode_normals_z_last[paired_modes[i][1]].findMedian() << endl;
+            // cout << "**v22 is : " << v22[0] << ", " << v22[1] << ", " << v22[2] << " **" << endl;
+            // cout << "new v22 is : " << mode_normals_x[paired_modes[i][1]].findMedian() << "," <<
+            //         mode_normals_y[paired_modes[i][1]].findMedian() << "," << 
+            //             mode_normals_z[paired_modes[i][1]].findMedian() << endl;
+            rotationFromTwoPlanes(v1, v11, v2, v22, R_);
+            double count{0.0};
+            double error_cur{0};
+            for(int j=0; j<count_valid_mode; j++){
+                if(selected_mode[j]==paired_modes[i][1] || selected_mode[j]==paired_modes[i][0]){ // TODO: revise?
+                    continue;
+                }
+                count += 1.0;
+                // float weight = float(mode_count[selected_mode[j]]) / float(sumPoints);
+                // Eigen::Vector3d vTest = oneVectorFromMultiVectors(normalsCV_last, mode_coor[selected_mode[j]]);
+                // Eigen::Vector3d vTTest = oneVectorFromMultiVectors(normalsCV, mode_coor[selected_mode[j]]);
+                
+                // Eigen::Vector3d vTest = oneVectorFromMultiVectors(mode_count[selected_mode[j]], saved_selected_mode_normals_last[selected_mode[j]]);
+                // Eigen::Vector3d vTTest = oneVectorFromMultiVectors(mode_count[selected_mode[j]], saved_selected_mode_normals[selected_mode[j]]);
+
+                Eigen::Vector3d vTest = {modeMap[selected_mode[j]].normal_x_last.findMedian(), 
+                                            modeMap[selected_mode[j]].normal_y_last.findMedian(), 
+                                                modeMap[selected_mode[j]].normal_z_last.findMedian()};
+                Eigen::Vector3d vTTest = {modeMap[selected_mode[j]].normal_x.findMedian(), 
+                                            modeMap[selected_mode[j]].normal_y.findMedian(), 
+                                                modeMap[selected_mode[j]].normal_z.findMedian()};
+                vTest = vTest.normalized();
+                vTTest = vTTest.normalized();
+                
+                Eigen::Vector3d vTTest_rotated = R_ * vTTest;
+                // cout << "vTest: " << vTest << endl;
+                // cout << "vTTest_rotated: " << vTest.transpose()*vTTest_rotated << endl;
+                // error_cur += (weight * vTest.cross(vTTest_rotated).norm());
+                error_cur += (vTest.cross(vTTest_rotated).norm());
+            }
+            if(is_debugging){
+                cout << "**current paired modes' (weighted) error is: " << error_cur/count << " **\n" << endl;
+            }
+            if(error_cur/count < error){
+                error = error_cur/count;
+                _R = R_;
+                best_paired_modes = i;
+            }
+        }
+        if(is_debugging){
+            cout << "---------------------------------------------------------" << endl;
+            cout << "------------best paired mode IS: " << paired_modes[best_paired_modes][0] << " and " << paired_modes[best_paired_modes][1] << " ------------------" << endl;
+        }
+        valid_points = min(modeMap[paired_modes[best_paired_modes][0]].count, modeMap[paired_modes[best_paired_modes][1]].count);
+    }
+    else if(count_valid_mode==2){
+        Eigen::Vector3d v1{0,0,0};
+        Eigen::Vector3d v11{0,0,0};
+        Eigen::Vector3d v2{0,0,0};
+        Eigen::Vector3d v22{0,0,0};
+
+        if(is_debugging){
+            cout << "=====================================================================================" << endl;
+            cout << "mode equal to 2" << endl;
+        }
+        v1 = {modeMap[selected_mode[0]].normal_x_last.findMedian(), 
+                modeMap[selected_mode[0]].normal_y_last.findMedian(), 
+                    modeMap[selected_mode[0]].normal_z_last.findMedian()};
+        v11 = {modeMap[selected_mode[0]].normal_x.findMedian(), 
+                modeMap[selected_mode[0]].normal_y.findMedian(), 
+                    modeMap[selected_mode[0]].normal_z.findMedian()};
+        v2 = {modeMap[selected_mode[1]].normal_x_last.findMedian(), 
+                modeMap[selected_mode[1]].normal_y_last.findMedian(), 
+                    modeMap[selected_mode[1]].normal_z_last.findMedian()};
+        v22 = {modeMap[selected_mode[1]].normal_x.findMedian(), 
+                modeMap[selected_mode[1]].normal_y.findMedian(), 
+                    modeMap[selected_mode[1]].normal_z.findMedian()};
+        v22 = v22.normalized();
+        v2 = v2.normalized();
+        v11 = v11.normalized();
+        v1 = v1.normalized();
+
+        if(is_debugging){
+            cout << "=====================================================================================" << endl;
+        }
+        valid_points = min(modeMap[selected_mode[0]].count, modeMap[selected_mode[1]].count);
+        rotationFromTwoPlanes(v1, v11, v2, v22, _R);
+    }
+    else{
+        cerr << "only one valid plane!" << endl;
+    }
 }
 
 void NI_SLAM::set_publish_refined_keyframe()
@@ -1675,9 +2570,11 @@ void NI_SLAM::save_file(FramePtr frame)
 void NI_SLAM::ShutDown(){
     _shutdown = true;
     _normalMap_thread.join();
-    _rotation_thread.join();
+    // _rotation_thread.join();
     _translation_thread.join();
     
+    _rotation_part1_thread.join();
+    _rotation_part2_thread.join();
     // t2 = std::chrono::steady_clock::now();
     // double total_time = std::chrono::duration_cast<std::chrono::duration<double> >(t2 - t1).count();
     // cout << "average time(ms) for each frame: " << total_time / float(nth_frame) << endl;
