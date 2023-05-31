@@ -363,6 +363,7 @@ public:
     string child_frame;          // child frame name
     float adaptive_mu;             // F(x) = hist/his_seq + mu * his_seq
     bool is_debugging{false};
+    bool update_modes_real_time{false};
     std::chrono::steady_clock::time_point t1;
     std::chrono::steady_clock::time_point t2;
 

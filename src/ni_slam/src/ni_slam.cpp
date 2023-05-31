@@ -134,7 +134,7 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
     data->pcl_cloud = pcl_cloud;
     data->time = nth_frame;
 
-    while(_data_buffer.size()>=10 && !_shutdown){
+    while(_data_buffer.size()>=3 && !_shutdown){
         usleep(2000);
     }
 
@@ -272,8 +272,8 @@ void NI_SLAM::EstimateNormalMapThread(){
             continue;
         }
 
-        // // count time
-        // auto start = std::chrono::high_resolution_clock::now();
+        // count time
+        auto start = std::chrono::high_resolution_clock::now();
 
         InputDataPtr input_data;
         _dataBuffer_mutex.lock();
@@ -296,14 +296,14 @@ void NI_SLAM::EstimateNormalMapThread(){
         normalMap_data->pcl_cloud = input_data->pcl_cloud;
 
 
-        // // count time 
-        // auto end = std::chrono::high_resolution_clock::now();
-        // auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-        // std::cout << "Thread [EstimateNormalMapThread] took " << elapsed.count() << " milliseconds to execute.\n";
+        // count time 
+        auto end = std::chrono::high_resolution_clock::now();
+        auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+        std::cout << "Thread [EstimateNormalMapThread] took " << elapsed.count() << " milliseconds to execute.\n";
 
 
 
-        while(_normalMap_buffer.size()>=5){
+        while(_normalMap_buffer.size()>=3){
             usleep(2000);
         }
 
@@ -551,8 +551,8 @@ void NI_SLAM::EstimateTranslationThread(){
             continue;
         }
 
-        // // count time
-        // auto start = std::chrono::high_resolution_clock::now();
+        // count time
+        auto start = std::chrono::high_resolution_clock::now();
 
         _frame_mutex.lock();
         FramePtr frame = _frame_buffer.front();
@@ -600,10 +600,10 @@ void NI_SLAM::EstimateTranslationThread(){
                 ROS_WARN("written %d times into file", train_num);
         }
     
-        // // count time 
-        // auto end = std::chrono::high_resolution_clock::now();
-        // auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-        // std::cout << "Thread [EstimateTranslationThread] took " << elapsed.count() << " milliseconds to execute.\n";
+        // count time 
+        auto end = std::chrono::high_resolution_clock::now();
+        auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+        std::cout << "Thread [EstimateTranslationThread] took " << elapsed.count() << " milliseconds to execute.\n";
     }
 }
 
@@ -1144,6 +1144,13 @@ inline DataModesPtr NI_SLAM::EfficientNormal2RotationMatPart1(cv::Mat &_normalsC
                         dataModes->mode_normals_z[i].addNum(_normalsCV.at<cv::Vec3d>(v, u)[2]);
                         dataModes->mode_normals_z_last[i].addNum(_normalsCV_last.at<cv::Vec3d>(v, u)[2]);
                         dataModes->mode_count[i]++;
+                        
+                        if(update_modes_real_time){
+                            dataModes->modes[i][0] = dataModes->mode_normals_x[i].findMedian();
+                            dataModes->modes[i][1] = dataModes->mode_normals_y[i].findMedian();
+                            dataModes->modes[i][2] = dataModes->mode_normals_z[i].findMedian();
+                        }
+
                         break;
                     }
                 }
@@ -2561,7 +2568,7 @@ void NI_SLAM::save_file(FramePtr frame)
         <<pose_to_save.getRotation().x()<<" "
         <<pose_to_save.getRotation().y()<<" "
         <<pose_to_save.getRotation().z()<<" "
-        <<pose_to_save.getRotation().w()<< " " << total_time / (frame_id+1)<< "\n";
+        <<pose_to_save.getRotation().w()<< " " << total_time << "\n";
     
     file.close();
 }

@@ -119,7 +119,12 @@ int main(int argc, char ** argv)
     if(n.getParam("debug/is_debugging", ni_slam.is_debugging))
         ROS_INFO("Is debugging: %s",ni_slam.is_debugging? "true":"false");
     else
-        ROS_WARN("Using default Visualization flag: false!");  
+        ROS_WARN("Using default debugging flag: false!");  
+
+    if(n.getParam("update_modes_real_time", ni_slam.update_modes_real_time))
+        ROS_INFO("update modes real time? : %s",ni_slam.update_modes_real_time? "true":"false");
+    else
+        ROS_WARN("Using default update_modes_real_time flag: false!");  
 
     if(n.getParam("/rotation/imu", rotation_imu))
     {
