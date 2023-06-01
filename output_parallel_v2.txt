@@ -1,0 +1,1930 @@
+[0m[ INFO] [1685534850.606722447]: Opening /home/zheng/projects/ni_slam_ws/src/ni_slam/bag/icl_ofkt1.bag[0m
+
+Waiting 5 seconds after advertising topics... done.
+
+Hit space to toggle paused, or 's' to step.
+ [DELAYED]  Bag Time: 1678417386.019812   Duration: 0.000000 / 32.133333   Delay: 0.00  [RUNNING]  Bag Time: 1678417386.019812   Duration: 0.000000 / 32.133333               [0m[ INFO] [1685534851.269769804]: Get image_height parameter: 360[0m
+[0m[ INFO] [1685534851.270596205]: Get image_width parameter: 480[0m
+[0m[ INFO] [1685534851.270803940]: Get depth image_height parameter: 480[0m
+[0m[ INFO] [1685534851.270928269]: Get depth image_width parameter: 640[0m
+[0m[ INFO] [1685534851.271166796]: Get filename prefix: /home/zheng/projects/ni_slam_ws/src/ni_slam/bag/icl_ofkt1[0m
+[0m[ INFO] [1685534851.271405680]: Get gt poses file: /home/zheng/datasets/public_dataset/ICL-NUIM/of_kt1/groundtruth.txt[0m
+[0m[ INFO] [1685534851.271535068]: Get max time diff for topics: 0.030000[0m
+[0m[ INFO] [1685534851.271682449]: Get PSR bound: 50.000000[0m
+[0m[ INFO] [1685534851.271833679]: Get Visualization flag: false[0m
+[0m[ INFO] [1685534851.271940780]: Get queue_size_cloud parameter: 1000[0m
+[0m[ INFO] [1685534851.272029688]: Get queue_size_imu parameter: 1000[0m
+[0m[ INFO] [1685534851.272114247]: Get queue_size_sync parameter: 1000[0m
+[0m[ INFO] [1685534851.293462302]: Is debugging: false[0m
+[0m[ INFO] [1685534851.293909100]: update modes real time? : true[0m
+[0m[ INFO] [1685534851.294289919]: Get rotation imu: [0.000000, 0.000000, 0.000000][0m
+[0m[ INFO] [1685534851.294570230]: Get adaptive parameter mu: 0.800000[0m
+[0m[ INFO] [1685534851.294912795]: Get parent frame: world[0m
+[0m[ INFO] [1685534851.295373841]: Get child frame: ni_slam[0m
+[0m[ INFO] [1685534851.295633093]: Get refined_frame/publish_flag: false[0m
+[0m[ INFO] [1685534851.295818016]: Get keypose_with_covariance publish_flag: True[0m
+[0m[ INFO] [1685534851.295991433]: Get twist_with_covariance publish_flag: False[0m
+Callback:: 278853290.980297 Hz
+--------processing 1.png-----------
+Thread [EstimateNormalMapThread] took 13 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 2.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 3.png-----------
+--------processing 4.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 5.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+--------processing 6.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 7.png-----------
+Thread [EstimateRotationThread] took 24 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+--------processing 8.png-----------
+--------processing 9.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+--------processing 10.png-----------
+--------processing 11.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+--------processing 12.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 13.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+--------processing 14.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 15.png-----------
+--------processing 16.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+--------processing 17.png-----------
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 18.png-----------
+--------processing 19.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+--------processing 20.png-----------
+--------processing 21.png-----------
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 22.png-----------
+--------processing 23.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+--------processing 24.png-----------
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+--------processing 25.png-----------
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+--------processing 26.png-----------
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 27.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+--------processing 28.png-----------
+--------processing 29.png-----------
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+--------processing 30.png-----------
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 31.png-----------
+--------processing 32.png-----------
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 11 milliseconds to execute.
+--------processing 33.png-----------
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 34.png-----------
+--------processing 35.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+--------processing 36.png-----------
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 37.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 38.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+--------processing 39.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 40.png-----------
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 41.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 42.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 43.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 44.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 45.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 17 milliseconds to execute.
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+--------processing 46.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 47.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 48.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 49.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 50.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 51.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 52.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateTranslationThread] took 18 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 53.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+Thread [EstimateTranslationThread] took 17 milliseconds to execute.
+--------processing 54.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+--------processing 55.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+--------processing 56.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 57.png-----------
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 58.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 59.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 60.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 61.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 62.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 63.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 64.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+--------processing 65.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+--------processing 66.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+--------processing 67.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 68.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Callback:: 67.360739 Hz
+--------processing 69.png-----------
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 70.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+--------processing 71.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 72.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 73.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 74.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 75.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 76.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 77.png-----------
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 78.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 17 milliseconds to execute.
+--------processing 79.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 80.png-----------
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+--------processing 81.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 82.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 83.png-----------
+Thread [EstimateTranslationThread] took Thread [EstimateNormalMapThread] took 166 milliseconds to execute.
+ milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 84.png-----------
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 85.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 86.png-----------
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 87.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 88.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 89.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateTranslationThread] took 17 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 90.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+--------processing 91.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 17 milliseconds to execute.
+--------processing 92.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 17 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+--------processing 93.png-----------
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+--------processing 94.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 95.png-----------
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+--------processing 96.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+--------processing 97.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+--------processing 98.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 99.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 100.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 101.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 102.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 103.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 104.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 105.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 106.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 107.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+--------processing 108.png-----------
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+--------processing 109.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+Thread [EstimateTranslationThread] took 18 milliseconds to execute.
+--------processing 110.png-----------
+Thread [EstimateNormalMapThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+Thread [EstimateTranslationThread] took 18 milliseconds to execute.
+--------processing 111.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 112.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 17 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 113.png-----------
+Thread [EstimateTranslationThread] took 17 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 114.png-----------
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+--------processing 115.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 116.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 117.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 118.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 119.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 120.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 121.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 122.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 123.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 124.png-----------
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 125.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 126.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 127.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+Thread [EstimateTranslationThread] took 18 milliseconds to execute.
+--------processing 128.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 18 milliseconds to execute.
+--------processing 129.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+--------processing 130.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+--------processing 131.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 132.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 133.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 134.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Callback:: 65.286948 Hz
+--------processing 135.png-----------
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 136.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 137.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 138.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 139.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 140.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 141.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 142.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 143.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+--------processing 144.png-----------
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 145.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 146.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 21 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 147.png-----------
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 148.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+--------processing 149.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 150.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 151.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 152.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 153.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 154.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 155.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 156.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 20 milliseconds to execute.
+--------processing 157.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+--------processing 158.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+--------processing 159.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 160.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 161.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+--------processing 162.png-----------
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 163.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 164.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 165.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 166.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+--------processing 167.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+--------processing 168.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+--------processing 169.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 170.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 171.png-----------
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 172.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 173.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+--------processing 174.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 175.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 176.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 177.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 178.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 179.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 180.png-----------
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 181.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 182.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 183.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+--------processing 184.png-----------
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+--------processing 185.png-----------
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 186.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 19 milliseconds to execute.
+--------processing 187.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 188.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 189.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 190.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 191.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 192.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 193.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 194.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 195.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 196.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 197.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 198.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 199.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Callback:: 64.836714 Hz
+--------processing 200.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 201.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 202.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 203.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 17 milliseconds to execute.
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+--------processing 204.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+--------processing 205.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+--------processing 206.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+--------processing 207.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+--------processing 208.png-----------
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+--------processing 209.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 210.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 211.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 212.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+--------processing 213.png-----------
+Thread [EstimateNormalMapThread] took 11 milliseconds to execute.
+Thread [EstimateTranslationThread] took 17 milliseconds to execute.
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+--------processing 214.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+--------processing 215.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 216.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 217.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 218.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 219.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+--------processing 220.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+--------processing 221.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 222.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+Thread [EstimateRotationThread] took 19 milliseconds to execute.
+--------processing 223.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 224.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+--------processing 225.png-----------
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 226.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 227.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 228.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 229.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 230.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 231.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 232.png-----------
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 233.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+--------processing 234.png-----------
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 235.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 236.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 237.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 238.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 239.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 240.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 241.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 242.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 243.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 244.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 245.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 246.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 247.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 248.png-----------
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 249.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 250.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+--------processing 251.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 252.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 253.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 254.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 255.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Callback:: 55.848973 Hz
+--------processing 256.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 257.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 258.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 259.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 260.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+--------processing 261.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 262.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 263.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 264.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 265.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 266.png-----------
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 267.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 268.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 269.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 270.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 271.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+--------processing 272.png-----------
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 273.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 274.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+--------processing 275.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 276.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 277.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 278.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 279.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 280.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 281.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 282.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 283.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 284.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 285.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 286.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 287.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 288.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 289.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 290.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 291.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 292.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 293.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 294.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 295.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 296.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+--------processing 297.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 298.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 299.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 300.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 301.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 302.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+--------processing 303.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 304.png-----------
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+--------processing 305.png-----------
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 306.png-----------
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 307.png-----------
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+--------processing 308.png-----------
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 309.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 310.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 311.png-----------
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+--------processing 312.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 313.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 314.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 315.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+--------processing 316.png-----------
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+--------processing 317.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 15 milliseconds to execute.
+--------processing 318.png-----------
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+--------processing 319.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 320.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 321.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 12 milliseconds to execute.
+--------processing 322.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 323.png-----------
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 324.png-----------
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 325.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Callback:: 69.958858 Hz
+--------processing 326.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 12 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 327.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 328.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 329.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 330.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 12 milliseconds to execute.
+--------processing 331.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 12 milliseconds to execute.
+--------processing 332.png-----------
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 333.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+--------processing 334.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 12 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 335.png-----------
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 336.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 337.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 338.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 339.png-----------
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 340.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 341.png-----------
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 342.png-----------
+Thread [EstimateNormalMapThread] took 10 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 343.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 17 milliseconds to execute.
+--------processing 344.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 345.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 346.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+--------processing 347.png-----------
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 348.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 349.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 350.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 351.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 352.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 10 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 353.png-----------
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+--------processing 354.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 355.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 356.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 357.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 358.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 359.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 360.png-----------
+
+Done.
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 361.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 362.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 363.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 364.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 365.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 366.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 367.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 368.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 369.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 370.png-----------
+Thread [EstimateNormalMapThread] took 8 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 371.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 372.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 373.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 374.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 375.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 376.png-----------
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 377.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 378.png-----------
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 379.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 380.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 381.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 382.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 383.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 384.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 385.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 386.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateTranslationThread] took 16 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 387.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 388.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 389.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 390.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 391.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 392.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 393.png-----------
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Callback:: 67.831633 Hz
+--------processing 394.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 395.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 396.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 397.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 398.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 399.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 400.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 401.png-----------
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 402.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 403.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 404.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 405.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 406.png-----------
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 407.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 408.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 409.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 410.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 411.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 412.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 413.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 414.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 415.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 416.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 417.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 418.png-----------
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 419.png-----------
+Thread [EstimateNormalMapThread] took 5 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 420.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 421.png-----------
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 422.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 423.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 424.png-----------
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 425.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 426.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 427.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 428.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 429.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 430.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+--------processing 431.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 432.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 433.png-----------
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 434.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 435.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 436.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 9 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 437.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 438.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 439.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+--------processing 440.png-----------
+Thread [EstimateRotationThread] took 16 milliseconds to execute.
+--------processing 441.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+--------processing 442.png-----------
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 443.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 13 milliseconds to execute.
+Thread [EstimateRotationThread] took 18 milliseconds to execute.
+--------processing 444.png-----------
+Thread [EstimateNormalMapThread] took 7 milliseconds to execute.
+Thread [EstimateTranslationThread] took 12 milliseconds to execute.
+Thread [EstimateRotationThread] took 17 milliseconds to execute.
+--------processing 445.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 11 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 446.png-----------
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 447.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 448.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 449.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 450.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 451.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 452.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 453.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 454.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 455.png-----------
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 456.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 457.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 458.png-----------
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 13 milliseconds to execute.
+--------processing 459.png-----------
+Thread [EstimateNormalMapThread] took 6 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 460.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Callback:: 66.467321 Hz
+--------processing 461.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 462.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 463.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 464.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateTranslationThread] took 7 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+--------processing 465.png-----------
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateTranslationThread] took 14 milliseconds to execute.
+--------processing 466.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 15 milliseconds to execute.
+--------processing 467.png-----------
+Thread [EstimateNormalMapThread] took 4 milliseconds to execute.
+Thread [EstimateTranslationThread] took 8 milliseconds to execute.
+Thread [EstimateRotationThread] took 14 milliseconds to execute.
+Thread [EstimateNormalMapThread] took 3 milliseconds to execute.
+--------processing 468.png-----------
+[0m[ INFO] [1685534850.619389451]: Waiting for tf transform data between frames world and ni_slam to become available[0m
+... logging to /home/zheng/.ros/log/b7552132-ffab-11ed-8590-bb64d67bddd6/roslaunch-zheng-12498.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/home/zheng/projects/ni_slam_ws/src/ni_slam/launch/ni_slam_demo_icl.launch
+[1mstarted roslaunch server http://zheng:46713/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /axonometric/image_height: 360
+ * /axonometric/image_width: 480
+ * /depth/image_height: 480
+ * /depth/image_width: 640
+ * /est/trajectory_server_ni_slam/source_frame_name: ni_slam
+ * /est/trajectory_server_ni_slam/target_frame_name: world
+ * /est/trajectory_server_ni_slam/trajectory_publish_rate: 20.0
+ * /est/trajectory_server_ni_slam/trajectory_update_rate: 20.0
+ * /ni_slam_node/adaptive/mu: 0.8
+ * /ni_slam_node/debug/is_debugging: False
+ * /ni_slam_node/debug/visualization: False
+ * /ni_slam_node/frame_name/child: ni_slam
+ * /ni_slam_node/frame_name/parent: world
+ * /ni_slam_node/gtposes/file_path: /home/zheng/datas...
+ * /ni_slam_node/incremental_keypose_with_covariance/publish_flag: True
+ * /ni_slam_node/queue_size/cloud: 1000
+ * /ni_slam_node/queue_size/imu: 1000
+ * /ni_slam_node/queue_size/sync: 1000
+ * /ni_slam_node/refined_frame/publish_flag: False
+ * /ni_slam_node/saveposes/filename_prefix: /home/zheng/proje...
+ * /ni_slam_node/topic/time_diff: 0.03
+ * /ni_slam_node/train/psr_bound: 50.0
+ * /ni_slam_node/twist_with_covariance/publish_flag: False
+ * /ni_slam_node/update_modes_real_time: True
+ * /rosdistro: noetic
+ * /rosversion: 1.16.0
+ * /rotation/imu: [0, 0, 0]
+ * /use_sim_time: True
+
+NODES
+  /
+    ni_slam_node (ni_slam/ni_slam_node)
+    play_bag_node (rosbag/play)
+  /est/
+    trajectory_server_ni_slam (hector_trajectory_server/hector_trajectory_server)
+
+auto-starting new master
+[1mprocess[master]: started with pid [12521][0m
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/home/zheng/projects/ni_slam_ws/src/ni_slam/launch/ni_slam_demo_icl.launch http://localhost:11311
+[1msetting /run_id to b7552132-ffab-11ed-8590-bb64d67bddd6[0m
+[1mprocess[rosout-1]: started with pid [12546][0m
+started core service [/rosout]
+[1mprocess[play_bag_node-2]: started with pid [12549][0m
+[1mprocess[ni_slam_node-3]: started with pid [12550][0m
+[1mprocess[est/trajectory_server_ni_slam-4]: started with pid [12554][0m
+[1m[play_bag_node-2] process has finished cleanly
+log file: /home/zheng/.ros/log/b7552132-ffab-11ed-8590-bb64d67bddd6/play_bag_node-2*.log[0m
+[est/trajectory_server_ni_slam-4] killing on exit
+[ni_slam_node-3] killing on exit
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

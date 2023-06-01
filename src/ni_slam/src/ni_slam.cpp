@@ -88,12 +88,12 @@ NI_SLAM::NI_SLAM(ros::NodeHandle n, int height, int width, int depth_height, int
     
     // for parallel programming
     _normalMap_thread = std::thread(boost::bind(&NI_SLAM::EstimateNormalMapThread, this));
-    // _rotation_thread = std::thread(boost::bind(&NI_SLAM::EstimateRotationThread, this));
+    _rotation_thread = std::thread(boost::bind(&NI_SLAM::EstimateRotationThread, this));
     _translation_thread = std::thread(boost::bind(&NI_SLAM::EstimateTranslationThread, this));
 
     // further parallel
-    _rotation_part1_thread = std::thread(boost::bind(&NI_SLAM::EstimateRotationPart1Thread, this));
-    _rotation_part2_thread = std::thread(boost::bind(&NI_SLAM::EstimateRotationPart2Thread, this));
+    // _rotation_part1_thread = std::thread(boost::bind(&NI_SLAM::EstimateRotationPart1Thread, this));
+    // _rotation_part2_thread = std::thread(boost::bind(&NI_SLAM::EstimateRotationPart2Thread, this));
 
 }
 
@@ -134,20 +134,22 @@ void NI_SLAM::callback(const CloudType::ConstPtr& pcl_cloud, const ImageConstPtr
     data->pcl_cloud = pcl_cloud;
     data->time = nth_frame;
 
-    while(_data_buffer.size()>=3 && !_shutdown){
+    while(_data_buffer.size()>=10 && !_shutdown){
         usleep(2000);
     }
 
     // if(nth_frame==0){
     //     t1 = std::chrono::steady_clock::now();
     // }
-    if((nth_frame+1)%5 == 1){
-        _dataBuffer_mutex.lock();
-        _data_buffer.push(data);
-        _dataBuffer_mutex.unlock();
-    }
+    // if((nth_frame+1)%5 == 1){
+    //     _dataBuffer_mutex.lock();
+    //     _data_buffer.push(data);
+    //     _dataBuffer_mutex.unlock();
+    // }
 
-
+    _dataBuffer_mutex.lock();
+    _data_buffer.push(data);
+    _dataBuffer_mutex.unlock();
     nth_frame++;
     
     // for parallel programming end
@@ -369,7 +371,7 @@ void NI_SLAM::EstimateRotationThread(){
 
             cv::Mat AnglesMap = cv::Mat::ones(cv::Size(depth_height/maxPyramidLevel, depth_width/maxPyramidLevel), CV_64FC3)*720;
             Eigen::Matrix3d rotation_matrix;
-            HashEfficientNormal2RotationMat(normalsCV_last, normal_map->normal_map, rotation_matrix, AnglesMap);
+            EfficientNormal2RotationMat(normalsCV_last, normal_map->normal_map, rotation_matrix, AnglesMap);
             Eigen::Quaterniond q_rel(rotation_matrix);
             rotation_rel = tf::Quaternion(q_rel.coeffs()[0], q_rel.coeffs()[1], q_rel.coeffs()[2], q_rel.coeffs()[3]);
             rotation_cur_rot = (rotation_key_rot * rotation_rel).normalized(); // current rotation relative to inital frame
@@ -2568,7 +2570,7 @@ void NI_SLAM::save_file(FramePtr frame)
         <<pose_to_save.getRotation().x()<<" "
         <<pose_to_save.getRotation().y()<<" "
         <<pose_to_save.getRotation().z()<<" "
-        <<pose_to_save.getRotation().w()<< " " << total_time << "\n";
+        <<pose_to_save.getRotation().w()<< " " << total_time/(nth_frame+1) << "\n";
     
     file.close();
 }

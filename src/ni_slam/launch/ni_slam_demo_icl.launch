@@ -37,7 +37,7 @@
     <!-- this is for ni_rgbd_slam -->
     <rosparam param="rotation/imu"> [0, 0, 0] </rosparam>
 
-    <node pkg="rosbag" type="play" name="play_bag_node" args=" -d 1 --queue=1000 --clock $(find ni_slam)/bag/$(arg dataset).bag" output="screen"/> 
+    <node pkg="rosbag" type="play" name="play_bag_node" args=" -d 5 -r 6 --queue=1000 --clock $(find ni_slam)/bag/$(arg dataset).bag" output="screen"/> 
 
     <node pkg="ni_slam" type="ni_slam_node" name="ni_slam_node" output="screen">
         <!-- <remap from="/camera/rgb/pointcloud" to="/camera/depth_registered/points"/> -->
