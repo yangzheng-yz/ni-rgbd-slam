@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="dataset" value="realsense_realtime"/>
+    <arg name="visualization" value="false"/>
+    <arg name="publish_refined_keyframe" value="false"/>
+    <arg name="parent_frame" value="local_origin"/>
+    <arg name="child_frame" value="camera_link"/>
+    <arg name="queue_size_cloud" value="1"/>
+    <arg name="queue_size_imu" value="10"/>
+    <arg name="queue_size_sync" value="50"/>
+    <param name="/map/resolution" value="0.004" />
+    <param name="/axonometric/image_height" value="300" />
+    <param name="/axonometric/image_width" value="400" />
+    <param name="use_sim_time" value="false" />
+
+    <!-- rotation must be [pitch, roll, yaw] -->
+    <!-- this is facing front camera -->
+    <rosparam param="rotation/imu"> [1.5707963, 0, -1.5707963] </rosparam>
+
+    <!-- this is for facing down camera -->
+    <!-- <rosparam param="rotation/imu"> [0, 3.1415926, 1.5707963] </rosparam> -->
+
+    <include file="$(find fiv_slam)/launch/realsense_imu.launch" />
+
+    <node pkg="fiv_slam" type="fiv_slam_node" name="fiv_slam_node" output="screen">
+        <remap from="/camera/rgb/points" to="/camera/depth_registered/points"/>
+        <!-- <remap from="/imu/data" to="/imu/data_raw"/> -->
+
+        <param name="saveposes/filename_prefix" value="$(find fiv_slam)/bag/$(arg dataset)" />
+        <!--comment above line if you don't want to save any files, 
+            or any existing files would be replaced.-->
+
+        <param name="topic/time_diff" value="0.02" />
+        <param name="train/psr_bound" value="30.0" />
+        <param name="frame_name/parent" value="$(arg parent_frame)" />
+        <param name="frame_name/child" value="$(arg child_frame)" />
+        <param name="debug/visualization" value="$(arg visualization)" />
+        <param name="refined_frame/publish_flag" value="$(arg publish_refined_keyframe)" />       
+        <param name="queue_size/cloud" value="$(arg queue_size_cloud)" />
+        <param name="queue_size/imu" value="$(arg queue_size_imu)" />
+        <param name="queue_size/sync" value="$(arg queue_size_sync)" />
+    </node>
+
+    <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="trajectory_server_fiv_slam" output="screen" ns="est" >
+        <param name="/target_frame_name" value="$(arg parent_frame)" />
+        <param name="/source_frame_name" value="$(arg child_frame)" />
+        <param name="/trajectory_update_rate" value="20.0" />
+        <param name="/trajectory_publish_rate" value="20.0" />
+    </node>
+
+    <node pkg="rosbag" type="record" name = "map_record_node" output="screen" args="-o $(find fiv_slam)/bag/map/realsense /fiv_slam_node/refined/image_color /fiv_slam_node/refined/image_depth /fiv_slam_node/posestamped_key ">
+    </node>
+
+</launch>

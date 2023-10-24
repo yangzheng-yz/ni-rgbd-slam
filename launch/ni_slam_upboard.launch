@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<launch>
+    <param name="use_sim_time" value="true" />
+    <arg name="dataset" value="ni"/>
+    <arg name="visualization" value="true"/> <!-- This is for debug publisher-->
+    <arg name="publish_refined_keyframe" value="false"/>
+    <arg name="publish_increnmental_keypose_with_covariance" value="false"/>
+    <arg name="publish_twist_with_covariance" value="false"/>
+    <arg name="parent_frame" value="world"/>
+    <arg name="child_frame" value="ni_slam"/>
+    <arg name="queue_size_cloud" value="5"/>
+    <arg name="queue_size_imu" value="10"/>
+    <arg name="queue_size_sync" value="100"/>
+    <param name="/axonometric/image_height" value="270" />
+    <param name="/axonometric/image_width" value="360" />
+
+    <!-- rotation must be [pitch, roll, yaw] -->
+    <!-- this is facing front camera -->
+    <!-- <rosparam param="rotation/imu"> [1.5707963, 0, -1.5707963] </rosparam> -->
+
+    <!-- this is for facing down camera -->
+    <!-- <rosparam param="rotation/imu"> [0, 3.1415926, 1.5707963] </rosparam> -->
+
+    <!-- this is for facing right camera -->
+    <rosparam param="rotation/imu"> [0, 1.5707963, 3.1415926] </rosparam>
+
+    <!--<include file="$(find ni_slam)/launch/realsense_imu.launch" />-->
+
+    <node pkg="ni_slam" type="ni_slam_node" name="ni_slam_node" output="screen">
+        <remap from="/camera/rgb/points" to="/camera/depth/points"/>
+        <!-- <remap from="/imu/data" to="/imu/data_raw"/> -->
+        <param name="saveposes/filename_prefix" value="/home/jeffsan/drones/bag/$(arg dataset)" />
+        <!--comment above line if you d on't want to save any files.-->
+        <param name="adaptive/mu" value="0.8" />
+        <param name="topic/time_diff" value="0.04" />
+        <param name="train/psr_bound" value="30.0" />
+        <param name="frame_name/parent" value="$(arg parent_frame)" />
+        <param name="frame_name/child" value="$(arg child_frame)" />
+        <param name="debug/visualization" value="$(arg visualization)" />
+        <param name="refined_frame/publish_flag" value="$(arg publish_refined_keyframe)" />
+        <param name="incremental_keypose_with_covariance/publish_flag" value="$(arg publish_increnmental_keypose_with_covariance)" />
+        <param name="twist_with_covariance/publish_flag" value="$(arg publish_twist_with_covariance)" />
+        <param name="queue_size/cloud" value="$(arg queue_size_cloud)" />
+        <param name="queue_size/imu" value="$(arg queue_size_imu)" />
+        <param name="queue_size/sync" value="$(arg queue_size_sync)" />
+    </node>
+
+</launch>
